@@ -1,0 +1,3 @@
+class RecipeCookingTip < ApplicationRecord
+  
+end

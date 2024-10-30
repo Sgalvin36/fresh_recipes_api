@@ -1,0 +1,3 @@
+class CookingUtensil < ApplicationRecord
+
+end

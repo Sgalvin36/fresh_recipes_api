@@ -1,0 +1,3 @@
+class RecipeUtensil < ApplicationRecord
+  
+end
