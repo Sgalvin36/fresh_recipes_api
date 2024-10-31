@@ -6,5 +6,9 @@ class CreateRecipeCookware < ActiveRecord::Migration[7.1]
       t.index :recipe_id
       t.index :cookware_id
     end
+
+    # Do I need these explicit designations?
+    # add_foreign_key :recipe_cookware, :recipes, column: :recipe_id
+    # add_foreign_key :recipe_cookware, :cookware, column: :cookware_id
   end
 end

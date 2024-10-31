@@ -91,6 +91,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_31_220850) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "recipe_cookware", "cookware"
+  add_foreign_key "recipe_cookware", "recipes"
   add_foreign_key "recipe_ingredients", "ingredients"
   add_foreign_key "recipe_ingredients", "measurements"
   add_foreign_key "recipe_ingredients", "recipes"
