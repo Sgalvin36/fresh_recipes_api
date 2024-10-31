@@ -25,15 +25,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_30_211058) do
     t.bigint "cooking_tip_id", null: false
   end
 
-  create_table "cooking_utensils", force: :cascade do |t|
+  create_table "cookware", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "cooking_utensils_recipes", id: false, force: :cascade do |t|
+  create_table "cookware_recipes", id: false, force: :cascade do |t|
     t.bigint "recipe_id", null: false
-    t.bigint "cooking_utensil_id", null: false
+    t.bigint "cookware_id", null: false
   end
 
   create_table "ingredients", force: :cascade do |t|
@@ -65,6 +65,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_30_211058) do
 
   create_table "recipe_instructions", force: :cascade do |t|
     t.string "instruction"
+    t.integer "cooking_style"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "recipe_id", null: false
