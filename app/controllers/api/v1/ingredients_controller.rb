@@ -6,7 +6,7 @@ class Api::V1::IngredientsController < ApplicationController
         else
             ingredients = Ingredient.all
         end
-        render json: IngredientSerializer.format_recipes(recipes)
+        render json: IngredientSerializer.new(ingredients)
 
     end
 
