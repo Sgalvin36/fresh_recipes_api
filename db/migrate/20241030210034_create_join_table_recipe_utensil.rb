@@ -7,4 +7,4 @@ class CreateJoinTableRecipeUtensil < ActiveRecord::Migration[7.1]
   end
 end
 
-# I think we should rename `cooking_utensil` to just `utensil`.
+# I think we should rename `cooking_utensil` to just `utensil` to match our other naming conventions.
