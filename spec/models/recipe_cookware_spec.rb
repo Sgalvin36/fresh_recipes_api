@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe RecipeUtensil, type: :model do
+RSpec.describe RecipeCookware, type: :model do
   describe "relationships" do
     it { should belong_to :recipe }
-    it { should belong_to :cooking_utensils }
+    it { should belong_to :cookware }
   end
 end

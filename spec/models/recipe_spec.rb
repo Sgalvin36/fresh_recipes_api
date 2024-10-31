@@ -4,12 +4,12 @@ RSpec.describe Recipe, type: :model do
   describe "relationships" do
     it { should have_many(:recipe_ingredients).dependent(:destroy) }
     it { should have_many(:recipe_instructions).dependent(:destroy) }
-    it { should have_many(:recipe_utensils).dependent(:destroy) }
+    it { should have_many(:recipe_cookware).dependent(:destroy) }
     it { should have_many(:recipe_cooking_tips).dependent(:destroy) }
 
     it { should have_many(:ingredients).through(:recipe_ingredients) }
     it { should have_many(:measurements).through(:recipe_ingredients) }
-    it { should have_many(:cooking_utensils).through(:recipe_utensils) }
+    it { should have_many(:cookware).through(:recipe_cookware) }
     it { should have_many(:cooking_tips).through(:recipe_cooking_tips) }
   end
 end
