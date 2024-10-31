@@ -7,3 +7,6 @@ class CreateCookingUtensils < ActiveRecord::Migration[7.1]
     end
   end
 end
+
+
+# I think we should rename `cooking_utensil` to just `utensil`.
