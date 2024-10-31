@@ -4,6 +4,7 @@ class CreateRecipes < ActiveRecord::Migration[7.1]
       t.string :recipe_name
       t.float :total_price
       t.string :image
+      t.integer :serving_size
 
       t.timestamps
     end
