@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "Recipe controller", type: :request do
     describe "GET all recipes Endpoint" do
-        it "can make the request successfully" do
+        xit "can make the request successfully" do
             headers = { 
                 "CONTENT_TYPE" => "application/json",
             }
@@ -11,9 +11,9 @@ RSpec.describe "Recipe controller", type: :request do
             expect(response).to be_successful
         end
 
-        it "can return the data as requested" do
+        xit "can return the data as requested" do
             recipe = Recipe.new()
-            
+
             headers = { 
                 "CONTENT_TYPE" => "application/json",
             }

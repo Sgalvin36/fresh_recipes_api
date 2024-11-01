@@ -75,7 +75,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_31_234824) do
     t.bigint "recipe_id", null: false
     t.integer "cooking_style"
     t.string "instruction"
-    t.integer "cooking_style"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recipe_id"], name: "index_recipe_instructions_on_recipe_id"

@@ -1,4 +1,4 @@
-class IngredientSerializer
+class RecipeSerializer
     include JSONAPI::Serializer
     
     def format_recipes(recipes)
