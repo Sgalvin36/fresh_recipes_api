@@ -1,8 +1,8 @@
 class Recipe < ApplicationRecord
-  has_many :recipe_ingredients, dependent: :destroy
-  has_many :recipe_instructions, dependent: :destroy
-  has_many :cookware, dependent: :destroy
-  has_many :recipe_cooking_tips, dependent: :destroy
+  has_many :recipe_ingredients
+  has_many :recipe_instructions
+  has_many :recipe_cookware
+  has_many :recipe_cooking_tips
   
   has_many :ingredients, through: :recipe_ingredients
   has_many :measurements, through: :recipe_ingredients
@@ -11,7 +11,8 @@ class Recipe < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   validates :total_price, numericality: { greater_than: 0, only_float: true }
-  validates :image, presence: true  #Would we add uniqueness here as well?
+  validates :image, presence: true, uniqueness: true
 end
 
-# Update all recipe stuff to include serving attribute
+# Could revisit and add `.dependent(:destroy)`
+# We would want to make the dependency relate to the joins table instead of the parent table

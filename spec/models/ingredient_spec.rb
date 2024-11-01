@@ -5,4 +5,11 @@ RSpec.describe Ingredient, type: :model do
     it { should have_many :recipe_ingredients }
     it { should have_many(:recipes).through(:recipe_ingredients) }
   end
+
+  describe "validations" do
+    it { should validate_presence_of(:name) }
+    it { should validate_numericality_of(:national_price).is_greater_than(0) }
+    # it { should validate_inclusion_of(:taxable).in_array([true, false]) }
+    # it { should validate_inclusion_of(:snap).in_array([true, false]) }
+  end
 end

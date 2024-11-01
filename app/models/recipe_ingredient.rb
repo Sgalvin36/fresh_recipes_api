@@ -3,5 +3,5 @@ class RecipeIngredient < ApplicationRecord
   belongs_to :ingredient
   belongs_to :measurement
 
-  validates :quantity, numericality: { greater_than 0}
+  validates :quantity, numericality: { greater_than: 0 }
 end
