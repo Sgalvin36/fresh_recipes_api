@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_30_211058) do
+ActiveRecord::Schema[7.1].define(version: 2024_10_31_234824) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,20 +20,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_30_211058) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "cooking_tips_recipes", id: false, force: :cascade do |t|
-    t.bigint "recipe_id", null: false
-    t.bigint "cooking_tip_id", null: false
-  end
-
-  create_table "cooking_utensils", force: :cascade do |t|
+  create_table "cookware", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "cooking_utensils_recipes", id: false, force: :cascade do |t|
-    t.bigint "recipe_id", null: false
-    t.bigint "cooking_utensil_id", null: false
   end
 
   create_table "ingredients", force: :cascade do |t|
@@ -51,30 +41,50 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_30_211058) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "recipe_cooking_tips", force: :cascade do |t|
+    t.bigint "cooking_tip_id", null: false
+    t.bigint "recipe_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cooking_tip_id"], name: "index_recipe_cooking_tips_on_cooking_tip_id"
+    t.index ["recipe_id"], name: "index_recipe_cooking_tips_on_recipe_id"
+  end
+
+  create_table "recipe_cookwares", force: :cascade do |t|
+    t.bigint "recipe_id", null: false
+    t.bigint "cookware_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cookware_id"], name: "index_recipe_cookwares_on_cookware_id"
+    t.index ["recipe_id"], name: "index_recipe_cookwares_on_recipe_id"
+  end
+
   create_table "recipe_ingredients", force: :cascade do |t|
+    t.bigint "recipe_id", null: false
+    t.bigint "ingredient_id", null: false
+    t.bigint "measurement_id", null: false
     t.float "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "measurement_id", null: false
-    t.bigint "recipe_id", null: false
-    t.bigint "ingredient_id", null: false
     t.index ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
     t.index ["measurement_id"], name: "index_recipe_ingredients_on_measurement_id"
     t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
   end
 
   create_table "recipe_instructions", force: :cascade do |t|
+    t.bigint "recipe_id", null: false
+    t.integer "cooking_style"
     t.string "instruction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "recipe_id", null: false
     t.index ["recipe_id"], name: "index_recipe_instructions_on_recipe_id"
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.string "recipe_name"
+    t.string "name"
     t.float "total_price"
     t.string "image"
+    t.integer "serving_size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -87,6 +97,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_30_211058) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "recipe_cooking_tips", "cooking_tips"
+  add_foreign_key "recipe_cooking_tips", "recipes"
+  add_foreign_key "recipe_cookwares", "cookware"
+  add_foreign_key "recipe_cookwares", "recipes"
   add_foreign_key "recipe_ingredients", "ingredients"
   add_foreign_key "recipe_ingredients", "measurements"
   add_foreign_key "recipe_ingredients", "recipes"
