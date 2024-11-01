@@ -7,4 +7,8 @@ class Ingredient < ApplicationRecord
   # I'm pretty sure this is the correct way to validate these last two ingredient attributes.
   # validates :taxable, inclusion: { in: [true, false] }
   # validates :snap, inclusion: { in: [true, false] }
+
+  def self.filter_ingredients(search_params)
+      return Ingredient.where("name ILIKE ?", "%#{search_params}%").limit(5)
+  end
 end
