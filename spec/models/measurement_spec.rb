@@ -7,6 +7,6 @@ RSpec.describe Measurement, type: :model do
   end
 
   describe "validations" do
-    it { should validate_presence_of(:tip) }
+    it { should validate_presence_of(:type) }
   end
 end

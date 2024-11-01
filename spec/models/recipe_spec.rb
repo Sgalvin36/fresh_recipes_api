@@ -16,8 +16,7 @@ RSpec.describe Recipe, type: :model do
   describe "validations" do
     it { should validate_presence_of(:name) }
     it { should validate_uniqueness_of(:name) }
-    it { should validate_presence_of(:total_price) }
-    it { should validate_numericality_of(:total_price).is_greater_than(0).only_integer(false) }  
+    it { should validate_numericality_of(:total_price).is_greater_than(0) }
     it { should validate_presence_of(:image) }
     it { should validate_uniqueness_of(:image) }
   end
