@@ -12,19 +12,21 @@
 @ing2 = Ingredient.create!(name:"Cheddar cheese", national_price:2.00, taxable:false, snap:true)
 @ing3 = Ingredient.create!(name:"Sour Cream", national_price:1.00, taxable:false, snap:true)
 
-@mes1 = Measurement.create!(type:"lb")
-@mes2 = Measurement.create!(type:"lbs")
-@mes3 = Measurement.create!(type:"cup")
-@mes4 = Measurement.create!(type:"cups")
-@mes5 = Measurement.create!(type:"teaspoon")
-@mes6 = Measurement.create!(type:"teaspoons")
-@mes7 = Measurement.create!(type:"tablespoon")
-@mes8 = Measurement.create!(type:"tablespoons")
-@mes9 = Measurement.create!(type:"ounce")
-@mes10 = Measurement.create!(type:"ounces")
-@mes11 = Measurement.create!(type:"each")
+@mes1 = Measurement.create!(unit:"lb")
+@mes2 = Measurement.create!(unit:"lbs")
+@mes3 = Measurement.create!(unit:"cup")
+@mes4 = Measurement.create!(unit:"cups")
+@mes5 = Measurement.create!(unit:"teaspoon")
+@mes6 = Measurement.create!(unit:"teaspoons")
+@mes7 = Measurement.create!(unit:"tablespoon")
+@mes8 = Measurement.create!(unit:"tablespoons")
+@mes9 = Measurement.create!(unit:"ounce")
+@mes10 = Measurement.create!(unit:"ounces")
+@mes11 = Measurement.create!(unit:"each")
 
 @recipe1 = Recipe.create!(name:"Baked Potato", image:"future_image_of_potato", total_price:4.00)
+# Lito can add more recipes following this format
+# "Digging Ditches"
 
 RecipeIngredient.create!(recipe_id:@recipe1.id ,ingredient_id:@ing1.id, measurement_id:@mes1.id, quantity:1)
 RecipeIngredient.create!(recipe_id:@recipe1.id ,ingredient_id:@ing2.id, measurement_id:@mes10.id, quantity:2)
