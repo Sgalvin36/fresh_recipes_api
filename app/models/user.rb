@@ -7,5 +7,5 @@ class User < ApplicationRecord
   validates :role, inclusion: { in: [0, 1] }
 
   # For use with enums:
-  # enum role: { admin: 0, user: 1 }
+  enum role: { admin: 0, user: 1 }
 end
