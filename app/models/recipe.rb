@@ -26,12 +26,19 @@ class Recipe < ApplicationRecord
     ingredients
   end
 
+  def update_total_price 
+    total = self.joins(:ingredients).sum("national_price") 
+    update(total_price: total)
+  end
+
   def self.filter_recipes(search_params)
-    return Recipe.where("name ILIKE ?", "%#{search_params}%")
+    return where("recipes.name ILIKE ?", "%#{search_params}%") if search_params.present?
+    return all
   end
 
   def self.filter_by_ingredient(search_params)
-    return Recipe.joins(:ingredients).where("ingredient ILIKE ?", "%#{search_params}%")
+    return joins(:ingredients).where("ingredients.name ILIKE ?", "%#{search_params}%") if search_params.present?
+    return all
   end
 end
 
