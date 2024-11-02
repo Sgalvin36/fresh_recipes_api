@@ -121,6 +121,7 @@ RecipeInstruction.create!(recipe_id: @recipe2.id, cooking_style: 3, instruction_
 RecipeCookware.create!(recipe: @recipe3, cookware: @cookware4)
 RecipeCookware.create!(recipe: @recipe3, cookware: @cookware5)
 RecipeCookingTip.create!(recipe: @recipe3, tip: @tip2)
+RecipeCookingTip.create!(recipe: @recipe3, tip: @tip3)
 
 RecipeIngredient.create!(recipe_id: @recipe3.id ,ingredient_id: @ing1.id, measurement_id: @mes1.id, quantity: 1)
 RecipeIngredient.create!(recipe_id: @recipe3.id ,ingredient_id: @ing10.id, measurement_id: @mes1.id, quantity: 0.5)
@@ -151,7 +152,9 @@ RecipeInstruction.create!(recipe_id: @recipe3.id, cooking_style: 2, instruction_
 RecipeCookware.create!(recipe: @recipe4, cookware: @cookware4)
 RecipeCookware.create!(recipe: @recipe4, cookware: @cookware5)
 RecipeCookware.create!(recipe: @recipe4, cookware: @cookware7)
-RecipeCookingTip.create!(recipe: @recipe4, tip: @tip2)
+
+RecipeCookingTip.create!(recipe: @recipe3, tip: @tip2)
+RecipeCookingTip.create!(recipe: @recipe3, tip: @tip3)
 
 RecipeIngredient.create!(recipe_id: @recipe4.id ,ingredient_id: @ing12.id, measurement_id: @mes1.id, quantity: 0.5)
 RecipeIngredient.create!(recipe_id: @recipe4.id ,ingredient_id: @ing13.id, measurement_id: @mes1.id, quantity: 1)
