@@ -27,7 +27,7 @@ class Recipe < ApplicationRecord
   end
 
   def update_total_price 
-    total = self.joins(:ingredients).sum("national_price") 
+    total = self.ingredients.sum("national_price") 
     update(total_price: total)
   end
 
