@@ -9,7 +9,7 @@
 #   end
 
 @ing1 = Ingredient.create!(name: "Russett Potato", national_price: 1.00, taxable: false, snap: true)
-@ing2 = Ingredient.create!(nam  "16oz Bag of Shredded Cheddar Cheese", national_price: 2.00, taxable: false, snap: true)
+@ing2 = Ingredient.create!(name: "16oz Bag of Shredded Cheddar Cheese", national_price: 2.00, taxable: false, snap: true)
 # Cooking Oils/Butter - Can we make the price reflect these partial amounts needed for recipes w/o suggesting they buy more?
 # For example, if the recipe calls for 2 TBL of oilive oil and an 8oz bottle costs $4, can we simply calculate that partial cost for the recipe?
 @ing3 = Ingredient.create!(name: "Olive Oil", national_price: 4.00, taxable: false, snap: true)
@@ -81,7 +81,7 @@ RecipeInstruction.create!(recipe_id: @recipe1.id, cooking_style:3, instruction_s
 @recipe2 = Recipe.create!(name: "Roasted Potato Chunks w/Chorizo Sausage", image: "future_image_of_roasted_chunky_taters", total_price:8.00)
 RecipeCookware.create!(recipe: @recipe2, cookware: @cookware1)
 RecipeCookware.create!(recipe: @recipe2, cookware: @cookware2)
-RecipeCookingTip.create!(recipe: @recipe2, cooking_tip: @tip1)
+RecipeCookingTip.create!(recipe_id: @recipe2.id, cooking_tip_id: @tip1.id)
 
 RecipeIngredient.create!(recipe_id: @recipe2.id ,ingredient_id: @ing6.id, measurement_id: @mes1.id, quantity: 1)
 RecipeIngredient.create!(recipe_id: @recipe2.id ,ingredient_id: @ing4.id, measurement_id: @mes10.id, quantity: 1)
@@ -120,8 +120,8 @@ RecipeInstruction.create!(recipe_id: @recipe2.id, cooking_style: 3, instruction_
 @recipe3 = Recipe.create!(name: "Pepperoni & Parmesan Marina Pasta", image: "future_image_of_pepperoni_pasta", total_price: 8.00)
 RecipeCookware.create!(recipe: @recipe3, cookware: @cookware4)
 RecipeCookware.create!(recipe: @recipe3, cookware: @cookware5)
-RecipeCookingTip.create!(recipe: @recipe3, tip: @tip2)
-RecipeCookingTip.create!(recipe: @recipe3, tip: @tip3)
+RecipeCookingTip.create!(recipe_id: @recipe3.id, cooking_tip_id: @tip2.id)
+RecipeCookingTip.create!(recipe_id: @recipe3.id, cooking_tip_id: @tip3.id)
 
 RecipeIngredient.create!(recipe_id: @recipe3.id ,ingredient_id: @ing8.id, measurement_id: @mes1.id, quantity: 0.5)
 RecipeIngredient.create!(recipe_id: @recipe3.id ,ingredient_id: @ing9.id, measurement_id: @mes1.id, quantity: 0.5)
@@ -154,8 +154,8 @@ RecipeCookware.create!(recipe: @recipe4, cookware: @cookware4)
 RecipeCookware.create!(recipe: @recipe4, cookware: @cookware5)
 RecipeCookware.create!(recipe: @recipe4, cookware: @cookware7)
 
-RecipeCookingTip.create!(recipe: @recipe3, tip: @tip2)
-RecipeCookingTip.create!(recipe: @recipe3, tip: @tip3)
+RecipeCookingTip.create!(recipe_id: @recipe3.id, cooking_tip_id: @tip2.id)
+RecipeCookingTip.create!(recipe_id: @recipe3.id, cooking_tip_id: @tip3.id)
 
 RecipeIngredient.create!(recipe_id: @recipe4.id ,ingredient_id: @ing12.id, measurement_id: @mes1.id, quantity: 0.5)
 RecipeIngredient.create!(recipe_id: @recipe4.id ,ingredient_id: @ing13.id, measurement_id: @mes1.id, quantity: 1)
