@@ -21,31 +21,36 @@ class RecipeDetails
         @cooking_tips = get_cooking_tips(@id)
     end
 
+    def find_recipe(id)
+        recipe = Recipe.find_by(id: id)
+        recipe ? recipe : nil
+    end
+
     def get_ingredients(id)
-        recipe = Recipe.find(id)
+        recipe = find_recipe(id)
+        return [] if recipe.nil?
         ingredients = []
-        recipe.recipe_ingredients.each do |ingredient|
-            ingredient = recipe_ingredient.ingredient
-            quantity = recipe_ingredient.quantity
-            measurement = recipe_ingredient.unit
-            price = recipe_ingredient.national_price
-            ingredients.push({
-                quantity: quanity, 
-                unit: measurement, 
-                ingredient: ingredient,
-                price: price
-            })
+        recipe.recipe_ingredients.each do |rec_ingr|
+            build_data = {
+            ingredient: rec_ingr.ingredient.name,
+            price: rec_ingr.ingredient.national_price,
+            quantity: rec_ingr.quantity,
+            measurement: rec_ingr.measurement.unit
+            }
+            ingredients.push(build_data)
         end
         ingredients
     end
     
-    def get_total_price(ingredients)
-        recipe = Recipe.find(id)
+    def get_total_price(id)
+        recipe = find_recipe(id)
+        return 0.00 if recipe.nil?
         recipe.ingredients.sum("national_price")
     end
 
     def get_cookware(id)
-        recipe = Recipe.find(id)
+        recipe = find_recipe(id)
+        return [] if recipe.nil?
         cookware = []
         recipe.recipe_cookwares.each do |cookware|
             cookware.push(cookware.name)
@@ -54,22 +59,23 @@ class RecipeDetails
     end
 
     def get_instructions(id)
-        recipe = Recipe.find(id)
-        # instructions = [
-        #     {cooking_style: 0, instructions: [{instruction_step:1, instruction:"string"},{instruction_step:2, instruction:"string"}]},
-        #     {cooking_style: 1, instructions: []},
-        #     {cooking_style: 2, instructions: []},
-        #     {cooking_style: 3, instructions: []}
-        # ]
-        # if cooking style doesn't exist, create object, then push instruction
-        # if cooking style does exist, push instruction
+        recipe = find_recipe(id)
+        return [] if recipe.nil?
+        all_instructions = []
         recipe.recipe_instructions.each do |instruction|
-            if cooking_style == 1
+            if !all_instructions.any? { |style| style[:cooking_style] == instruction.cooking_style}
+                all_instructions.push({cooking_style: instruction.cooking_style, instructions: []})
+
+            end
+            style_index = all_instructions.index { |style| style[:cooking_style] == instruction.cooking_style}
+            all_instructions[style_index][:instructions].push({instruction_step: instruction.instruction_step, instruction: instruction.instruction})
         end
+        all_instructions
     end
 
     def get_cooking_tips(id)
-        recipe = Recipe.find(id)
+        recipe = find_recipe(id)
+        return [] if recipe.nil?
         cooking_tip = []
         recipe.recipe_cooking_tips.each do |cookware|
             cooking_tip.push(cooking_tip.name)
