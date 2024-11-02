@@ -6,7 +6,7 @@ class Ingredient < ApplicationRecord
   validates :national_price, numericality: { greater_than: 0, only_float: true }
   validates :taxable, inclusion: { in: [true, false] }
   validates :snap, inclusion: { in: [true, false] }
-  validates :kroger_id, presence: true
+  # validates :kroger_id, presence: true
 
   def self.filter_ingredients(search_params)
       return Ingredient.where("name ILIKE ?", "%#{search_params}%").limit(5)

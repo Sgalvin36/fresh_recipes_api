@@ -32,6 +32,7 @@ class Recipe < ApplicationRecord
 
   def self.filter_by_ingredient(search_params)
     return Recipe.joins(:ingredients).where("ingredient ILIKE ?", "%#{search_params}%")
+  end
 end
 
 # Could revisit and add `.dependent(:destroy)`
