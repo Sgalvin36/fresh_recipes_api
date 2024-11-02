@@ -9,6 +9,8 @@ RSpec.describe Ingredient, type: :model do
   describe "validations" do
     it { should validate_presence_of(:name) }
     it { should validate_numericality_of(:national_price).is_greater_than(0) }
+    # UNCOMMENT ONCE SEEDED INGREDIENT DATA CONTAINS LIVE kroger_id ATTRIBUTES
+    # it { should validate_presence_of(:kroger_id) }
   end
 
   context "validating boolean values" do
