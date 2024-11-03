@@ -12,6 +12,7 @@ class Recipe < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :total_price, numericality: { greater_than: 0, only_float: true }
   validates :image, presence: true, uniqueness: true
+  validates :serving_size, presence: true
 
   def get_ingredient_list
     ingredients = []
@@ -27,7 +28,7 @@ class Recipe < ApplicationRecord
   end
 
   def update_total_price 
-    total = self.joins(:ingredients).sum("national_price") 
+    total = self.ingredients.sum("national_price") 
     update(total_price: total)
   end
 
@@ -38,6 +39,25 @@ class Recipe < ApplicationRecord
 
   def self.filter_by_ingredient(search_params)
     return joins(:ingredients).where("ingredients.name ILIKE ?", "%#{search_params}%") if search_params.present?
+    return all
+  end
+
+  def self.filter_by_cooking_style(search_params)
+    return joins(:recipe_instructions).where("cooking_style = ?", "#{search_params}").distinct if search_params.present?
+    return all
+  end
+
+  def self.filter_by_price(search_params)
+    price = 5.0 if search_params == "0" || search_params == "1"
+    price = 10.0 if search_params == "2" || search_params == "3"
+    # binding.pry
+    return where("recipes.total_price < ?", price) if search_params == "0" || search_params == "2"
+    return where("recipes.total_price > ?", price) if search_params == "1" || search_params == "3"
+    return all
+  end
+
+  def self.filter_by_serving(search_params)
+    return where("serving_size = ?", "#{search_params}") if search_params.present?
     return all
   end
 end

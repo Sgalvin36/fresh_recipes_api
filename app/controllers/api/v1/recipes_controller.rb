@@ -8,12 +8,13 @@ class Api::V1::RecipesController < ApplicationController
         # else
         #     recipes = Recipe.all
         # end
-
+        # binding.pry
         recipes = Recipe.all   
                             .filter_recipes(params[:by_recipe])
                             .filter_by_ingredient(params[:by_ingredient])
                             .filter_by_cooking_style(params[:by_style])
                             .filter_by_price(params[:by_price])
+                            .filter_by_serving(params[:by_serving])
 
         render json: RecipeSerializer.format_recipes(recipes)
 

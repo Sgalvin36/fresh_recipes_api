@@ -20,6 +20,18 @@ RSpec.describe Recipe, type: :model do
     it { should validate_presence_of(:image) }
     it { should validate_uniqueness_of(:image) }
   end
+
+  it "test get_ingredients_list" do
+  end
+
+  it "test update_total_price" do
+  end
+
+  it "test filter_recipes" do
+  end
+
+  it "fiter_by_ingredients" do
+  end
 end
 
 # Could revisit and add `.dependent(:destroy)`
