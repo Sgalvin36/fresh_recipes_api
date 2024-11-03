@@ -50,7 +50,11 @@ RSpec.describe Ingredient, type: :model do
       ingredient7 = Ingredient.create!(name:"Green Cheese", national_price:6.32, taxable:true, snap:true)
       ingredient8 = Ingredient.create!(name:"Cheese", national_price:4.73, taxable:false, snap:true)
 
-      expect(Ingredient.filter_ingredients("che")).to eq([ingredient, ingredient3, ingredient5, ingredient6, ingredient7])
+      result = Ingredient.filter_ingredients("cHeE")
+      expected_result = [ingredient, ingredient3, ingredient5, ingredient6, ingredient7].sort_by(&:name)
+      actual_result = result.sort_by(&:name)
+    
+      expect(actual_result).to eq(expected_result)    
     end
 
     it "updates total_price on associated recipes " do

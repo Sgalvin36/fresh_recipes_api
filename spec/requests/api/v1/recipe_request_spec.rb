@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "Recipe controller", type: :request do
     before(:all) do
-        @recipe1 = Recipe.create!(name:"Baked Potato", image:"future_image_of_potato", total_price:4.00)
+        @recipe1 = Recipe.create!(name:"Baked Potato", image:"future_image_of_potato", total_price:4.00, serving_size: 1)
         @ing1 = Ingredient.create!(name:"Potato", national_price:1.00, taxable:false, snap:true)
         @ing2 = Ingredient.create!(name:"Cheddar cheese", national_price:2.00, taxable:false, snap:true)
         @ing3 = Ingredient.create!(name:"Sour Cream", national_price:1.00, taxable:false, snap:true)
@@ -22,16 +22,20 @@ RSpec.describe "Recipe controller", type: :request do
         # RecipeInstruction.create!(recipe_id:@recipe1.id, cooking_style:2, instruction_step: 4,instruction:"Place potato on oven safe tray and cook for 45 minutes")
         # RecipeInstruction.create!(recipe_id:@recipe1.id, cooking_style:2, instruction_step: 5,instruction:"If a fork is easily pushed in, its done, otherwise cook for an additional 2 minutes")
 
-        @recipe1 = Recipe.create!(name:"Baked Cheesey Sandwich", image:"future_image_of_cheese_pull", total_price:6.00)
-        @ing1 = Ingredient.create!(name:"Bread", national_price:3.00, taxable:false, snap:true)
-        @ing2 = Ingredient.create!(name:"Cheddar cheese", national_price:2.00, taxable:false, snap:true)
-        @ing3 = Ingredient.create!(name:"Butter", national_price:1.00, taxable:false, snap:true)
-        @mes1 = Measurement.create!(unit:"each")
-        @mes10 = Measurement.create!(unit:"ounces")
-        @mes8 = Measurement.create!(unit:"tablespoons")
-        RecipeIngredient.create!(recipe_id:@recipe1.id ,ingredient_id:@ing1.id, measurement_id:@mes1.id, quantity:1)
-        RecipeIngredient.create!(recipe_id:@recipe1.id ,ingredient_id:@ing2.id, measurement_id:@mes10.id, quantity:2)
-        RecipeIngredient.create!(recipe_id:@recipe1.id ,ingredient_id:@ing3.id, measurement_id:@mes8.id, quantity:2)
+        # ~~ ** ~~ ** ~~ ** ~~ ** ~~ ** ~~ ** ~~ ** ~~ ** ~~ ** ~~ #
+        ### WHY ARE THERE TWO SETS OF DATA HERE?
+        # ~~ ** ~~ ** ~~ ** ~~ ** ~~ ** ~~ ** ~~ ** ~~ ** ~~ ** ~~ #
+
+        # @recipe1 = Recipe.create!(name:"Baked Cheesey Sandwich", image:"future_image_of_cheese_pull", total_price:6.00, serving_size: 1)
+        # @ing1 = Ingredient.create!(name:"Bread", national_price:3.00, taxable:false, snap:true)
+        # @ing2 = Ingredient.create!(name:"Cheddar cheese", national_price:2.00, taxable:false, snap:true)
+        # @ing3 = Ingredient.create!(name:"Butter", national_price:1.00, taxable:false, snap:true)
+        # @mes1 = Measurement.create!(unit:"each")
+        # @mes10 = Measurement.create!(unit:"ounces")
+        # @mes8 = Measurement.create!(unit:"tablespoons")
+        # RecipeIngredient.create!(recipe_id:@recipe1.id ,ingredient_id:@ing1.id, measurement_id:@mes1.id, quantity:1)
+        # RecipeIngredient.create!(recipe_id:@recipe1.id ,ingredient_id:@ing2.id, measurement_id:@mes10.id, quantity:2)
+        # RecipeIngredient.create!(recipe_id:@recipe1.id ,ingredient_id:@ing3.id, measurement_id:@mes8.id, quantity:2)
     end
 
     describe "GET all recipes Endpoint" do
@@ -55,7 +59,7 @@ RSpec.describe "Recipe controller", type: :request do
             expect(response).to be_successful
 
             json = JSON.parse(response.body, symbolize_names: true)
-            binding.pry
+            # binding.pry
         end
     end
 
