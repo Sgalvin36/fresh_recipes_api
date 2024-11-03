@@ -11,7 +11,8 @@ class RecipeSerializer
                     recipe_name: recipe.name,
                     total_price: recipe.ingredients.sum("national_price"),
                     image: recipe.image,
-                    ingredients: recipe.get_ingredient_list
+                    ingredients: recipe.get_ingredient_list,
+                    serving_size: recipe.serving_size
                 }
             } end
         }

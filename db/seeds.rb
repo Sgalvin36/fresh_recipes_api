@@ -55,7 +55,7 @@
 @cookware6 = Cookware.create!(name: "Metal Frying Pan")
 @cookware7 = Cookware.create!(name: "Can Opener")
 
-@recipe1 = Recipe.create!(name: "Baked Potato", image: "future_image_of_potato", total_price: 4.00)
+@recipe1 = Recipe.create!(name: "Baked Potato", image: "future_image_of_potato", total_price: 7.00, serving_size: 1)
 RecipeCookware.create!(recipe: @recipe1, cookware: @cookware1)
 RecipeCookware.create!(recipe: @recipe1, cookware: @cookware2)
 
@@ -78,7 +78,7 @@ RecipeInstruction.create!(recipe_id: @recipe1.id, cooking_style:3, instruction_s
 
 
 
-@recipe2 = Recipe.create!(name: "Roasted Potato Chunks w/Chorizo Sausage", image: "future_image_of_roasted_chunky_taters", total_price:8.00)
+@recipe2 = Recipe.create!(name: "Roasted Potato Chunks w/Chorizo Sausage", image: "future_image_of_roasted_chunky_taters", total_price:13.75, serving_size: 2)
 RecipeCookware.create!(recipe: @recipe2, cookware: @cookware1)
 RecipeCookware.create!(recipe: @recipe2, cookware: @cookware2)
 RecipeCookingTip.create!(recipe_id: @recipe2.id, cooking_tip_id: @tip1.id)
@@ -117,7 +117,7 @@ RecipeInstruction.create!(recipe_id: @recipe2.id, cooking_style: 3, instruction_
 RecipeInstruction.create!(recipe_id: @recipe2.id, cooking_style: 3, instruction_step: 12, instruction: "Top with diced onions if desired.")
 
 
-@recipe3 = Recipe.create!(name: "Pepperoni & Parmesan Marina Pasta", image: "future_image_of_pepperoni_pasta", total_price: 8.00)
+@recipe3 = Recipe.create!(name: "Pepperoni & Parmesan Marina Pasta", image: "future_image_of_pepperoni_pasta", total_price: 4.00, serving_size: 1)
 RecipeCookware.create!(recipe: @recipe3, cookware: @cookware4)
 RecipeCookware.create!(recipe: @recipe3, cookware: @cookware5)
 RecipeCookingTip.create!(recipe_id: @recipe3.id, cooking_tip_id: @tip2.id)
@@ -148,7 +148,7 @@ RecipeInstruction.create!(recipe_id: @recipe3.id, cooking_style: 2, instruction_
 RecipeInstruction.create!(recipe_id: @recipe3.id, cooking_style: 2, instruction_step: 8, instruction: "Serve & add parmesan cheese as desired.")
 
 
-@recipe4 = Recipe.create!(name: "Chicken & Mushroom Alfredo Fettuccine Pasta", image: "future_image_of_alfredo_pasta", total_price: 8.00)
+@recipe4 = Recipe.create!(name: "Chicken & Mushroom Alfredo Fettuccine Pasta", image: "future_image_of_alfredo_pasta", total_price: 8.00, serving_size: 2)
 RecipeCookware.create!(recipe: @recipe4, cookware: @cookware4)
 RecipeCookware.create!(recipe: @recipe4, cookware: @cookware5)
 RecipeCookware.create!(recipe: @recipe4, cookware: @cookware7)
