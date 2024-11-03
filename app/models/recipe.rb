@@ -57,7 +57,8 @@ class Recipe < ApplicationRecord
   end
 
   def self.filter_by_serving(search_params)
-    return where("serving_size = ?", "#{search_params}") if search_params.present?
+    return where(serving_size: 1) if search_params == 'Single'
+    return where("serving_size > ?", 1) if search_params == 'Multiple'
     return all
   end
 end
