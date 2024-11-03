@@ -25,6 +25,19 @@ RSpec.describe Recipe, type: :model do
   end
 
   it "test update_total_price" do
+    recipe_x = Recipe.create!(name: "test", total_price: 0.00, image: "test_image.png", serving_size: 1)
+    ing1 = Ingredient.create!(name: "test1", national_price: 1.00, taxable: false, snap: true)
+    ing2 = Ingredient.create!(name: "test2", national_price: 2.00, taxable: false, snap: true)
+    ing3 = Ingredient.create!(name: "test3", national_price: 3.00, taxable: false, snap: true)
+    measurement = Measurement.create!(unit: "each")
+
+    RecipeIngredient.create!(recipe: recipe_x, ingredient: ing1, quantity: 1, measurement: measurement)
+    RecipeIngredient.create!(recipe: recipe_x, ingredient: ing2, quantity: 1, measurement: measurement)
+    RecipeIngredient.create!(recipe: recipe_x, ingredient: ing3, quantity: 1, measurement: measurement)
+
+    recipe_x.update_total_price
+
+    expect(recipe_x.total_price).to eq(6.00)
   end
 
   it "test filter_recipes" do
