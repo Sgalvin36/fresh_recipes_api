@@ -52,8 +52,8 @@ class RecipeDetails
         recipe = find_recipe(id)
         return [] if recipe.nil?
         cookware = []
-        recipe.recipe_cookwares.each do |cookware|
-            cookware.push(cookware.name)
+        recipe.recipe_cookware.each do |r_cookware|
+            cookware.push(r_cookware.cookware.name)
         end
         cookware
     end
@@ -77,8 +77,8 @@ class RecipeDetails
         recipe = find_recipe(id)
         return [] if recipe.nil?
         cooking_tip = []
-        recipe.recipe_cooking_tips.each do |cookware|
-            cooking_tip.push(cooking_tip.name)
+        recipe.recipe_cooking_tips.each do |r_cooking_tip|
+            cooking_tip.push(r_cooking_tip.cooking_tip.tip)
         end
         cooking_tip
     end
