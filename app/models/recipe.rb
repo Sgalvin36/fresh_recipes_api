@@ -37,8 +37,9 @@ class Recipe < ApplicationRecord
     return all
   end
 
+  # Added distinct. Otherwise was returning duplicate recipe instances.
   def self.filter_by_ingredient(search_params)
-    return joins(:ingredients).where("ingredients.name ILIKE ?", "%#{search_params}%") if search_params.present?
+    return joins(:ingredients).where("ingredients.name ILIKE ?", "%#{search_params}%").distinct if search_params.present?
     return all
   end
 
