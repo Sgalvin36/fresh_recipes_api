@@ -1,14 +1,5 @@
 class Api::V1::RecipesController < ApplicationController
-    
     def index
-        # if params[:by_recipe]
-        #     recipes = Recipe.filter_recipes(params[:by_recipe])
-        # elsif params[:by_ingredient]
-        #     recipes = Recipe.filter_by_ingredient(params[:by_ingredient])
-        # else
-        #     recipes = Recipe.all
-        # end
-        # binding.pry
         recipes = Recipe.all   
                             .filter_recipes(params[:by_recipe])
                             .filter_by_ingredient(params[:by_ingredient])
@@ -18,5 +9,11 @@ class Api::V1::RecipesController < ApplicationController
 
         render json: RecipeSerializer.format_recipes(recipes)
 
+    end
+
+    def show
+        recipe = Recipe.find(params[:id])
+        recipe_details = RecipeDetails.new(recipe)
+        render json: RecipeSerializer.format_recipe_details(recipe_details)
     end
 end

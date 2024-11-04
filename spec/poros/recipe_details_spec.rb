@@ -44,54 +44,52 @@ RSpec.describe RecipeDetails do
     end
     
     it "can initialize" do
-        details = RecipeDetails.new({id: 2, name: "JimBob", image: "image", serving_size: 3})
+        details = RecipeDetails.new(@recipe1)
 
         expect(details).to be_an_instance_of(RecipeDetails)
-        expect(details.id).to eq(2)
-        expect(details.name).to eq("JimBob")
-        expect(details.image).to eq("image")
+        expect(details.id).to eq(@recipe1.id)
+        expect(details.name).to eq("Baked Potato")
+        expect(details.image).to eq("future_image_of_potato")
         expect(details.serving_size).to eq(3)
     end
 
     it "can get ingredients" do
-        details = RecipeDetails.new({id: 2, name: "Steve", image:"Thisone", serving_size:3})
-        all_ingredients = details.get_ingredients(@recipe1.id)
+        details = RecipeDetails.new(@recipe1)
+        all_ingredients = details.ingredients
         
         expect(all_ingredients.length).to eq 3
         expect(all_ingredients).to be_an(Array)
     end
 
     it "can get the total price" do
-        details = RecipeDetails.new({id: 2, name: "Steve", image:"Thisone", serving_size:3})
-        all_ingredients = details.get_ingredients(@recipe1.id)
-        total = details.get_total_price(@recipe1.id)
+        details = RecipeDetails.new(@recipe1)
+        total = details.total_price
 
         expect(total).to eq 4.0
     end
 
     it "can get cookware" do
-        details = RecipeDetails.new({id: 2, name: "JimBob", image: "image", serving_size: 3})
-        all_cookware = details.get_cookware(@recipe1.id)
+        details = RecipeDetails.new(@recipe1)
+        all_cookware = details.cookwares
 
         expect(all_cookware.length).to eq(3)
         expect(all_cookware).to be_an(Array)
     end
 
     it "can get instructions" do
-        details = RecipeDetails.new({id: 2, name: "Steve", image:"Thisone", serving_size:3})
-        all_instructions = details.get_instructions(@recipe1.id)
+        details = RecipeDetails.new(@recipe1)
+        all_instructions = details.instructions
 
         expect(all_instructions.length).to eq 2
         expect(all_instructions[0][:cooking_style]).to eq 1
         expect(all_instructions[0][:instructions].length).to eq 4
         expect(all_instructions[1][:cooking_style]).to eq 2
         expect(all_instructions[1][:instructions].length).to eq 5
-
     end
 
     it "can get cooking tips" do
-        details = RecipeDetails.new({id: 2, name: "JimBob", image: "image", serving_size: 3})
-        all_cooking_tips = details.get_cooking_tips(@recipe1.id)
+        details = RecipeDetails.new(@recipe1)
+        all_cooking_tips = details.cooking_tips
 
         expect(all_cooking_tips.length).to eq(3)
         expect(all_cooking_tips).to be_an(Array)
