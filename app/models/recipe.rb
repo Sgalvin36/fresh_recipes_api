@@ -10,8 +10,58 @@ class Recipe < ApplicationRecord
   has_many :cooking_tips, through: :recipe_cooking_tips
 
   validates :name, presence: true, uniqueness: true
-  validates :total_price, numericality: { greater_than: 0, only_float: true }
+  validates :total_price, numericality: { greater_than_or_equal_to: 0, only_float: true }
   validates :image, presence: true, uniqueness: true
+  validates :serving_size, numericality: { greater_than_or_equal_to: 0 }
+
+  def get_ingredient_list
+    ingredients = []
+    self.recipe_ingredients.each do |rec_ingr|
+      build_data = {
+      ingredient_id: rec_ingr.ingredient.id,  
+      ingredient: rec_ingr.ingredient.name,
+      price: rec_ingr.ingredient.national_price
+      }
+      ingredients.push(build_data)
+    end
+    ingredients
+  end
+
+  def update_total_price 
+    total = self.ingredients.sum("national_price") 
+    update(total_price: total)
+  end
+
+  def self.filter_recipes(search_params)
+    return where("recipes.name ILIKE ?", "%#{search_params}%") if search_params.present?
+    return all
+  end
+
+  # Added distinct. Otherwise was returning duplicate recipe instances.
+  def self.filter_by_ingredient(search_params)
+    return joins(:ingredients).where("ingredients.name ILIKE ?", "%#{search_params}%").distinct if search_params.present?
+    return all
+  end
+
+  def self.filter_by_cooking_style(search_params)
+    return joins(:recipe_instructions).where("cooking_style = ?", "#{search_params}").distinct if search_params.present?
+    return all
+  end
+
+  def self.filter_by_price(search_params)
+    price = 5.0 if search_params == "0" || search_params == "1"
+    price = 10.0 if search_params == "2" || search_params == "3"
+    # binding.pry
+    return where("recipes.total_price < ?", price) if search_params == "0" || search_params == "2"
+    return where("recipes.total_price > ?", price) if search_params == "1" || search_params == "3"
+    return all
+  end
+
+  def self.filter_by_serving(search_params)
+    return where(serving_size: 1) if search_params == 'Single'
+    return where("serving_size > ?", 1) if search_params == 'Multiple'
+    return all
+  end
 end
 
 # Could revisit and add `.dependent(:destroy)`

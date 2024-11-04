@@ -1,46 +1,37 @@
 class RecipeSerializer
     include JSONAPI::Serializer
     
-    def format_recipes(recipes)
+    def self.format_recipes(recipes)
         { data: 
             recipes.map do |recipe|
             {
                 id: recipe.id,
                 type: "recipe",
                 attributes: {
-                    recipe_name: recipe.recipe_name,
-                    total_price: recipe.total_price,
+                    recipe_name: recipe.name,
+                    total_price: recipe.ingredients.sum("national_price"),
                     image: recipe.image,
-                    ingredients: [
-                        # {ingredient_id: id,
-                        # ingredient_name: name}
-                        # map over ingredients to make ingredient array
-                    ]
+                    ingredients: recipe.get_ingredient_list,
+                    serving_size: recipe.serving_size
                 }
-            }
+            } end
         }
     end
 
-    def format_recipe(recipe)
-        { data:
-            {
-                id: recipe.id,
+    def self.format_recipe_details(recipe_details)
+        {
+            data: {
+                id: recipe_details.id,
                 type: "recipe",
                 attributes: {
-                    recipe_name: recipe.recipe_name,
-                    total_price: recipe.total_price,
-                    image: recipe.image,
-                    ingredients: [
-                        # map over ingredients
-                        {quantity: , measurement: , ingredient: , national_price:} 
-                    ],
-                    instructions: [
-                        # map over instructions and sort cooking styles into seperate arrays
-                        # an array with arrays of instructions (ideally, in order)
-                    ],
-                    cooking_tips: [
-                        #  map over cooking_tips to make it an array of strings
-                    ]
+                    recipe_name: recipe_details.name,
+                    total_price: recipe_details.total_price,
+                    image: recipe_details.image,
+                    serving_size: recipe_details.serving_size,
+                    ingredients: recipe_details.ingredients,
+                    cookwares: recipe_details.cookwares,
+                    instructions: recipe_details.instructions,
+                    cooking_tips: recipe_details.cooking_tips
                 }
             }
         }
