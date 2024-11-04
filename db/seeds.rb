@@ -123,9 +123,10 @@ RecipeCookware.create!(recipe: @recipe3, cookware: @cookware5)
 RecipeCookingTip.create!(recipe_id: @recipe3.id, cooking_tip_id: @tip2.id)
 RecipeCookingTip.create!(recipe_id: @recipe3.id, cooking_tip_id: @tip3.id)
 
-RecipeIngredient.create!(recipe_id: @recipe3.id ,ingredient_id: @ing1.id, measurement_id: @mes1.id, quantity: 1)
+RecipeIngredient.create!(recipe_id: @recipe3.id ,ingredient_id: @ing8.id, measurement_id: @mes1.id, quantity: 0.5)
+RecipeIngredient.create!(recipe_id: @recipe3.id ,ingredient_id: @ing9.id, measurement_id: @mes1.id, quantity: 0.5)
 RecipeIngredient.create!(recipe_id: @recipe3.id ,ingredient_id: @ing10.id, measurement_id: @mes1.id, quantity: 0.5)
-RecipeIngredient.create!(recipe_id: @recipe3.id ,ingredient_id: @ing1.id, measurement_id: @mes1.id, quantity: 1)
+RecipeIngredient.create!(recipe_id: @recipe3.id ,ingredient_id: @ing11.id, measurement_id: @mes1.id, quantity: 1)
 
 # Microwave Cooking Instructions
 RecipeInstruction.create!(recipe_id: @recipe3.id, cooking_style: 1, instruction_step:1, instruction: "Put pasta in a microwave-safe bowl.")

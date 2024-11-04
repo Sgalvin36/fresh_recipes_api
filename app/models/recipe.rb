@@ -10,9 +10,9 @@ class Recipe < ApplicationRecord
   has_many :cooking_tips, through: :recipe_cooking_tips
 
   validates :name, presence: true, uniqueness: true
-  validates :total_price, numericality: { greater_than: 0, only_float: true }
+  validates :total_price, numericality: { greater_than_or_equal_to: 0, only_float: true }
   validates :image, presence: true, uniqueness: true
-  validates :serving_size, presence: true
+  validates :serving_size, numericality: { greater_than_or_equal_to: 0 }
 
   def get_ingredient_list
     ingredients = []
@@ -37,8 +37,9 @@ class Recipe < ApplicationRecord
     return all
   end
 
+  # Added distinct. Otherwise was returning duplicate recipe instances.
   def self.filter_by_ingredient(search_params)
-    return joins(:ingredients).where("ingredients.name ILIKE ?", "%#{search_params}%") if search_params.present?
+    return joins(:ingredients).where("ingredients.name ILIKE ?", "%#{search_params}%").distinct if search_params.present?
     return all
   end
 
@@ -57,7 +58,8 @@ class Recipe < ApplicationRecord
   end
 
   def self.filter_by_serving(search_params)
-    return where("serving_size = ?", "#{search_params}") if search_params.present?
+    return where(serving_size: 1) if search_params == 'Single'
+    return where("serving_size > ?", 1) if search_params == 'Multiple'
     return all
   end
 end

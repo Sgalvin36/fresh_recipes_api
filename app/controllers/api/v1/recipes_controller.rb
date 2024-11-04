@@ -1,5 +1,4 @@
 class Api::V1::RecipesController < ApplicationController
-    
     def index
         recipes = Recipe.all   
                             .filter_recipes(params[:by_recipe])
@@ -11,4 +10,9 @@ class Api::V1::RecipesController < ApplicationController
         render json: RecipeSerializer.format_recipes(recipes)
     end
 
+    def show
+        recipe = Recipe.find(params[:id])
+        recipe_details = RecipeDetails.new(recipe)
+        render json: RecipeSerializer.format_recipe_details(recipe_details)
+    end
 end
