@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :recipes, only: [:index]
+      resources :recipe_builder, only: [:create]
       resources :ingredients, only: [:index]
     end
   end
