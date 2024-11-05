@@ -21,7 +21,7 @@ RSpec.describe "Ingredient controller", type: :request do
 
             get api_v1_ingredients_path
             expect(response).to be_successful
-            # binding.pry
+    
         
             json = JSON.parse(response.body, symbolize_names:true)
 
