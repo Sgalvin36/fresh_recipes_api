@@ -91,4 +91,33 @@ RSpec.describe Ingredient, type: :model do
       Recipe.delete_all
     end
   end
+
+  describe '.fetch_kroger_data' do
+    context 'when the request is successful' do
+      it 'fetches product data with valid parameters', :vcr do
+        search_params = "milk"
+        location_id = 62000115
+        
+        result = Ingredient.fetch_kroger_data(search_params, location_id)
+
+        
+        expect(result).to be_an(Array)
+        expect(result.first).to include(:product_ID, :description, :price)
+      end
+    end
+
+    context 'when the request fails' do
+      it 'raises an error on a failed response', :vcr do
+        search_params = "nonexistent_product"  
+        location_id = 62000115
+
+        stub_request(:get, "https://api.kroger.com/v1/products")
+          .with(query: hash_including("filter.term" => search_params, "filter.locationId" => location_id.to_s))
+          .to_return(status: 404, body: { error: "Product not found" }.to_json)
+
+        expect { Ingredient.fetch_kroger_data(search_params, location_id) }
+          .to raise_error(RuntimeError, /Failed to fetch Kroger data/)
+      end
+    end
+  end
 end

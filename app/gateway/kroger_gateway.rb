@@ -6,6 +6,8 @@ class KrogerGateway
   def initialize
     @token = nil
     @token_expires_at = nil
+    @location_token = nil
+    @location_token_expires_at = nil
   end
 
   def authorize_connection
@@ -56,6 +58,6 @@ class KrogerGateway
     response = connection.get(path) do |req|
       req.params = params unless params.empty?
     end
-    JSON.parse(response.body) if response.success?
+    response
   end
 end

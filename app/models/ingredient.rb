@@ -25,7 +25,6 @@ class Ingredient < ApplicationRecord
     }
   
     response = KrogerGateway.instance.fetch_data("products", kroger_params)
-  
     if response.status == 200
       data = JSON.parse(response.body, symbolize_names: true)
       data[:data].map do |ingredient|
