@@ -51,7 +51,8 @@ class RecipeBuilder
         user_params[:instructions].each do |instruction|
             RecipeInstruction.create!(
                 instruction: instruction[:instruction], 
-                cooking_style: instruction[:cookingStyle], 
+                cooking_style: instruction[:cookingStyle],
+                instruction_step: instruction[:step], 
                 recipe: recipe
             )
         end
