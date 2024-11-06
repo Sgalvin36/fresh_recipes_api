@@ -15,6 +15,6 @@ class Api::V1::RecipeBuilderController < ApplicationController
 
     private
     def user_params
-        params.require(:recipe_builder).permit(:name, :serving_size, :image_url, ingredients: [:quantity, :measurement, :ingredient], instructions: [:cookingStyle, :step, :instruction], cookware: [:cookware], cooking_tips: [:tip])
+        params.require(:recipe_builder).permit(:name, :serving_size, :image_url, ingredients: [:quantity, :measurement, :ingredient, :price, :productId], instructions: [:cookingStyle, :step, :instruction], cookware: [:cookware], cooking_tips: [:tip])
     end
 end
