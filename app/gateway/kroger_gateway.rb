@@ -11,8 +11,8 @@ class KrogerGateway
   end
 
   def authorize_connection
-    client_id = Rails.application.credentials.kroger[:client_id]
-    client_secret = Rails.application.credentials.kroger[:client_password]
+    client_id = Rails.application.credentials.dig(:kroger,:client_id) || ENV['KROGER_CLIENT_ID']
+    client_secret = Rails.application.credentials.dig(:kroger,:client_password) || ENV['KROGER_CLIENT_PASSWORD']
     encoded_credentials = Base64.strict_encode64("#{client_id}:#{client_secret}")
     
     response = Faraday.post("https://api.kroger.com/v1/connect/oauth2/token") do |req|
