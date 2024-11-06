@@ -32,8 +32,9 @@ class RecipeBuilder
         user_params[:ingredients].each do |ingredient|
             new_ing = Ingredient.create!(
                 name: ingredient[:ingredient],
-                national_price: 1.00,
-                taxable: false,
+                national_price: ingredient[:price],
+                kroger_id: ingredient[:productId]
+                taxable: true,
                 snap: true
             )
             new_mes = Measurement.create!(unit: ingredient[:measurement])

@@ -23,15 +23,20 @@ class Ingredient < ApplicationRecord
       "filter.locationId": location_id,
       "filter.term": search_params
     }
-    response = KrogerGateway.fetch_data("products", kroger_params)
+  
+    response = KrogerGateway.instance.fetch_data("products", kroger_params)
+  
     if response.status == 200
-      data =JSON.parse(response.body, symbolize_names:true)
+      data = JSON.parse(response.body, symbolize_names: true)
       data[:data].map do |ingredient|
-      { product_ID: ingredient[:productId],
-        description: ingredient[:description],
-        price: ingredient[:items][0][:price][:regular]
-      }
+        {
+          product_ID: ingredient[:productId],
+          description: ingredient[:description],
+          price: ingredient[:items][0][:price][:regular]
+        }
       end
+    else
+      raise "Failed to fetch Kroger data: #{response.body}"
     end
   end
 end

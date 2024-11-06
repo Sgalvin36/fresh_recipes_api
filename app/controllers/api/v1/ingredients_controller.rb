@@ -5,7 +5,7 @@ class Api::V1::IngredientsController < ApplicationController
             ingredients = Ingredient.filter_ingredients(params[:for_ingredient])
         elsif params[:for_dev]
             ingredients = Ingredient.fetch_kroger_data(params[:for_dev])
-            return render json: ingredients
+            return render json: IngredientSerializer.kroger(ingredients)
         else
             ingredients = Ingredient.all
         end
