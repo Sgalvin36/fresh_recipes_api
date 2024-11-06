@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'https://fresh-start-recipes-fe-git-main-jphill19s-projects.vercel.app/devsubmit'
+    origins 'https://fresh-start-recipes-fe-git-main-jphill19s-projects.vercel.app'
 
     resource "*",
       headers: :any,
