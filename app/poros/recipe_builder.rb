@@ -32,7 +32,7 @@ class RecipeBuilder
         user_params[:ingredients].each do |ingredient|
             new_ing = Ingredient.create!(
                 name: ingredient[:ingredient],
-                national_price: ingredient[:price],
+                national_price: ingredient[:price].to_f,
                 kroger_id: ingredient[:productId],
                 taxable: true,
                 snap: true
