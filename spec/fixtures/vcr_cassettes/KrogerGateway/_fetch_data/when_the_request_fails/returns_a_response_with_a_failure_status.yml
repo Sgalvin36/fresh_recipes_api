@@ -1,0 +1,75 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.kroger.com/v1/products?filter.locationId=62000115&filter.term=invalid_search_term
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Authorization:
+      - Bearer eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYXBpLmtyb2dlci5jb20vdjEvLndlbGwta25vd24vandrcy5qc29uIiwia2lkIjoiWjRGZDNtc2tJSDg4aXJ0N0xCNWM2Zz09IiwidHlwIjoiSldUIn0.eyJhdWQiOiJmb3J0ZXN0aW5nLTI0MzI2MTI0MzAzNDI0MzE0NjU1Njg2YTU3NDg3NDZjNzYzNDc0NGM1NTM3NjY1MjY5NGQ0NDRkMmUyZTQ1NjQ3MDcyMzYzNTYzNjMzOTRhNzg3NjMyNDQzODZjNTU0Yjc2NGY3NjZhNmQ1YTY2MmY3MjQzNTU2ZDkwMzAwMzgyNTk3OTQyNDc1NyIsImV4cCI6MTczMDg1NTI0MywiaWF0IjoxNzMwODUzNDM4LCJpc3MiOiJhcGkua3JvZ2VyLmNvbSIsInN1YiI6ImM3MTMxYzE0LTJhNmEtNTA2NC05MDA1LTg3NTdlNjBiNDhmOSIsInNjb3BlIjoicHJvZHVjdC5jb21wYWN0IiwiYXV0aEF0IjoxNzMwODUzNDQzMTUzMTM2NTc5LCJhenAiOiJmb3J0ZXN0aW5nLTI0MzI2MTI0MzAzNDI0MzE0NjU1Njg2YTU3NDg3NDZjNzYzNDc0NGM1NTM3NjY1MjY5NGQ0NDRkMmUyZTQ1NjQ3MDcyMzYzNTYzNjMzOTRhNzg3NjMyNDQzODZjNTU0Yjc2NGY3NjZhNmQ1YTY2MmY3MjQzNTU2ZDkwMzAwMzgyNTk3OTQyNDc1NyJ9.cRm1BhhGIuFHukn50gQZhcAFcrbCga3O7fEe7F8JZ733ZEzTVxrOXeNiEMeg_FQRrFg5sXzUbX3-ko8nS2bGxy0G6v5CuWYVDgRC3tWJeFYUranQr72cXT9uA3anrPhRe1yjRp5knsyPAVdGSGWJ7Lut6q8berO0ITh1EaCrk2yxU0hziDqww075G_lofSzHpRnG1IMGXBbhVorzzo081jdbaV4u7oE425Xc6VvKtUGhKbSxZ2EwPMaCeH_Odcn2dkxJunxkuBYVGXy3pkoZn3JEYLtLlDu38sw4vgJiwJMIokuPkcokmIvftXZyIW5IeFYNZmjEN_opVP3NDtkM0g
+      User-Agent:
+      - Faraday v2.12.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '11'
+      X-Correlation-Id:
+      - akam_1730854099_19a9e442-d373-460a-8743-6a2224f0a1ae
+      Server:
+      - Kroger API Gateway
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Kroger-Proxy-Latency:
+      - '1'
+      X-Kroger-Upstream-Latency:
+      - '560'
+      Vary:
+      - Accept-Encoding
+      Akamai-Be-Grn:
+      - 0.ab643017.1730854099.8299e32
+      Access-Control-Allow-Headers:
+      - origin, x-requested-with, accept
+      Access-Control-Max-Age:
+      - '7200'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      X-Ratelimit-Limit-Day:
+      - '10000'
+      X-Ratelimit-Remaining-Day:
+      - '9970'
+      Date:
+      - Wed, 06 Nov 2024 00:48:20 GMT
+      Connection:
+      - keep-alive
+      Server-Timing:
+      - ak_p; desc="1730854099388_389606460_82523970_84556_23385_63_71_-";dur=1
+      - cdn-cache; desc=MISS
+      - edge; dur=15
+      - origin; dur=830
+      Akamai-Grn:
+      - 0.3cec3817.1730854099.4eb3742
+      Strict-Transport-Security:
+      - max-age=31536000
+      Set-Cookie:
+      - _abck=FDBAB406CA43D04DF112511FC8D51FA6~-1~YAAQPOw4F08iev2SAQAAaZ3x/gxEoDdwmX+ed67mp9/k5Y8yjMpC2DipxZpD1Oh0KhEXM+w+xwK1NFV6kiCPzPz86OVap3VX0cvB+r/gVEr2j/OM3RzAvLDHXw5TcxE2SYrg4diE89YoGsme2lmM6B47bMAg+fef+CvxNKaae0NsWiJJUqK0n5bbgVT9j8WpA/mpphLKoPncacMjGyNQvCPOjpe6FpAa0PBY+BTu9pO4VVudzQAiSI+vzPjaEZetYvV73/WVWDup/hmlmGIcyqaUXjlmfnj/g0UZKOldKtyD3giQMra7bVT3544cEHmfR9JYl8fHRSHX3J42lZTTCcmp4KVh9Y9tSTszhv77AscqMCn2R3GHMdHA0xkYArjg/DY/P1cryvfGY0N8w6Yc~-1~-1~-1;
+        Domain=.kroger.com; Path=/; Expires=Thu, 06 Nov 2025 00:48:20 GMT; Max-Age=31536000;
+        SameSite=None; Secure
+      - bm_sz=08E8B554084B9F9187753C0F027139EF~YAAQPOw4F1Aiev2SAQAAap3x/hl6EheEh8WissXEo11u+Swj8Sr6tQrnb0kcRNaRvxjSeW+KcgoKecmmUhH546mGUx9E3RBpv26RdtCRG+mr7h+0zE1yELzODiGg63lpGPkEjjrDK3ZqxH86wMSo/klYS9Xl+eIU29m8bPkWr1jLDbg3ySo0snvuniS6p4JZ7E0GL9TPb0b7fZlBJzvmvUJUUeIx6uBbxc5RtJG9u04BbAq9RvsUOt0QGW2f9YS7p0M397Eqboifzwki7NSU1ytqmjs6lYb85E2IWWPe0HMoKPaTSMyHMpThve7vC/H3KWhIqW0rVUDuXX97c7LTeRUVe2AyybZ6Koisodc7/Tf17zK06z5qgjr0cIs=~4604466~4470082;
+        Domain=.kroger.com; Path=/; Expires=Wed, 06 Nov 2024 04:48:19 GMT; Max-Age=14399;
+        SameSite=None; Secure
+    body:
+      encoding: UTF-8
+      string: '{"data":[]}'
+  recorded_at: Wed, 06 Nov 2024 00:48:20 GMT
+recorded_with: VCR 6.3.1

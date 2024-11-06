@@ -8,7 +8,6 @@ class Api::V1::RecipesController < ApplicationController
                             .filter_by_serving(params[:by_serving])
 
         render json: RecipeSerializer.format_recipes(recipes)
-
     end
 
     def show

@@ -1,0 +1,83 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.kroger.com/v1/connect/oauth2/token
+    body:
+      encoding: UTF-8
+      string: grant_type=client_credentials&scope=product.compact
+    headers:
+      Authorization:
+      - Basic Zm9ydGVzdGluZy0yNDMyNjEyNDMwMzQyNDMxNDY1NTY4NmE1NzQ4NzQ2Yzc2MzQ3NDRjNTUzNzY2NTI2OTRkNDQ0ZDJlMmU0NTY0NzA3MjM2MzU2MzYzMzk0YTc4NzYzMjQ0Mzg2YzU1NGI3NjRmNzY2YTZkNWE2NjJmNzI0MzU1NmQ5MDMwMDM4MjU5Nzk0MjQ3NTc6UEVTSDlienEybEVTOG9JTXB3Rl9kdGxqNFc3cXVDU2VVZ1dxUkoySA==
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Security-Policy:
+      - 'default-src ''self'' localhost:*; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''
+        assets.adobedtm.com s.pinimg.com www.googletagmanager.com bat.bing.com www.googleadservices.com
+        googleads.g.doubleclick.net ct.pinterest.com blob: cdn.jsdelivr.net https://alcdn.msauth.net;
+        connect-src ''self'' dpm.demdex.net stats.kroger.com *.kroger.com https://localhost/*
+        http://localhost/*; font-src ''self'' fonts.gstatic.com; frame-src kroger.demdex.com
+        *.kroger.demdex.com bid.g.doubleclick.net; img-src ''self'' *.kroger.com sstats.kroger.com
+        *.google.com dpm.demdex.net bat.bing.com ct.pinterest.com cm.everesttech.net;
+        style-src ''self'' ''unsafe-inline'' fonts.googleapis.com;'
+      X-Content-Type-Options:
+      - nosniff
+      X-Correlation-Id:
+      - akam_1730853443_016b7775-03cd-4ccc-8dde-9ca43ff96710
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - '1'
+      Server:
+      - Kroger API Gateway
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Kroger-Proxy-Latency:
+      - '0'
+      X-Kroger-Upstream-Latency:
+      - '24'
+      Vary:
+      - Accept-Encoding
+      - origin
+      Date:
+      - Wed, 06 Nov 2024 00:37:23 GMT
+      Content-Length:
+      - '1190'
+      Connection:
+      - keep-alive
+      Server-Timing:
+      - ak_p; desc="1730853442999_389606460_81097850_11432_20410_61_85_-";dur=1
+      - cdn-cache; desc=MISS
+      - edge; dur=58
+      - origin; dur=56
+      Akamai-Grn:
+      - 0.3cec3817.1730853443.4d5747a
+      Strict-Transport-Security:
+      - max-age=31536000
+      Set-Cookie:
+      - _abck=143A619A746DB1386B8948E9F331D279~-1~YAAQPOw4F1i/d/2SAQAAlZbn/gytZFfy3zIGNqhXRZ9m8DuhxoVeXGTVpY6YdTtHv5zh10NGsK5OlFja68X8EbexevdB/3gnhj2VA/aK3y4wnkLe7R9vbhFPy+mtEP/nkjtn3VODyO9qPCX3lu/Aoi4lEsHaoXnBoZU2uq/75shXpOhAHJikFwHN9jfbPCitLwakbHrorx5j2tF6+fS4LiE/SCwTt7mbuyHOj78u8iKx1AcZlA8ECZsfBbxHDkgdUQO9MIv+4HqT1G3wNgntYYbLM9W5rSviwdpsHz7jODo/SenY/2sLivdJpSYCEyFo7qSI0ODlljJlJs8Ly13Zu89TD6pcHuVXZxnZbVtENV4oxn5kGUL11SvduWsfbEPcRMlKgLMbRhP7VJChpQoX~-1~-1~-1;
+        Domain=.kroger.com; Path=/; Expires=Thu, 06 Nov 2025 00:37:23 GMT; Max-Age=31536000;
+        SameSite=None; Secure
+      - bm_sz=10A9DD26BD4A159B34CF9F9B5C868A99~YAAQPOw4F1m/d/2SAQAAlZbn/hlKMvCekWzWJ+IPtr7lJ+sMH+ai50ww0ApiXRUMCwJ45xFfbjaNIJWT/hJSy4vOuvpTvawjfx5EJMfJFqO0/XlL43ZURuCf9yaynOi3cu0zwaMUpFG3LmO5ZV/zaa2kiF3x9AKYK24aB96gRUmb0TeDT4itTLrmZZS6K40WdsSC7TGt4Dzu3oW6njmac5fcDXjDl+cNsDuXuf3ByhdxVM3TMfHREmrIp7LWL8tu4MQ7KsJsSQ9Yv5Z1TVqsXH99rEvVZW4t1+Acr57aQ7057J2l3DXH4I5XQOtUnMa7uRBFPW4Gfz/GJogyWvu+dRvnC2mZIhPra0xN+zwTunQRLV+zIXTJDla7jG0=~4536113~4272948;
+        Domain=.kroger.com; Path=/; Expires=Wed, 06 Nov 2024 04:37:23 GMT; Max-Age=14400;
+        SameSite=None; Secure
+    body:
+      encoding: UTF-8
+      string: '{"expires_in":1800,"access_token":"eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYXBpLmtyb2dlci5jb20vdjEvLndlbGwta25vd24vandrcy5qc29uIiwia2lkIjoiWjRGZDNtc2tJSDg4aXJ0N0xCNWM2Zz09IiwidHlwIjoiSldUIn0.eyJhdWQiOiJmb3J0ZXN0aW5nLTI0MzI2MTI0MzAzNDI0MzE0NjU1Njg2YTU3NDg3NDZjNzYzNDc0NGM1NTM3NjY1MjY5NGQ0NDRkMmUyZTQ1NjQ3MDcyMzYzNTYzNjMzOTRhNzg3NjMyNDQzODZjNTU0Yjc2NGY3NjZhNmQ1YTY2MmY3MjQzNTU2ZDkwMzAwMzgyNTk3OTQyNDc1NyIsImV4cCI6MTczMDg1NTI0MywiaWF0IjoxNzMwODUzNDM4LCJpc3MiOiJhcGkua3JvZ2VyLmNvbSIsInN1YiI6ImM3MTMxYzE0LTJhNmEtNTA2NC05MDA1LTg3NTdlNjBiNDhmOSIsInNjb3BlIjoicHJvZHVjdC5jb21wYWN0IiwiYXV0aEF0IjoxNzMwODUzNDQzMTUzMTM2NTc5LCJhenAiOiJmb3J0ZXN0aW5nLTI0MzI2MTI0MzAzNDI0MzE0NjU1Njg2YTU3NDg3NDZjNzYzNDc0NGM1NTM3NjY1MjY5NGQ0NDRkMmUyZTQ1NjQ3MDcyMzYzNTYzNjMzOTRhNzg3NjMyNDQzODZjNTU0Yjc2NGY3NjZhNmQ1YTY2MmY3MjQzNTU2ZDkwMzAwMzgyNTk3OTQyNDc1NyJ9.cRm1BhhGIuFHukn50gQZhcAFcrbCga3O7fEe7F8JZ733ZEzTVxrOXeNiEMeg_FQRrFg5sXzUbX3-ko8nS2bGxy0G6v5CuWYVDgRC3tWJeFYUranQr72cXT9uA3anrPhRe1yjRp5knsyPAVdGSGWJ7Lut6q8berO0ITh1EaCrk2yxU0hziDqww075G_lofSzHpRnG1IMGXBbhVorzzo081jdbaV4u7oE425Xc6VvKtUGhKbSxZ2EwPMaCeH_Odcn2dkxJunxkuBYVGXy3pkoZn3JEYLtLlDu38sw4vgJiwJMIokuPkcokmIvftXZyIW5IeFYNZmjEN_opVP3NDtkM0g","token_type":"bearer"}'
+  recorded_at: Wed, 06 Nov 2024 00:37:23 GMT
+recorded_with: VCR 6.3.1

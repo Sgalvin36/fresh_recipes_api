@@ -17,4 +17,25 @@ class Ingredient < ApplicationRecord
   def update_associated_recipes_total_price 
     recipes.each(&:update_total_price) 
   end
+
+  def self.fetch_kroger_data(search_params, location_id = 62000115)
+    kroger_params = {
+      "filter.locationId": location_id,
+      "filter.term": search_params
+    }
+  
+    response = KrogerGateway.instance.fetch_data("products", kroger_params)
+    if response.status == 200
+      data = JSON.parse(response.body, symbolize_names: true)
+      data[:data].map do |ingredient|
+        {
+          product_ID: ingredient[:productId],
+          description: ingredient[:description],
+          price: ingredient[:items][0][:price][:regular]
+        }
+      end
+    else
+      raise "Failed to fetch Kroger data: #{response.body}"
+    end
+  end
 end
