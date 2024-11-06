@@ -20,4 +20,5 @@ class Api::V1::RecipesController < ApplicationController
         end
         render json: RecipeSerializer.format_recipe_details(recipe_details)
     end
+
 end
