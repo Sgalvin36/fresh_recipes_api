@@ -51,7 +51,6 @@ class Recipe < ApplicationRecord
   def self.filter_by_price(search_params)
     price = 5.0 if search_params == "0" || search_params == "1"
     price = 10.0 if search_params == "2" || search_params == "3"
-    # binding.pry
     return where("recipes.total_price < ?", price) if search_params == "0" || search_params == "2"
     return where("recipes.total_price > ?", price) if search_params == "1" || search_params == "3"
     return all
@@ -62,7 +61,69 @@ class Recipe < ApplicationRecord
     return where("serving_size > ?", 1) if search_params == 'Multiple'
     return all
   end
+
+  def fetch_update(ingredient_ids, location_id = 62000115)
+    kroger_params = {
+      "filter.locationId": location_id,
+      "filter.productId": ingredient_ids
+    }
+  
+    response = KrogerGateway.instance.fetch_data("products", kroger_params)
+    if response.status == 200
+      data = JSON.parse(response.body, symbolize_names: true)
+      data[:data].map do |ingredient|
+        {
+          product_ID: ingredient[:productId],
+          description: ingredient[:description],
+          price: ingredient[:items][0][:price][:regular]
+        }
+      end
+    else
+      raise "Failed to fetch Kroger data: #{response.body}"
+    end
+  end
+
+  def update_ingredients_details(location_id)
+    ingredient_ids = self.ingredients.map(&:kroger_id).sort()
+    
+    ingredient_id_string = ingredient_ids.join(", ")
+    data = fetch_update(ingredient_id_string, location_id)
+    ingredient_objects = self.ingredients.map do |ingredient|
+      ingredient_data = data.find { |item| item[:product_ID] == ingredient.kroger_id }
+      if ingredient_data.nil?
+        puts "No data found for kroger_id: #{ingredient.kroger_id}"
+        next
+      end
+      recipe_ingredient = ingredient.recipe_ingredients.find_by(recipe_id: self.id)
+      {
+        ingredient: ingredient.name,
+        price: ingredient_data[:price],
+        quantity: recipe_ingredient.quantity,
+        measurement: recipe_ingredient.measurement.unit
+      }
+    end
+    ingredient_objects
+  end
 end
+# calls a function that maps through the data to look into each hash to find the kroger_id that matches
 
 # Could revisit and add `.dependent(:destroy)`
 # We would want to make the dependency relate to the joins table instead of the parent table
+
+# def update_ingredients(location_id)
+#   ingredient_ids = recipe.ingredients.map do |ingredient|
+#     ingredient.kroger_id
+#   end
+#   ingredient_id_string = ingredient_ids.join(", ")
+#   data = fetch_update(ingredient_id_string, location_ids)
+#   ingredient_ids.each do |id|
+#     found = Ingredient.find_by("kroger_id = '#{id}'")
+#     found.update(
+#       name: data[:description],
+#       national_price: data[:price],
+#       kroger_id: data[:product_ID],
+#       taxable: false,
+#       snap: true
+#     )
+#   end
+# end

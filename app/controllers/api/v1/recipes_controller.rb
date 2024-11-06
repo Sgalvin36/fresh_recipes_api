@@ -12,7 +12,12 @@ class Api::V1::RecipesController < ApplicationController
 
     def show
         recipe = Recipe.find(params[:id])
-        recipe_details = RecipeDetails.new(recipe)
+        if params[:by_location].present?
+            update_ingredients = recipe.update_ingredients_details(params[:by_location])
+            recipe_details = RecipeDetails.new(recipe, update_ingredients)
+        else
+            recipe_details = RecipeDetails.new(recipe)
+        end
         render json: RecipeSerializer.format_recipe_details(recipe_details)
     end
 end
