@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_02_200405) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_07_210958) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -93,10 +93,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_02_200405) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.integer "role"
+    t.integer "role", default: 1
     t.string "key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.string "username"
+    t.index ["key"], name: "index_users_on_key", unique: true
   end
 
   add_foreign_key "recipe_cooking_tips", "cooking_tips"
