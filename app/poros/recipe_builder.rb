@@ -19,11 +19,11 @@ class RecipeBuilder
 
     def update_call(recipe)
         ActiveRecord::Base.transaction do
-            update_recipe(recipe)
-            update_ingredients(recipe)
-            update_instructions(recipe)
-            update_cookware(recipe)
-            update_cooking_tips(recipe)
+            update_recipe(recipe) if user_params[:name].present? || user_params[:image_url].present? || user_params[:serving_size].present?
+            update_ingredients(recipe) if user_params[:ingredients].present?
+            update_instructions(recipe) if user_params[:instructions].present?
+            update_cookware(recipe) if user_params[:cookware].present?
+            update_cooking_tips(recipe) if user_params[:cooking_tips].present?
             recipe.update_total_price
         end
     end
@@ -99,7 +99,7 @@ class RecipeBuilder
 
     def update_ingredients(recipe)
         user_params[:ingredients].each do |data|
-            new_ing = Ingredient.find_or_initialize_by(kroger_id: data[:productID])
+            new_ing = Ingredient.find_or_initialize_by(kroger_id: data[:productId])
             new_ing.update!(
                 name: data[:ingredient],
                 national_price: data[:price].to_f,
@@ -155,11 +155,11 @@ class RecipeBuilder
             new_tip = CookingTip.find_or_initialize_by(tip: tip[:tip])
             recipe_cooking_tip = RecipeCookingTip.find_or_initialize_by(
                 recipe: recipe, 
-                tip: new_tip
+                cooking_tip: new_tip
             )
             
             recipe_cooking_tip.update!(
-                tip: new_tip, 
+                cooking_tip: new_tip, 
                 recipe: recipe
             )
         end

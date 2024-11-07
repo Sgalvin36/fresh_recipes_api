@@ -56,7 +56,6 @@ RSpec.describe RecipeDetails do
     it "can get ingredients" do
         details = RecipeDetails.new(@recipe1)
         all_ingredients = details.ingredients
-        binding.pry
         expect(all_ingredients.length).to eq 3
         expect(all_ingredients).to be_an(Array)
     end
