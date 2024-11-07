@@ -9,12 +9,12 @@ class RecipeDetails
                 :instructions,
                 :cooking_tips
 
-    def initialize(recipe)
+    def initialize(recipe, ingredients = nil)
         @id = recipe.id
         @name = recipe.name
         @image = recipe.image
         @serving_size = recipe.serving_size
-        @ingredients = get_ingredients(recipe)
+        @ingredients = ingredients || get_ingredients(recipe)
         @total_price = get_total_price(recipe)
         @cookwares = get_cookware(recipe)
         @instructions = get_instructions(recipe)

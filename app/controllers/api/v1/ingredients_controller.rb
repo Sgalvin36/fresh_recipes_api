@@ -14,6 +14,3 @@ class Api::V1::IngredientsController < ApplicationController
 
 end
 
-private
-
-locaiton_id = 62000115

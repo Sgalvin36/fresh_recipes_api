@@ -12,6 +12,17 @@ class Api::V1::RecipeBuilderController < ApplicationController
     end
         
 
+    def update
+        recipe = Recipe.find(params[:id])
+        builder = RecipeBuilder.new(user_params)
+        if builder.update_call(recipe)
+            render json: { message: 'Recipe updated successfully' }, status: :created
+        else
+            render json: { error: 'Recipe update failed' }, status: :unprocessable_entity
+        end
+    rescue ActiveRecord::RecordInvalid => e
+        render json: { error: e.message }, status: :unprocessable_entity
+    end
 
     private
     def user_params
