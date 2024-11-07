@@ -1,4 +1,5 @@
 class Api::V1::RecipeBuilderController < ApplicationController
+    before_action :authenticate_user
     
     def create
         builder = RecipeBuilder.new(user_params)
