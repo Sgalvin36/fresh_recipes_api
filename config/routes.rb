@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       resources :recipes, only: [:index, :show]
       resources :recipe_builder, only: [:create]
       resources :ingredients, only: [:index]
+      get 'locations', to: 'locations#index', as: 'locations'
     end
   end
 end
