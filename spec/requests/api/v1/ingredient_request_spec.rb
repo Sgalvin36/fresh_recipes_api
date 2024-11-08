@@ -88,4 +88,26 @@ RSpec.describe "Ingredient controller", type: :request do
             end
         end
     end
+
+    describe "GET ingredients fetched from kroger" do
+        it "can make the request successfully", :vcr do
+            headers = { 
+                "CONTENT_TYPE" => "application/json",
+            }
+            params = {
+                for_dev: "tomato"
+            }
+            get api_v1_ingredients_path(params)
+            expect(response).to be_successful
+            data = JSON.parse(response.body, symbolize_names:true)
+            expect(data[:data].length).to eq 10
+            data[:data].each do |ingredient|
+                expect(ingredient[:description]).to include("Tomato")
+                expect(ingredient).to have_key(:price)
+                expect(ingredient).to have_key(:product_ID)
+                expect(ingredient[:price]).not_to be_nil
+                expect(ingredient[:product_ID]).not_to be_nil
+            end
+        end
+    end
 end

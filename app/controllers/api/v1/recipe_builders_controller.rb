@@ -5,9 +5,7 @@ class Api::V1::RecipeBuildersController < ApplicationController
         builder = RecipeBuilder.new(user_params)
         if builder.call
             render json: { message: 'Recipe created successfully' }, status: :created
-        else
-            render json: { error: 'Recipe update failed' }, status: :unprocessable_entity
-    end
+        end
     rescue ActiveRecord::RecordInvalid => e
         render json: { error: e.message }, status: :unprocessable_entity
     end
