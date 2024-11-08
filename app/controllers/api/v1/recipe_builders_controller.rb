@@ -1,4 +1,4 @@
-class Api::V1::RecipeBuilderController < ApplicationController
+class Api::V1::RecipeBuildersController < ApplicationController
     before_action :authenticate_user
     
     def create
@@ -6,8 +6,8 @@ class Api::V1::RecipeBuilderController < ApplicationController
         if builder.call
             render json: { message: 'Recipe created successfully' }, status: :created
         else
-            render json: { error: 'Recipe creation failed' }, status: :unprocessable_entity
-        end
+            render json: { error: 'Recipe update failed' }, status: :unprocessable_entity
+    end
     rescue ActiveRecord::RecordInvalid => e
         render json: { error: e.message }, status: :unprocessable_entity
     end
@@ -27,6 +27,6 @@ class Api::V1::RecipeBuilderController < ApplicationController
 
     private
     def user_params
-        params.require(:recipe_builder).permit(:name, :serving_size, :image_url, ingredients: [:quantity, :measurement, :ingredient, :price, :productId], instructions: [:cookingStyle, :step, :instruction], cookware: [:cookware], cooking_tips: [:tip])
+        params.permit(:name, :serving_size, :image_url, ingredients: [:quantity, :measurement, :ingredient, :price, :productId], instructions: [:cookingStyle, :step, :instruction], cookware: [:cookware], cooking_tips: [:tip])
     end
 end

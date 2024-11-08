@@ -9,9 +9,9 @@ class Recipe < ApplicationRecord
   has_many :cookware, through: :recipe_cookware
   has_many :cooking_tips, through: :recipe_cooking_tips
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: true, allow_blank: false
   validates :total_price, numericality: { greater_than_or_equal_to: 0, only_float: true }
-  validates :image, presence: true, uniqueness: true
+  validates :image, presence: true, uniqueness: true, allow_blank: false
   validates :serving_size, numericality: { greater_than_or_equal_to: 0 }
 
   def get_ingredient_list
