@@ -1,0 +1,68 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.kroger.com/v1/products?filter.locationId=999999&filter.productId=0001111050158,%200001111090593,%200000000004072
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Authorization:
+      - Bearer eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYXBpLmtyb2dlci5jb20vdjEvLndlbGwta25vd24vandrcy5qc29uIiwia2lkIjoiWjRGZDNtc2tJSDg4aXJ0N0xCNWM2Zz09IiwidHlwIjoiSldUIn0.eyJhdWQiOiJmb3J0ZXN0aW5nLTI0MzI2MTI0MzAzNDI0MzE0NjU1Njg2YTU3NDg3NDZjNzYzNDc0NGM1NTM3NjY1MjY5NGQ0NDRkMmUyZTQ1NjQ3MDcyMzYzNTYzNjMzOTRhNzg3NjMyNDQzODZjNTU0Yjc2NGY3NjZhNmQ1YTY2MmY3MjQzNTU2ZDkwMzAwMzgyNTk3OTQyNDc1NyIsImV4cCI6MTczMTA4MTE3OSwiaWF0IjoxNzMxMDc5Mzc0LCJpc3MiOiJhcGkua3JvZ2VyLmNvbSIsInN1YiI6ImM3MTMxYzE0LTJhNmEtNTA2NC05MDA1LTg3NTdlNjBiNDhmOSIsInNjb3BlIjoicHJvZHVjdC5jb21wYWN0IiwiYXV0aEF0IjoxNzMxMDc5Mzc5MTA5NTEzOTQzLCJhenAiOiJmb3J0ZXN0aW5nLTI0MzI2MTI0MzAzNDI0MzE0NjU1Njg2YTU3NDg3NDZjNzYzNDc0NGM1NTM3NjY1MjY5NGQ0NDRkMmUyZTQ1NjQ3MDcyMzYzNTYzNjMzOTRhNzg3NjMyNDQzODZjNTU0Yjc2NGY3NjZhNmQ1YTY2MmY3MjQzNTU2ZDkwMzAwMzgyNTk3OTQyNDc1NyJ9.hSOLtccJSt9sieimfA3_YSc49czDot4sFzQJLASgg7xuH6ZfPNU6awj1nyMlR2iTWtPWfqPstuXREoaMdtqD7qlvUjL-fqPBj6neuzTL7hN6p8mdo6i2nx7ZdCVaH3_kZj5QptD7vRhFkF_iBdbghTc-gW5FqGeKtAL0jN0DJZ-ikazkpnQScpWZ8no1P4Zq75SRcccGLJxgl3RZ6SmoidsuqSgYuIlVO9m7XAsN6H6BLGxi63GpN0xZLsN81k8Tey2DIGrm17X-v5Zucn4NBzeUgtGkKNHXrV-gcB9Dlez-xLsqa08O8q-9JaBrGaGnVNh6C6S155gr0lejp_Eouw
+      User-Agent:
+      - Faraday v2.12.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Correlation-Id:
+      - akam_1731079520_f17f7b61-4aa2-4a70-b800-175a7c7cd17e
+      Server:
+      - Kroger API Gateway
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Kroger-Proxy-Latency:
+      - '1'
+      X-Kroger-Upstream-Latency:
+      - '3'
+      Akamai-Be-Grn:
+      - 0.85bf2617.1731079520.94fc22c
+      X-Ratelimit-Limit-Day:
+      - '10000'
+      X-Ratelimit-Remaining-Day:
+      - '9996'
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Fri, 08 Nov 2024 15:25:20 GMT
+      Connection:
+      - close
+      Server-Timing:
+      - ak_p; desc="1731079520360_388061622_164589854_27360_14240_88_41_-";dur=1
+      - cdn-cache; desc=MISS
+      - edge; dur=35
+      - origin; dur=239
+      Akamai-Grn:
+      - 0.b6592117.1731079520.9cf711e
+      Strict-Transport-Security:
+      - max-age=31536000
+      Set-Cookie:
+      - _abck=0D123151380713ADD4B34BEDEE092565~-1~YAAQtlkhF1wtAwaTAQAAu0FhDAwVbTATi0+hvrDZIIQGnrx63O+kTgjp17419ok6K9GWfevJGizIOySDPzbLWLGMW2g/az5ntCQoixaCF9LNJwXb+dmFwal2o+tnFegvgOuwBvCD5G25sZWI7HMohCpTKzOBb7n3hjNp++2KUc4Z8qRv4Cnsd6vtRfZM1SSnpdGXmICJh3POE8cIEC1wsla52Gfnc1MZgOdHxXvhyr1eQ1RynLj2FcBaUF/yHQbzXauI7QtlPFrIX6qmxQTBrAXTH5WaJ5L6Ex7u3EG2psVR0NS1HxTuRBnr/nWK5Y+fahu3ST0y7Hj5/itTfLC8Qo5LMrjyAInoDG5ES7YzqSm4HI6GvFclTtYdmkk+PBkIYZM4GlCUnhPqAxpz0TRK~-1~-1~-1;
+        Domain=.kroger.com; Path=/; Expires=Sat, 08 Nov 2025 15:25:20 GMT; Max-Age=31536000;
+        SameSite=None; Secure
+      - bm_sz=D0F0DED49ADE389A6D222A754C5ED61E~YAAQtlkhF10tAwaTAQAAu0FhDBmWuq0i4BdWwNOdLWtuwQ5/6sFVXW77fTOfP1qumhQFmQSVR/0lbVnwaKHMFg/AQcWrnYOln3N61xqgshwppIZigiS3xtGSgMIEFc2EvU0FmfyZOdflgGOCA8mxIGu2zk+f8ro/87r3B1mghsVWKoSIQeUoB9qroJJ6fV8yGk5BuxSjGsQZCG1NyKWZAwg66RHCbip/25ZQt0RpiZo5Az2SqN3wuMku8IkpmNcMT/PhZkJUym/A2dDMhXghQmr8yL5bjKQj8bV40clHnyny8wghxQc1nMakK1VMufohu/VxqLdNk+TQijAOJejIw3knmgY3easJi3XAzBvZPo75pyZeUjT/q1WOXdgXng==~4534853~3422007;
+        Domain=.kroger.com; Path=/; Expires=Fri, 08 Nov 2024 19:25:20 GMT; Max-Age=14400;
+        SameSite=None; Secure
+    body:
+      encoding: UTF-8
+      string: '{"errors":{"timestamp":1731079520353,"code":"PRODUCT-2011","reason":"Field
+        ''locationId'' must have a length of 8 alphanumeric characters"}}'
+  recorded_at: Fri, 08 Nov 2024 15:25:20 GMT
+recorded_with: VCR 6.3.1

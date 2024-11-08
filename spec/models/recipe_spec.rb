@@ -74,8 +74,11 @@ RSpec.describe Recipe, type: :model do
     end
     
     it "test filter_recipes" do
-      result = Recipe.filter_recipes("sP")
-      result_2 = Recipe.filter_recipes("")
+      search_params = {
+        by_recipe: "sP"
+      }
+      result = Recipe.filter_recipes(search_params)
+      result_2 = Recipe.filter_recipes({})
     
       expect(result.length).to eq(2)
       expect(result.last.name).to eq("Meatball Spaghetti")
@@ -83,17 +86,36 @@ RSpec.describe Recipe, type: :model do
       expect(result_2.length).to eq(5)
       expect(result_2.last.name).to eq("Fruit Salad")
     end
+
+    it "returns all if filter_recipes parameter isn't present" do
+      result = Recipe.filter_recipes({})
+      expect(result.length).to eq(5)
+    end
     
     it "fiter_by_ingredients" do
-      result = Recipe.filter_by_ingredient("cHeE")
+      search_params = {
+        by_ingredient: "cHeE"
+      }
+      result = Recipe.filter_by_ingredient(search_params)
 
       expect(result.length).to eq(2)
       expect(result.last.name).to eq("Meatball Spaghetti")
     end
+
+    it "returns all if filter_ingredient parameter isn't present" do
+      result = Recipe.filter_by_ingredient({})
+      expect(result.length).to eq(5)
+    end
     
     it "test filter_by_cooking_style" do
-      result = Recipe.filter_by_cooking_style("3")
-      result_2 = Recipe.filter_by_cooking_style("1")
+      search_params = {
+        by_style: "3"
+      }
+      search_params2 = {
+        by_style: "1"
+      }
+      result = Recipe.filter_by_cooking_style(search_params)
+      result_2 = Recipe.filter_by_cooking_style(search_params2)
 
       expect(result.length).to eq(1)
       expect(result.last.name).to eq("Spaghetti")
@@ -101,22 +123,50 @@ RSpec.describe Recipe, type: :model do
       expect(result_2.length).to eq(1)      
       expect(result_2.last.name).to eq("Meatball Spaghetti")
     end
+
+    it "returns all if filter_by_cooking_style parameter isn't present" do
+      result = Recipe.filter_by_cooking_style({})
+      expect(result.length).to eq(5)
+    end
     
     it "filter_by_price" do
-      result_0 = Recipe.filter_by_price("0")
-      result_1 = Recipe.filter_by_price("1")
-      result_2 = Recipe.filter_by_price("2")
-      result_3 = Recipe.filter_by_price("3")
+      search_params = {
+        by_price: "0"
+      }
+      result_0 = Recipe.filter_by_price(search_params)
+      search_params = {
+        by_price: "1"
+      }
+      result_1 = Recipe.filter_by_price(search_params)
+      search_params = {
+        by_price: "2"
+      }
+      result_2 = Recipe.filter_by_price(search_params)
+      search_params = {
+        by_price: "3"
+      }
+      result_3 = Recipe.filter_by_price(search_params)
 
       expect(result_0.length).to eq(1)
       expect(result_1.length).to eq(3)
       expect(result_2.length).to eq(2)
       expect(result_3.length).to eq(2)
     end
+
+    it "returns all if filter_by_price parameter isn't present" do
+      result = Recipe.filter_by_price({})
+      expect(result.length).to eq(5)
+    end
     
     it "filter_by_serving_size" do
-      result_1 = Recipe.filter_by_serving("Single")
-      result_2 = Recipe.filter_by_serving("Multiple")
+      search_params = {
+        by_serving: "Single"
+      }
+      result_1 = Recipe.filter_by_serving(search_params)
+      search_params = {
+        by_serving: "Multiple"
+      }
+      result_2 = Recipe.filter_by_serving(search_params)
 
       expect(result_1.length).to eq(3)
       expect(result_1.last.name).to eq("Fruit Salad")
@@ -124,8 +174,108 @@ RSpec.describe Recipe, type: :model do
       expect(result_2.length).to eq(2)
       expect(result_2.last.name).to eq("Meatball Spaghetti")
     end
+
+    it "returns all if filter_by_serving parameter isn't present" do
+      result = Recipe.filter_by_serving({})
+      expect(result.length).to eq(5)
+    end
+  end
+
+  describe '.fetch_update' do
+    let(:ingredient_ids) { "0001111050158, 0001111090593, 0000000004072"}
+    let(:location_id) { 62000115 }
+
+    it 'fetches and returns data from Kroger API', :vcr do
+      VCR.use_cassette('kroger/fetch_update') do
+        result = @recipe1.fetch_update(ingredient_ids, location_id)
+
+        expect(result).to be_an(Array)
+        expect(result.first).to include(:product_ID, :description, :price)
+      end
+    end
+
+    context 'when the response status is not 200' do
+      it 'raises an error', :vcr do
+        VCR.use_cassette('kroger/fetch_update_error') do
+          expect {
+            @recipe1.fetch_update(ingredient_ids, 999999) # Using an invalid location ID for error simulation
+          }.to raise_error("Failed to fetch Kroger data: Field 'locationId' must have a length of 8 alphanumeric characters")
+        end
+      end
+    end
+  end
+
+  describe "#update_ingredients_details" do
+    let(:location_id) { 62000115 }
+
+    before do
+      RecipeIngredient.delete_all
+      RecipeInstruction.delete_all
+      Ingredient.delete_all
+      Measurement.delete_all
+      Recipe.delete_all
+      @recipe1 = Recipe.create!(name:"Baked Potato", image:"future_image_of_potato", total_price:4.00, serving_size: 1)
+      @ing1 = Ingredient.create!(name:"Potato", national_price:1.00, taxable:false, snap:true, kroger_id:"0001111050158")
+      @ing2 = Ingredient.create!(name:"Cheddar cheese", national_price:2.00, taxable:false, snap:true, kroger_id:"0001111090593")
+      @ing3 = Ingredient.create!(name:"Sour Cream", national_price:1.00, taxable:false, snap:true, kroger_id:"0000000004072")
+      @mes1 = Measurement.create!(unit:"lb")
+      @mes10 = Measurement.create!(unit:"ounces")
+      @mes8 = Measurement.create!(unit:"tablespoons")
+      RecipeIngredient.create!(recipe_id:@recipe1.id ,ingredient_id:@ing1.id, measurement_id:@mes1.id, quantity:1)
+      RecipeIngredient.create!(recipe_id:@recipe1.id ,ingredient_id:@ing2.id, measurement_id:@mes10.id, quantity:2)
+      RecipeIngredient.create!(recipe_id:@recipe1.id ,ingredient_id:@ing3.id, measurement_id:@mes8.id, quantity:2)
+      RecipeInstruction.create!(recipe_id:@recipe1.id, cooking_style:1, instruction_step: 1,instruction:"Wash the dirt off the potato")
+      RecipeInstruction.create!(recipe_id:@recipe1.id, cooking_style:1, instruction_step: 2,instruction:"Poke holes in the potato to allow steam to escape")
+      RecipeInstruction.create!(recipe_id:@recipe1.id, cooking_style:1, instruction_step: 3,instruction:"Put on plate in microwave and cook for 8 minutes")
+      RecipeInstruction.create!(recipe_id:@recipe1.id, cooking_style:1, instruction_step: 4,instruction:"If a fork is easily pushed in, its done, otherwise cook for an additional 2 minutes")
+      RecipeInstruction.create!(recipe_id:@recipe1.id, cooking_style:2, instruction_step: 1,instruction:"Preheat oven to 400 degrees")
+      RecipeInstruction.create!(recipe_id:@recipe1.id, cooking_style:2, instruction_step: 2,instruction:"Wash the dirt off the potato")
+      RecipeInstruction.create!(recipe_id:@recipe1.id, cooking_style:2, instruction_step: 3,instruction:"Poke holes in the potato to allow steam to escape")
+      RecipeInstruction.create!(recipe_id:@recipe1.id, cooking_style:2, instruction_step: 4,instruction:"Place potato on oven safe tray and cook for 45 minutes")
+      RecipeInstruction.create!(recipe_id:@recipe1.id, cooking_style:2, instruction_step: 5,instruction:"If a fork is easily pushed in, its done, otherwise cook for an additional 2 minutes")
+    end
+
+    context "when the API responds with valid data" do
+      it "returns a list of ingredients with updated details" do
+        VCR.use_cassette("recipe_update_ingredients_details_success") do
+          result = @recipe1.update_ingredients_details(location_id)
+          
+          expect(result).to be_an(Array)
+          expect(result.size).to eq(3)
+          
+          result.each do |ingredient_detail|
+            expect(ingredient_detail[:ingredient]).to be_present
+            expect(ingredient_detail[:price]).to be_present
+            expect(ingredient_detail[:quantity]).to be_present
+            expect(ingredient_detail[:measurement]).to be_present
+          end
+        end
+      end
+    end
+
+    context "when the API does not return data for a kroger_id" do
+      before do
+        allow_any_instance_of(Recipe).to receive(:fetch_update).and_return([
+          { product_ID: "0001111050158", description: "Potato", price: 1.99 },
+          { product_ID: "0001111090593", description: "Cheddar cheese", price: 4.99 }
+        ])
+      end
+
+      it "logs missing data and skips that ingredient" do
+        VCR.use_cassette("recipe_update_ingredients_details_missing_data") do
+          expect { @recipe1.update_ingredients_details(location_id) }
+            .to output(/No data found for kroger_id: 0000000004072/).to_stdout
+          
+          result = @recipe1.update_ingredients_details(location_id)
+          expect(result).to be_an(Array)
+          expect(result.size).to eq(3) 
+
+          expect(result[0][:ingredient]).to eq("Potato")
+          expect(result[0][:price]).to eq(1.99)
+          expect(result[1][:ingredient]).to eq("Cheddar cheese")
+          expect(result[1][:price]).to eq(4.99)
+        end
+      end
+    end
   end
 end
-  
-# Could revisit and add `.dependent(:destroy)`
-# We would want to make the dependency relate to the joins table instead of the parent table
