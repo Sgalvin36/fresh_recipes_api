@@ -80,7 +80,6 @@ VCR.configure do |config|
   config.filter_sensitive_data('<KROGER_CLIENT_ID>') { Rails.application.credentials.kroger[:client_id2] }
   config.filter_sensitive_data('<KROGER_CLIENT_SECRET>') { Rails.application.credentials.kroger[:client_password2] }
   config.hook_into :webmock
-  # config.default_cassette_options = { re_record_interval: 7.days }
   config.default_cassette_options = {
       match_requests_on: [:method, :uri, :body],
       re_record_interval: 7.days
@@ -88,7 +87,6 @@ VCR.configure do |config|
   config.allow_http_connections_when_no_cassette = false
 # config.allow_http_connections_when_no_cassette = true
   config.configure_rspec_metadata!
-
   config.before_record do |i|
     i.response.body.force_encoding('UTF-8')
   end

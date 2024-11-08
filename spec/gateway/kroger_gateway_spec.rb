@@ -99,7 +99,6 @@ RSpec.describe KrogerGateway, type: :service do
         expect { gateway.authorize_location_token }.to raise_error(RuntimeError, /Location token authorization failed/)
       end
     end
-    
   end
 
   describe '#fetch_location_data' do
