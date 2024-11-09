@@ -1,4 +1,3 @@
-# app/services/locations_serializer.rb
 class LocationsSerializer
   def self.format(locations_data)
     {
