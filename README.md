@@ -322,7 +322,7 @@ params = {
 ## Contributors
 
 - [Charles B.](https://github.com/DRIF7ER)
-- [John H.](https://github.com/jphill19))
+- [John H.](https://github.com/jphill19)
 - [Lito C.](https://github.com/litobot)
 - [Shane G.](https://github.com/Sgalvin36)
 
