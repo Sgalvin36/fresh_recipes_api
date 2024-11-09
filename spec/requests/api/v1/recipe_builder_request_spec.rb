@@ -105,6 +105,8 @@ RSpec.describe Api::V1::RecipeBuildersController, type: :controller do
     }
   end
 
+  let(:valid_attributes_without_cookware_and_tips) { valid_attributes.except(:cookware, :cooking_tips) }
+
   before do
     request.headers["Authorization"] = "#{user.key}"
   end
@@ -113,6 +115,14 @@ RSpec.describe Api::V1::RecipeBuildersController, type: :controller do
     context 'when valid attributes are provided' do
       it 'creates a new recipe and returns a success message' do
         post :create, params: valid_attributes
+        expect(response).to have_http_status(:created)
+        expect(response.body).to include('Recipe created successfully')
+      end
+    end
+
+    context 'when required valid attributes are provided but not optional' do
+      it 'creates a new recipe and returns a success message' do
+        post :create, params: valid_attributes_without_cookware_and_tips
         expect(response).to have_http_status(:created)
         expect(response.body).to include('Recipe created successfully')
       end

@@ -11,8 +11,8 @@ class RecipeBuilder
             recipe = create_recipe
             create_ingredients(recipe)
             create_instructions(recipe)
-            create_cookware(recipe)
-            create_cooking_tips(recipe)
+            create_cookware(recipe) if user_params[:cookware].present?
+            create_cooking_tips(recipe) if user_params[:cooking_tips].present?
             recipe.update_total_price
         end
     end
