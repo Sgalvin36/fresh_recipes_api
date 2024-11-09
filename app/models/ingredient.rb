@@ -10,7 +10,7 @@ class Ingredient < ApplicationRecord
   after_save :update_associated_recipes_total_price, if: :saved_change_to_national_price?
 
   def self.filter_ingredients(search_params)
-      return Ingredient.where("name ILIKE ?", "%#{search_params}%").distinct.limit(5)
+      return Ingredient.select("DISTINCT ON (name) *").where("name ILIKE ?", "%#{search_params}%").limit(5)
   end
 
 
