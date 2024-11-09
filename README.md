@@ -319,7 +319,7 @@ params = {
     "long": "74.0060" 
     }
 ```
-## Contributers
+## Contributors
 
 - [Charles B.](https://github.com/DRIF7ER)
 - [John H.](https://github.com/jphill19))
