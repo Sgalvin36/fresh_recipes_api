@@ -4,8 +4,7 @@ This is a backend database that helps store recipes to include instructions, ing
 
 ## About this Application
 
-Viewing Party is an application that allows users to explore movies and create a Viewing Party Event that invites users and keeps track of a host. Once completed, this application will collect relevant information about movies from an external API, provide CRUD functionality for creating a Viewing Party and restrict its use to only verified users. 
-
+Fresh Recipes is designed around making recipes and determing the price based off of local prices at the grocery store. In an attempt to provide affordable meals to those on a budget, the price of the recipe is an important aspect of this recipe API. Each recipe is crafted by the users with the correct access to ensure that the ingredients are ones that can be found in the local grocery store. 
 ## Setup
 
 #### Versions
@@ -320,3 +319,19 @@ params = {
     "long": "74.0060" 
     }
 ```
+
+## Future features
+- Provide access to cooking tips within the database, filtering for distinct entries and eliminating duplicates so further recipes can utilize data already established
+
+- Provide access to measurements within the database, filtering for distinct entries and eliminating duplicates so further recipes can utilize data already established
+
+- Provide access to cookware within the database, filtering for distinct entries and eliminating duplicates so further recipes can utilize data already established
+
+- Provide further access to ingredients within the database, filtering for distinct entries and eliminating duplicates so further recipes can utilize data already established and to minimize external API calls
+
+- Establish background workers that will periodically update prices for ingredients in database so that prices are as current as possible.
+
+- Connect users data with favorited recipes and frequented location to help create a unique experience for each user
+
+- Create a cache for local locations data to help speed up the data retrieval while minimizing external API calls
+
