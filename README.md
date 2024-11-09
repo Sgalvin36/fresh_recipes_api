@@ -319,6 +319,12 @@ params = {
     "long": "74.0060" 
     }
 ```
+## Contributors
+
+- [Charles B.](https://github.com/DRIF7ER)
+- [John H.](https://github.com/jphill19)
+- [Lito C.](https://github.com/litobot)
+- [Shane G.](https://github.com/Sgalvin36)
 
 ## Future features
 - Provide access to cooking tips within the database, filtering for distinct entries and eliminating duplicates so further recipes can utilize data already established
