@@ -1,0 +1,178 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.kroger.com/v1/connect/oauth2/token
+    body:
+      encoding: UTF-8
+      string: grant_type=client_credentials&scope=product.compact
+    headers:
+      Authorization:
+      - Basic Zm9ydGVzdGluZy0yNDMyNjEyNDMwMzQyNDMxNDY1NTY4NmE1NzQ4NzQ2Yzc2MzQ3NDRjNTUzNzY2NTI2OTRkNDQ0ZDJlMmU0NTY0NzA3MjM2MzU2MzYzMzk0YTc4NzYzMjQ0Mzg2YzU1NGI3NjRmNzY2YTZkNWE2NjJmNzI0MzU1NmQ5MDMwMDM4MjU5Nzk0MjQ3NTc6UEVTSDlienEybEVTOG9JTXB3Rl9kdGxqNFc3cXVDU2VVZ1dxUkoySA==
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Security-Policy:
+      - 'default-src ''self'' localhost:*; script-src ''self'' ''unsafe-inline'' ''unsafe-eval''
+        assets.adobedtm.com s.pinimg.com www.googletagmanager.com bat.bing.com www.googleadservices.com
+        googleads.g.doubleclick.net ct.pinterest.com blob: cdn.jsdelivr.net https://alcdn.msauth.net;
+        connect-src ''self'' dpm.demdex.net stats.kroger.com *.kroger.com https://localhost/*
+        http://localhost/*; font-src ''self'' fonts.gstatic.com; frame-src kroger.demdex.com
+        *.kroger.demdex.com bid.g.doubleclick.net; img-src ''self'' *.kroger.com sstats.kroger.com
+        *.google.com dpm.demdex.net bat.bing.com ct.pinterest.com cm.everesttech.net;
+        style-src ''self'' ''unsafe-inline'' fonts.googleapis.com;'
+      X-Content-Type-Options:
+      - nosniff
+      X-Correlation-Id:
+      - akam_1731185427_8a6bc860-5e4f-4665-a336-fc988a8bd768
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - '1'
+      Server:
+      - Kroger API Gateway
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Kroger-Proxy-Latency:
+      - '0'
+      X-Kroger-Upstream-Latency:
+      - '22'
+      Vary:
+      - Accept-Encoding
+      - origin
+      Date:
+      - Sat, 09 Nov 2024 20:50:27 GMT
+      Content-Length:
+      - '1190'
+      Connection:
+      - keep-alive
+      Server-Timing:
+      - ak_p; desc="1731185427372_388061622_356200917_9472_15372_35_64_-";dur=1
+      - cdn-cache; desc=MISS
+      - edge; dur=49
+      - origin; dur=46
+      Akamai-Grn:
+      - 0.b6592117.1731185427.153b31d5
+      Strict-Transport-Security:
+      - max-age=31536000
+      Set-Cookie:
+      - _abck=F4472DD85F90A74D08AD75B30A49293C~-1~YAAQtlkhF04KoQaTAQAAXkSxEgwt33X5g1MR6gu47RPlSTAdzzvK8cSdHZ1I6r2gJo1mX8D7FKCAvcFfVu+To72By8FEhj24/v+MCBHsizj5f66OITRbJFVI49ltKAs7nnrRn+y1G4M56CrEXXpPyLrhTDEuAB2o1d94RU74WUfK4QqL1+bgy82PSMVlmUOWbhyr+DWjRaFVuZ3cK0RiUm2DkmOb6P6OZpy8OPv2AWUsMFMnaNmNFeCZC4rTnI/YjccgUngmDz7M8BB5EcfPHmHT9wZQ9E3D7E7PB3XKK6QGjpv850D416xGg0VWQq1PbwPlxsd7T2mQ24Zw+iQF6AnO6/wV/AV3oiqywLNvamQH8L3KVnUbSWDC3ucnUXG4FrVE8+7dtHQDO4P9+Xt3~-1~-1~-1;
+        Domain=.kroger.com; Path=/; Expires=Sun, 09 Nov 2025 20:50:27 GMT; Max-Age=31536000;
+        SameSite=None; Secure
+      - bm_sz=E883AB32D5E012EA268D9731F7E19EAA~YAAQtlkhF08KoQaTAQAAXkSxEhnDNfmXcxXJo4SZ9Q7GpMBM4/Lt7cZP2unAvemnZg5KaSTJo2Yt/P9j5YwnKJZrdfm4nenZ7gwr1YwObVe+wFi/nguklMQ8Cvu9TND+VI/AdHkiSwAvFUzn1koBGCy88yyvHxTrwlc0CqB+KkHExDwdWsd8VlnrwkCHXQ5aH+iyGqnlPCoKWCdQFJkvQrH6ixyaZt4/NSr/36ngcuuA9AMdYvu1rM1XC6KDp5hep3RxO6aOuhA3MTe2bRkUN7YEhAqgVzPFoClEkdK3YxnYwAOWJGukFisKn0UuMhNjNjJSdRvrlEVC1BOetLHU0DuIqbSRuZcvdg114dsF/8EosOfMgR2Oh9s+XDsY3Q==~3158064~3228722;
+        Domain=.kroger.com; Path=/; Expires=Sun, 10 Nov 2024 00:50:27 GMT; Max-Age=14400;
+        SameSite=None; Secure
+    body:
+      encoding: UTF-8
+      string: '{"expires_in":1800,"access_token":"eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYXBpLmtyb2dlci5jb20vdjEvLndlbGwta25vd24vandrcy5qc29uIiwia2lkIjoiWjRGZDNtc2tJSDg4aXJ0N0xCNWM2Zz09IiwidHlwIjoiSldUIn0.eyJhdWQiOiJmb3J0ZXN0aW5nLTI0MzI2MTI0MzAzNDI0MzE0NjU1Njg2YTU3NDg3NDZjNzYzNDc0NGM1NTM3NjY1MjY5NGQ0NDRkMmUyZTQ1NjQ3MDcyMzYzNTYzNjMzOTRhNzg3NjMyNDQzODZjNTU0Yjc2NGY3NjZhNmQ1YTY2MmY3MjQzNTU2ZDkwMzAwMzgyNTk3OTQyNDc1NyIsImV4cCI6MTczMTE4NzIyNywiaWF0IjoxNzMxMTg1NDIyLCJpc3MiOiJhcGkua3JvZ2VyLmNvbSIsInN1YiI6ImM3MTMxYzE0LTJhNmEtNTA2NC05MDA1LTg3NTdlNjBiNDhmOSIsInNjb3BlIjoicHJvZHVjdC5jb21wYWN0IiwiYXV0aEF0IjoxNzMxMTg1NDI3NDk3ODI1NzkzLCJhenAiOiJmb3J0ZXN0aW5nLTI0MzI2MTI0MzAzNDI0MzE0NjU1Njg2YTU3NDg3NDZjNzYzNDc0NGM1NTM3NjY1MjY5NGQ0NDRkMmUyZTQ1NjQ3MDcyMzYzNTYzNjMzOTRhNzg3NjMyNDQzODZjNTU0Yjc2NGY3NjZhNmQ1YTY2MmY3MjQzNTU2ZDkwMzAwMzgyNTk3OTQyNDc1NyJ9.Bw52oULJN7TG3rf3e0ZECu44PxjXiYwYp82FIWh02vR2MN8qZUCz1z6XGIwhDvv8KDjUnjL8Lx1TGOtKOZc00OC-Tw318p6VCHyaR9Fa6k_I22uXNkTqKblUACnM09fEgjRITcjR70tz6SGl-FRKv7SzTYjBWmsPDqNKQG8wNey7-8PKNKHf1KHtToh5IT9VoYbDaSUxfPBLtO1I8MiWgoO2ieZV7om5YeYq3fvxvKG2X-7ivy3EXwSRQ4AL2ltbaaeOAqWTYWEbuFOSBQhQ-y8BfEPABeoXC-kl6er--P1z7TUtPDBz9pjLKKhV6nzL3e6O3SPEWoEPqwAJVoGHVA","token_type":"bearer"}'
+  recorded_at: Sat, 09 Nov 2024 20:50:27 GMT
+- request:
+    method: get
+    uri: https://api.kroger.com/v1/products?filter.locationId=62000115&filter.term=green%20onion
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Authorization:
+      - Bearer eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYXBpLmtyb2dlci5jb20vdjEvLndlbGwta25vd24vandrcy5qc29uIiwia2lkIjoiWjRGZDNtc2tJSDg4aXJ0N0xCNWM2Zz09IiwidHlwIjoiSldUIn0.eyJhdWQiOiJmb3J0ZXN0aW5nLTI0MzI2MTI0MzAzNDI0MzE0NjU1Njg2YTU3NDg3NDZjNzYzNDc0NGM1NTM3NjY1MjY5NGQ0NDRkMmUyZTQ1NjQ3MDcyMzYzNTYzNjMzOTRhNzg3NjMyNDQzODZjNTU0Yjc2NGY3NjZhNmQ1YTY2MmY3MjQzNTU2ZDkwMzAwMzgyNTk3OTQyNDc1NyIsImV4cCI6MTczMTE4NzIyNywiaWF0IjoxNzMxMTg1NDIyLCJpc3MiOiJhcGkua3JvZ2VyLmNvbSIsInN1YiI6ImM3MTMxYzE0LTJhNmEtNTA2NC05MDA1LTg3NTdlNjBiNDhmOSIsInNjb3BlIjoicHJvZHVjdC5jb21wYWN0IiwiYXV0aEF0IjoxNzMxMTg1NDI3NDk3ODI1NzkzLCJhenAiOiJmb3J0ZXN0aW5nLTI0MzI2MTI0MzAzNDI0MzE0NjU1Njg2YTU3NDg3NDZjNzYzNDc0NGM1NTM3NjY1MjY5NGQ0NDRkMmUyZTQ1NjQ3MDcyMzYzNTYzNjMzOTRhNzg3NjMyNDQzODZjNTU0Yjc2NGY3NjZhNmQ1YTY2MmY3MjQzNTU2ZDkwMzAwMzgyNTk3OTQyNDc1NyJ9.Bw52oULJN7TG3rf3e0ZECu44PxjXiYwYp82FIWh02vR2MN8qZUCz1z6XGIwhDvv8KDjUnjL8Lx1TGOtKOZc00OC-Tw318p6VCHyaR9Fa6k_I22uXNkTqKblUACnM09fEgjRITcjR70tz6SGl-FRKv7SzTYjBWmsPDqNKQG8wNey7-8PKNKHf1KHtToh5IT9VoYbDaSUxfPBLtO1I8MiWgoO2ieZV7om5YeYq3fvxvKG2X-7ivy3EXwSRQ4AL2ltbaaeOAqWTYWEbuFOSBQhQ-y8BfEPABeoXC-kl6er--P1z7TUtPDBz9pjLKKhV6nzL3e6O3SPEWoEPqwAJVoGHVA
+      User-Agent:
+      - Faraday v2.12.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '19109'
+      X-Correlation-Id:
+      - akam_1731185427_992df3d9-b4f2-4ebc-9492-768e00a7aaa1
+      Server:
+      - Kroger API Gateway
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Kroger-Proxy-Latency:
+      - '1'
+      X-Kroger-Upstream-Latency:
+      - '660'
+      Vary:
+      - Accept-Encoding
+      Akamai-Be-Grn:
+      - 0.934ddb17.1731185427.1742af62
+      Access-Control-Allow-Headers:
+      - origin, x-requested-with, accept
+      Access-Control-Max-Age:
+      - '7200'
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      X-Ratelimit-Limit-Day:
+      - '10000'
+      X-Ratelimit-Remaining-Day:
+      - '9850'
+      Date:
+      - Sat, 09 Nov 2024 20:50:29 GMT
+      Connection:
+      - keep-alive
+      Server-Timing:
+      - ak_p; desc="1731185427633_388061622_356201197_132259_25648_32_36_-";dur=1
+      - cdn-cache; desc=MISS
+      - edge; dur=125
+      - origin; dur=1200
+      Akamai-Grn:
+      - 0.b6592117.1731185427.153b32ed
+      Strict-Transport-Security:
+      - max-age=31536000
+      Set-Cookie:
+      - _abck=F103902AB7AA6FFBAC21F6D909693BAA~-1~YAAQtlkhFwcLoQaTAQAAJUqxEgwadLqn+HbB2Y11X2bQjEcESIzeAfq5tTFKbZhfck6Qolm41LpCUG3/jw7YUY1Mhbpb9Yicr5eR7xuyvXZFzfjY6iO4dNxSpGh1CUDYQ44d60Pl0GiYSjDRJJnkyTNAVDW5Xo+2nZJv77ruh5kg+BHvz5Et2cxXOCLvhqcUIw8uRaIL8t+ARqfdH9m6x7NDYAo5sSgKFZLiWHkEm4qpt/F0NY5f4NgeqTyMyHvTxb4mxvU449q/Chau2lyu+pJUDg5327lOJzfifJ7J6jWzgkRDEC4aGI4HJ/ng1N6I5uaJKt8hfSclHjTBueEC7DvjkeSk/96yqNP8xkRPmB9NxI2g3J5NuP0VDMGoT+ABWK/vW4UuIRfgXaaGUNia~-1~-1~-1;
+        Domain=.kroger.com; Path=/; Expires=Sun, 09 Nov 2025 20:50:29 GMT; Max-Age=31536000;
+        SameSite=None; Secure
+      - bm_sz=0B903168414D8D2E8695D6BB27338274~YAAQtlkhFwgLoQaTAQAAJUqxEhkjoNu+TtzPBBsFzn8KcbWl8eXst6U08i3ty8nT+DUnwkMaWPU6KNW23Z9Go0DdLOrRVx7QDvyt1kTsbQarcS0npPPVAIY3PEt83qU+m1c4AJC8AQSUyMvdgvM0C4l0kEhvj02UtuxM+TF1RQeuRbAfcIUmQFym9W3Mhasz6yD5EO2Bi7sv85ebNIBctpbiUp73CoZ8EUIppTW7nUWC4Ni4njeCzytv5u7np0SnJAnO9sa2AeRZtYQ5koqt5I0G5Y8B1iXY3mrhmFQ1MTu+QSjBfjPMkZGeB4B1+npVWip1K8n3L/+ZKNxX68Ov9Nzv0RWyenbn6RbEzSz8xonveA1pTUcmDYRANTROSA==~3158064~3228722;
+        Domain=.kroger.com; Path=/; Expires=Sun, 10 Nov 2024 00:50:27 GMT; Max-Age=14398;
+        SameSite=None; Secure
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"productId":"0000000004659","upc":"0000000004659","productPageURI":"/p/green-onions/0000000004659?cid=dis.api.tpi_products-api_20240521_b:all_c:p_t:fortesting-243261243","aisleLocations":[{"description":"PRODUCE","number":"0"}],"categories":["Produce"],"countryOrigin":"UNITED
+        STATES","description":"Green Onions","images":[{"perspective":"front","featured":true,"sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/front/0000000004659"},{"size":"large","url":"https://www.kroger.com/product/images/large/front/0000000004659"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/front/0000000004659"},{"size":"small","url":"https://www.kroger.com/product/images/small/front/0000000004659"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/front/0000000004659"}]}],"items":[{"itemId":"0000000004659","inventory":{"stockLevel":"TEMPORARILY_OUT_OF_STOCK"},"favorite":false,"fulfillment":{"curbside":true,"delivery":true,"inStore":true,"shipToHome":false},"price":{"regular":1.49,"promo":0},"size":"1
+        lb","soldBy":"UNIT"}],"itemInformation":{"depth":"0.5","height":"7.0","width":"0.5"},"temperature":{"indicator":"Refrigerated","heatSensitive":false}},{"productId":"0000000094068","upc":"0000000094068","productPageURI":"/p/organic-green-onions/0000000094068?cid=dis.api.tpi_products-api_20240521_b:all_c:p_t:fortesting-243261243","aisleLocations":[{"description":"PRODUCE","number":"0"}],"categories":["Produce"],"countryOrigin":"UNITED
+        STATES","description":"Organic Green Onions","images":[{"perspective":"front","featured":true,"sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/front/0000000094068"},{"size":"large","url":"https://www.kroger.com/product/images/large/front/0000000094068"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/front/0000000094068"},{"size":"small","url":"https://www.kroger.com/product/images/small/front/0000000094068"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/front/0000000094068"}]}],"items":[{"itemId":"0000000094068","inventory":{"stockLevel":"HIGH"},"favorite":false,"fulfillment":{"curbside":true,"delivery":true,"inStore":true,"shipToHome":false},"price":{"regular":1.79,"promo":0},"size":"1
+        each","soldBy":"UNIT"}],"itemInformation":{"depth":"2.0","height":"2.0","width":"2.0"},"temperature":{"indicator":"Refrigerated","heatSensitive":false}},{"productId":"0071752431286","upc":"0071752431286","productPageURI":"/p/diced-green-onions/0071752431286?cid=dis.api.tpi_products-api_20240521_b:all_c:p_t:fortesting-243261243","aisleLocations":[{"bayNumber":"24","description":"PRODUCE","number":"105","numberOfFacings":"1","side":"R","shelfNumber":"5","shelfPositionInBay":"2"}],"categories":["Produce","Produce"],"countryOrigin":"UNITED
+        STATES","description":"Diced Green Onions","images":[{"perspective":"top","sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/top/0071752431286"},{"size":"large","url":"https://www.kroger.com/product/images/large/top/0071752431286"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/top/0071752431286"},{"size":"small","url":"https://www.kroger.com/product/images/small/top/0071752431286"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/top/0071752431286"}]},{"perspective":"front","featured":true,"sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/front/0071752431286"},{"size":"large","url":"https://www.kroger.com/product/images/large/front/0071752431286"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/front/0071752431286"},{"size":"small","url":"https://www.kroger.com/product/images/small/front/0071752431286"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/front/0071752431286"}]}],"items":[{"itemId":"0071752431286","inventory":{"stockLevel":"TEMPORARILY_OUT_OF_STOCK"},"favorite":false,"fulfillment":{"curbside":true,"delivery":true,"inStore":true,"shipToHome":false},"price":{"regular":2.79,"promo":0},"size":"4
+        oz","soldBy":"UNIT"}],"itemInformation":{"depth":"4.75","height":"2.13","width":"5.0"},"temperature":{"indicator":"Refrigerated","heatSensitive":false}},{"productId":"0071941621325","upc":"0071941621325","productPageURI":"/p/amoretti-green-onion-oil-extract-oil-soluble-2-oz/0071941621325?cid=dis.api.tpi_products-api_20240521_b:all_c:p_t:fortesting-243261243","aisleLocations":[],"brand":"Amoretti","categories":["Baking
+        Goods"],"description":"Amoretti Green Onion Oil Extract Oil Soluble - 2 oz","images":[{"perspective":"top","sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/top/0071941621325"},{"size":"large","url":"https://www.kroger.com/product/images/large/top/0071941621325"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/top/0071941621325"},{"size":"small","url":"https://www.kroger.com/product/images/small/top/0071941621325"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/top/0071941621325"}]},{"perspective":"back","sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/back/0071941621325"},{"size":"large","url":"https://www.kroger.com/product/images/large/back/0071941621325"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/back/0071941621325"},{"size":"small","url":"https://www.kroger.com/product/images/small/back/0071941621325"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/back/0071941621325"}]},{"perspective":"front","featured":true,"sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/front/0071941621325"},{"size":"large","url":"https://www.kroger.com/product/images/large/front/0071941621325"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/front/0071941621325"},{"size":"small","url":"https://www.kroger.com/product/images/small/front/0071941621325"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/front/0071941621325"}]}],"items":[{"itemId":"0071941621325","favorite":false,"fulfillment":{"curbside":false,"delivery":false,"inStore":false,"shipToHome":false},"size":"1
+        pack - 2 oz"}],"itemInformation":{},"temperature":{"indicator":"Ambient","heatSensitive":false}},{"productId":"0001111089787","upc":"0001111089787","productPageURI":"/p/kroger-recipe-beginnings-frozen-mirepoix-blend-cajun-style-onions-celery-green-peppers/0001111089787?cid=dis.api.tpi_products-api_20240521_b:all_c:p_t:fortesting-243261243","aisleLocations":[],"brand":"Kroger","categories":["Frozen"],"countryOrigin":"UNITED
+        STATES","description":"Kroger® Recipe Beginnings® Frozen Mirepoix Blend Cajun
+        Style Onions Celery \u0026 Green Peppers","images":[{"perspective":"front","featured":true,"sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/front/0001111089787"},{"size":"large","url":"https://www.kroger.com/product/images/large/front/0001111089787"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/front/0001111089787"},{"size":"small","url":"https://www.kroger.com/product/images/small/front/0001111089787"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/front/0001111089787"}]},{"perspective":"back","sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/back/0001111089787"},{"size":"large","url":"https://www.kroger.com/product/images/large/back/0001111089787"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/back/0001111089787"},{"size":"small","url":"https://www.kroger.com/product/images/small/back/0001111089787"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/back/0001111089787"}]},{"perspective":"right","sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/right/0001111089787"},{"size":"large","url":"https://www.kroger.com/product/images/large/right/0001111089787"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/right/0001111089787"},{"size":"small","url":"https://www.kroger.com/product/images/small/right/0001111089787"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/right/0001111089787"}]},{"perspective":"bottom","sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/bottom/0001111089787"},{"size":"large","url":"https://www.kroger.com/product/images/large/bottom/0001111089787"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/bottom/0001111089787"},{"size":"small","url":"https://www.kroger.com/product/images/small/bottom/0001111089787"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/bottom/0001111089787"}]},{"perspective":"top","sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/top/0001111089787"},{"size":"large","url":"https://www.kroger.com/product/images/large/top/0001111089787"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/top/0001111089787"},{"size":"small","url":"https://www.kroger.com/product/images/small/top/0001111089787"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/top/0001111089787"}]},{"perspective":"left","sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/left/0001111089787"},{"size":"large","url":"https://www.kroger.com/product/images/large/left/0001111089787"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/left/0001111089787"},{"size":"small","url":"https://www.kroger.com/product/images/small/left/0001111089787"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/left/0001111089787"}]}],"items":[{"itemId":"0001111089787","inventory":{"stockLevel":"TEMPORARILY_OUT_OF_STOCK"},"favorite":false,"fulfillment":{"curbside":false,"delivery":false,"inStore":false,"shipToHome":false},"price":{"regular":1.59,"promo":0},"size":"12
+        oz","soldBy":"UNIT"}],"itemInformation":{},"temperature":{"indicator":"Frozen","heatSensitive":false}},{"productId":"0073588250481","upc":"0073588250481","productPageURI":"/p/green-onion-shaped-banner-brown-column-criss-cross-spanish-father-s-day-card-son-in-law/0073588250481?cid=dis.api.tpi_products-api_20240521_b:all_c:p_t:fortesting-243261243","aisleLocations":[],"brand":"Designer
+        Greetings","categories":["Party"],"description":"Green Onion Shaped Banner,
+        Brown Column, Criss Cross Spanish Father''s Day Card: Son-in-Law","images":[{"perspective":"back","sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/back/0073588250481"},{"size":"large","url":"https://www.kroger.com/product/images/large/back/0073588250481"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/back/0073588250481"},{"size":"small","url":"https://www.kroger.com/product/images/small/back/0073588250481"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/back/0073588250481"}]},{"perspective":"front","featured":true,"sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/front/0073588250481"},{"size":"large","url":"https://www.kroger.com/product/images/large/front/0073588250481"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/front/0073588250481"},{"size":"small","url":"https://www.kroger.com/product/images/small/front/0073588250481"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/front/0073588250481"}]}],"items":[{"itemId":"0073588250481","favorite":false,"fulfillment":{"curbside":false,"delivery":false,"inStore":false,"shipToHome":false},"size":"1
+        card / 1 envelope"}],"itemInformation":{},"temperature":{"indicator":"Ambient","heatSensitive":false}},{"productId":"0019129694386","upc":"0019129694386","productPageURI":"/p/northlight-4-25-glittered-green-onion-christmas-ornament/0019129694386?cid=dis.api.tpi_products-api_20240521_b:all_c:p_t:fortesting-243261243","aisleLocations":[],"brand":"NorthLight","categories":["Christmas"],"countryOrigin":"CHINA","description":"Northlight
+        4.25 Glittered Green Onion Christmas Ornament","images":[{"perspective":"front","featured":true,"sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/front/0019129694386"},{"size":"large","url":"https://www.kroger.com/product/images/large/front/0019129694386"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/front/0019129694386"},{"size":"small","url":"https://www.kroger.com/product/images/small/front/0019129694386"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/front/0019129694386"}]},{"perspective":"back","sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/back/0019129694386"},{"size":"large","url":"https://www.kroger.com/product/images/large/back/0019129694386"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/back/0019129694386"},{"size":"small","url":"https://www.kroger.com/product/images/small/back/0019129694386"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/back/0019129694386"}]}],"items":[{"itemId":"0019129694386","favorite":false,"fulfillment":{"curbside":false,"delivery":false,"inStore":false,"shipToHome":false},"size":"1"}],"itemInformation":{},"temperature":{"indicator":"Ambient","heatSensitive":false}},{"productId":"0000000004068","upc":"0000000004068","productPageURI":"/p/green-onions/0000000004068?cid=dis.api.tpi_products-api_20240521_b:all_c:p_t:fortesting-243261243","aisleLocations":[{"description":"PRODUCE","number":"0"}],"categories":["Produce"],"countryOrigin":"UNITED
+        STATES","description":"Green Onions","images":[{"perspective":"front","featured":true,"sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/front/0000000004068"},{"size":"large","url":"https://www.kroger.com/product/images/large/front/0000000004068"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/front/0000000004068"},{"size":"small","url":"https://www.kroger.com/product/images/small/front/0000000004068"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/front/0000000004068"}]}],"items":[{"itemId":"0000000004068","inventory":{"stockLevel":"HIGH"},"favorite":false,"fulfillment":{"curbside":true,"delivery":true,"inStore":true,"shipToHome":false},"price":{"regular":0.99,"promo":0},"size":"1
+        ct","soldBy":"UNIT"}],"itemInformation":{"depth":"3.0","height":"2.0","width":"12.0"},"temperature":{"indicator":"Refrigerated","heatSensitive":false}},{"productId":"1004139001465","upc":"1004139001465","productPageURI":"/p/kikkoman-teriyaki-sauce-garlic-and-green-onion-case-of-6-20-5-oz-/1004139001465?cid=dis.api.tpi_products-api_20240521_b:all_c:p_t:fortesting-243261243","aisleLocations":[],"brand":"Kikkoman","categories":["International"],"countryOrigin":"UNITED
+        STATES","description":"Kikkoman Teriyaki Sauce - Garlic and Green Onion -
+        Case of 6 - 20.5 oz.","images":[{"perspective":"back","sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/back/1004139001465"},{"size":"large","url":"https://www.kroger.com/product/images/large/back/1004139001465"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/back/1004139001465"},{"size":"small","url":"https://www.kroger.com/product/images/small/back/1004139001465"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/back/1004139001465"}]},{"perspective":"front","featured":true,"sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/front/1004139001465"},{"size":"large","url":"https://www.kroger.com/product/images/large/front/1004139001465"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/front/1004139001465"},{"size":"small","url":"https://www.kroger.com/product/images/small/front/1004139001465"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/front/1004139001465"}]}],"items":[{"itemId":"1004139001465","favorite":false,"fulfillment":{"curbside":false,"delivery":false,"inStore":false,"shipToHome":false},"size":"20.5
+        oz"}],"itemInformation":{},"temperature":{"indicator":"Ambient","heatSensitive":false}},{"productId":"0019393700029","upc":"0019393700029","productPageURI":"/p/momofuku-soy-scallion-noodles/0019393700029?cid=dis.api.tpi_products-api_20240521_b:all_c:p_t:fortesting-243261243","aisleLocations":[{"bayNumber":"21","description":"AISLE
+        3","number":"3","numberOfFacings":"1","side":"R","shelfNumber":"1","shelfPositionInBay":"2"}],"brand":"Momofuku","categories":["International"],"countryOrigin":"TAIWAN,
+        PROVINCE OF CHINA","description":"Momofuku Soy \u0026 Scallion Noodles","images":[{"perspective":"back","sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/back/0019393700029"},{"size":"large","url":"https://www.kroger.com/product/images/large/back/0019393700029"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/back/0019393700029"},{"size":"small","url":"https://www.kroger.com/product/images/small/back/0019393700029"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/back/0019393700029"}]},{"perspective":"right","sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/right/0019393700029"},{"size":"large","url":"https://www.kroger.com/product/images/large/right/0019393700029"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/right/0019393700029"},{"size":"small","url":"https://www.kroger.com/product/images/small/right/0019393700029"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/right/0019393700029"}]},{"perspective":"front","featured":true,"sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/front/0019393700029"},{"size":"large","url":"https://www.kroger.com/product/images/large/front/0019393700029"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/front/0019393700029"},{"size":"small","url":"https://www.kroger.com/product/images/small/front/0019393700029"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/front/0019393700029"}]},{"perspective":"left","sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/left/0019393700029"},{"size":"large","url":"https://www.kroger.com/product/images/large/left/0019393700029"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/left/0019393700029"},{"size":"small","url":"https://www.kroger.com/product/images/small/left/0019393700029"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/left/0019393700029"}]}],"items":[{"itemId":"0019393700029","inventory":{"stockLevel":"HIGH"},"favorite":false,"fulfillment":{"curbside":true,"delivery":true,"inStore":true,"shipToHome":false},"price":{"regular":13.99,"promo":0},"size":"16.93
+        oz","soldBy":"UNIT"}],"itemInformation":{"depth":"5.05","height":"6.85","width":"7.55"},"temperature":{"indicator":"Ambient","heatSensitive":false}}],"meta":{"pagination":{"start":0,"limit":10,"total":36}}}'
+  recorded_at: Sat, 09 Nov 2024 20:50:28 GMT
+recorded_with: VCR 6.3.1

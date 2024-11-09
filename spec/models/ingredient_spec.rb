@@ -51,7 +51,7 @@ RSpec.describe Ingredient, type: :model do
       ingredient8 = Ingredient.create!(name:"Cheese", national_price:4.73, taxable:false, snap:true)
 
       result = Ingredient.filter_ingredients("cHeE")
-      expected_result = [ingredient, ingredient3, ingredient5, ingredient6, ingredient7].sort_by(&:name)
+      expected_result = [ingredient, ingredient3, ingredient5, ingredient7, ingredient8].sort_by(&:name)
       actual_result = result.sort_by(&:name)
     
       expect(actual_result).to eq(expected_result)    
