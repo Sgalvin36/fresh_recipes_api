@@ -42,7 +42,7 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
-
+ 
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
 
@@ -77,10 +77,18 @@ VCR.configure do |config|
   config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   config.filter_sensitive_data('<KROGER_CLIENT_ID>') { Rails.application.credentials.kroger[:client_id] }
   config.filter_sensitive_data('<KROGER_CLIENT_SECRET>') { Rails.application.credentials.kroger[:client_password] }
+  config.filter_sensitive_data('<KROGER_CLIENT_ID>') { Rails.application.credentials.kroger[:client_id2] }
+  config.filter_sensitive_data('<KROGER_CLIENT_SECRET>') { Rails.application.credentials.kroger[:client_password2] }
   config.hook_into :webmock
-  config.default_cassette_options = { re_record_interval: 7.days }
+  # config.default_cassette_options = { re_record_interval: 7.days }
+  config.default_cassette_options = {
+      match_requests_on: [:method, :uri, :body],
+      re_record_interval: 7.days
+    }
+  config.allow_http_connections_when_no_cassette = false
+# config.allow_http_connections_when_no_cassette = true
   config.configure_rspec_metadata!
-  config.allow_http_connections_when_no_cassette = true
+
   config.before_record do |i|
     i.response.body.force_encoding('UTF-8')
   end

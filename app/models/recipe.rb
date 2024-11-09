@@ -9,9 +9,9 @@ class Recipe < ApplicationRecord
   has_many :cookware, through: :recipe_cookware
   has_many :cooking_tips, through: :recipe_cooking_tips
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: true, allow_blank: false
   validates :total_price, numericality: { greater_than_or_equal_to: 0, only_float: true }
-  validates :image, presence: true, uniqueness: true
+  validates :image, presence: true, uniqueness: true, allow_blank: false
   validates :serving_size, numericality: { greater_than_or_equal_to: 0 }
 
   def get_ingredient_list
@@ -33,32 +33,31 @@ class Recipe < ApplicationRecord
   end
 
   def self.filter_recipes(search_params)
-    return where("recipes.name ILIKE ?", "%#{search_params}%") if search_params.present?
+    return where("recipes.name ILIKE ?", "%#{search_params[:by_recipe]}%") if search_params[:by_recipe].present?
     return all
   end
 
-  # Added distinct. Otherwise was returning duplicate recipe instances.
   def self.filter_by_ingredient(search_params)
-    return joins(:ingredients).where("ingredients.name ILIKE ?", "%#{search_params}%").distinct if search_params.present?
+    return joins(:ingredients).where("ingredients.name ILIKE ?", "%#{search_params[:by_ingredient]}%").distinct if search_params[:by_ingredient].present?
     return all
   end
 
   def self.filter_by_cooking_style(search_params)
-    return joins(:recipe_instructions).where("cooking_style = ?", "#{search_params}").distinct if search_params.present?
+    return joins(:recipe_instructions).where("cooking_style = ?", "#{search_params[:by_style]}").distinct if search_params[:by_style].present?
     return all
   end
 
   def self.filter_by_price(search_params)
-    price = 5.0 if search_params == "0" || search_params == "1"
-    price = 10.0 if search_params == "2" || search_params == "3"
-    return where("recipes.total_price < ?", price) if search_params == "0" || search_params == "2"
-    return where("recipes.total_price > ?", price) if search_params == "1" || search_params == "3"
+    price = 5.0 if search_params[:by_price] == "0" || search_params[:by_price] == "1"
+    price = 10.0 if search_params[:by_price] == "2" || search_params[:by_price] == "3"
+    return where("recipes.total_price < ?", price) if search_params[:by_price] == "0" || search_params[:by_price] == "2"
+    return where("recipes.total_price > ?", price) if search_params[:by_price] == "1" || search_params[:by_price] == "3"
     return all
   end
 
   def self.filter_by_serving(search_params)
-    return where(serving_size: 1) if search_params == 'Single'
-    return where("serving_size > ?", 1) if search_params == 'Multiple'
+    return where(serving_size: 1) if search_params[:by_serving] == 'Single'
+    return where("serving_size > ?", 1) if search_params[:by_serving] == 'Multiple'
     return all
   end
 
@@ -79,7 +78,8 @@ class Recipe < ApplicationRecord
         }
       end
     else
-      raise "Failed to fetch Kroger data: #{response.body}"
+      error_message = JSON.parse(response.body)['errors']['reason']
+      raise "Failed to fetch Kroger data: #{error_message}"
     end
   end
 
@@ -105,25 +105,3 @@ class Recipe < ApplicationRecord
     ingredient_objects
   end
 end
-# calls a function that maps through the data to look into each hash to find the kroger_id that matches
-
-# Could revisit and add `.dependent(:destroy)`
-# We would want to make the dependency relate to the joins table instead of the parent table
-
-# def update_ingredients(location_id)
-#   ingredient_ids = recipe.ingredients.map do |ingredient|
-#     ingredient.kroger_id
-#   end
-#   ingredient_id_string = ingredient_ids.join(", ")
-#   data = fetch_update(ingredient_id_string, location_ids)
-#   ingredient_ids.each do |id|
-#     found = Ingredient.find_by("kroger_id = '#{id}'")
-#     found.update(
-#       name: data[:description],
-#       national_price: data[:price],
-#       kroger_id: data[:product_ID],
-#       taxable: false,
-#       snap: true
-#     )
-#   end
-# end

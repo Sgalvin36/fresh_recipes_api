@@ -68,3 +68,50 @@ RSpec.describe "Users API", type: :request do
         end
     end
 end
+
+RSpec.describe Api::V1::UsersController, type: :controller do
+    describe "GET #index" do
+        before do
+            @user1 = User.create!(name:"Fred", username:"Fred-E", password:"pass123")
+            @user2 = User.create!(name:"Freddy", username:"Freed-Fred", password:"pass321")
+            @user3 = User.create!(name:"Frank", username:"Feed-Frank", password:"ImHungry")
+        end
+        it "returns a list of users" do
+            get :index
+
+            expect(response).to have_http_status(:ok)
+            expect(response.content_type).to eq("application/json; charset=utf-8") 
+            data = JSON.parse(response.body, symbolize_names:true)
+
+            expect(data[:data].length).to eq(3)
+        end
+    end
+
+    describe "GET #show" do
+        it "returns a single users" do
+            user1 = User.create!(name:"Fred", username:"Fred-E", password:"pass123")
+
+            request.headers["Authorization"] = user1.key
+            get :show, params: {id: user1.id}
+            expect(response).to have_http_status(:ok)
+            expect(response.content_type).to eq("application/json; charset=utf-8") 
+            data = JSON.parse(response.body, symbolize_names:true)
+
+            expect(data[:data][:id].to_i).to eq(user1.id)
+            expect(data[:data][:type]).to eq("user")
+            expect(data[:data][:attributes][:name]).to eq(user1.name)
+            expect(data[:data][:attributes][:username]).to eq(user1.username)
+        end
+
+        it "returns an error message if its not the right user" do
+            user1 = User.create!(name:"Fred", username:"Fred-E", password:"pass123")
+            user2 = User.create!(name:"Freddy", username:"Freed-Fred", password:"pass321")
+            request.headers["Authorization"] = user1.key
+            get :show, params: {id: user2.id}
+
+            expect(response.status).to eq(401)
+            data = JSON.parse(response.body, symbolize_names:true)
+            expect(data[:message]).to eq("Not the user.")
+        end
+    end
+end

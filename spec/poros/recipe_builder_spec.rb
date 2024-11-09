@@ -102,7 +102,7 @@ RSpec.describe RecipeBuilder, type: :model do
         }
     end
 
-    let (:update_params) do
+    let(:update_params) do
         {
             "name": "Baked Potato12",
             "serving_size": "2",
@@ -196,7 +196,10 @@ RSpec.describe RecipeBuilder, type: :model do
         }
     end
 
+    let(:user_attributes_without_cookware_and_tips) { user_params.except(:cookware, :cooking_tips) }
+
     let(:recipe_builder) { RecipeBuilder.new(user_params) }
+    let(:recipe_builder2) { RecipeBuilder.new(user_attributes_without_cookware_and_tips)}
     let(:update_builder) { RecipeBuilder.new(update_params)}
 
     describe "#call" do
@@ -216,6 +219,17 @@ RSpec.describe RecipeBuilder, type: :model do
 
         expected_price = 0.89 + 3.99 + 2.49
         expect(recipe.total_price).to eq(expected_price)
+        end
+
+        it "creates a new recipe with only require params" do
+            expect { recipe_builder2.call }.to change { Recipe.count }.by(1)
+            recipe = Recipe.last
+    
+            expect(recipe.ingredients.count).to eq(3)
+            expect(recipe.cookware.count).to eq(0)
+            expect(recipe.cooking_tips.count).to eq(0)
+            expect(recipe.recipe_instructions.count).to eq(9)
+        
         end
     end
 

@@ -11,21 +11,25 @@ class RecipeBuilder
             recipe = create_recipe
             create_ingredients(recipe)
             create_instructions(recipe)
-            create_cookware(recipe)
-            create_cooking_tips(recipe)
+            create_cookware(recipe) if user_params[:cookware].present?
+            create_cooking_tips(recipe) if user_params[:cooking_tips].present?
             recipe.update_total_price
         end
     end
 
     def update_call(recipe)
         ActiveRecord::Base.transaction do
-            update_recipe(recipe) if user_params[:name].present? || user_params[:image_url].present? || user_params[:serving_size].present?
-            update_ingredients(recipe) if user_params[:ingredients].present?
-            update_instructions(recipe) if user_params[:instructions].present?
-            update_cookware(recipe) if user_params[:cookware].present?
-            update_cooking_tips(recipe) if user_params[:cooking_tips].present?
+            return false unless update_recipe(recipe) if user_params[:name].present? || user_params[:image_url].present? || user_params[:serving_size].present?
+            return false unless update_ingredients(recipe) if user_params[:ingredients].present?
+            return false unless update_instructions(recipe) if user_params[:instructions].present?
+            return false unless update_cookware(recipe) if user_params[:cookware].present?
+            return false unless update_cooking_tips(recipe) if user_params[:cooking_tips].present?
             recipe.update_total_price
+            recipe.save!
         end
+        true
+    rescue ActiveRecord::RecordInvalid
+        false
     end
     private
 
