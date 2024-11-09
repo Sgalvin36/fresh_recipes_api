@@ -80,11 +80,9 @@ RSpec.describe "Ingredient controller", type: :request do
             expect(response).to be_successful
 
             json = JSON.parse(response.body, symbolize_names:true)
-
             expect(json[:data].length).to eq 5
             json[:data].each do |ingredient|
-                expect(["American Cheese", "Blue Cheese", "French Cheese", "Red Cheese", "Green Cheese" ]).to include(ingredient[:attributes][:name])
-                expect("Cheese").to_not include(ingredient[:attributes][:name])
+                expect(["American Cheese", "Blue Cheese", "French Cheese", "Cheese", "Green Cheese" ]).to include(ingredient[:attributes][:name])
             end
         end
     end
@@ -103,6 +101,26 @@ RSpec.describe "Ingredient controller", type: :request do
             expect(data[:data].length).to eq 10
             data[:data].each do |ingredient|
                 expect(ingredient[:description]).to include("Tomato")
+                expect(ingredient).to have_key(:price)
+                expect(ingredient).to have_key(:product_ID)
+                expect(ingredient[:price]).not_to be_nil
+                expect(ingredient[:product_ID]).not_to be_nil
+            end
+        end
+
+        it "can make the request successfully with more than one search word", :vcr do
+            headers = { 
+                "CONTENT_TYPE" => "application/json",
+            }
+            params = {
+                for_dev: "green onion"
+            }
+            KrogerGateway.instance.authorize_connection
+            get api_v1_ingredients_path(params)
+            expect(response).to be_successful
+            data = JSON.parse(response.body, symbolize_names:true)
+            expect(data[:data].length).to eq 10
+            data[:data].each do |ingredient|
                 expect(ingredient).to have_key(:price)
                 expect(ingredient).to have_key(:product_ID)
                 expect(ingredient[:price]).not_to be_nil

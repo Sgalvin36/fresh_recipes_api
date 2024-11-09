@@ -31,7 +31,7 @@ class Ingredient < ApplicationRecord
         {
           product_ID: ingredient[:productId],
           description: ingredient[:description],
-          price: ingredient[:items][0][:price][:regular]
+          price: ingredient.dig(:items, 0, :price, :regular) || 0.00
         }
       end
     else
