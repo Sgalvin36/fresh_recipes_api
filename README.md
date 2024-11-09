@@ -111,93 +111,128 @@ Run the command `EDITOR="code --wait" rails credentials:edit` which should open 
 
 # Endpoints
 
+## Recipes
+### Get all recipes
+`GET /api/v1/recipes/` **No authentication needed** <br>
+To retrieve all the users in your user base. It will return only  the username and the name of the user.
+### Parameters
+**"by_recipe"**: |string| Will filter the recipes based off of the titles of the recipes <br>
 
+**"by_ingredient"**: |string| Will filter the recipes looking for ingredients that match the provided parameter <br>\
+**"by_style"**: |string| Accepts four different options <br>
+ Each of these styles are searchable and will return all recipes that have the searched for cooking style
+ - 0 : No cooking style
+ - 1 : Microwave
+ - 2 : Stovetop
+ - 3 : Oven/ Toaster Oven <br>
+
+**"by_price"**: |string| Accepts three different options <br>
+ Each recipe will have a total price based off the price of the ingredients that make up the recipe, this filter will search through the recipes and return the ones that total fit the search parameter. <br>
+ - "0" : Less then $5
+ - "2" : Less than $10
+ - "3" : More than $10 <br>
+
+**"by_serving"**: |string| Accepts two different options <br>
+ Each recipe is designed around serving size as well to allow for even more customized filtering.
+ - "Single" : Serves 1
+ - "Multiple" : Serves more than one <br>
+#### Example of Parameters
+```
+params = { 
+    "by_price": "2",
+    "by_serving": "Single",
+    "by_cooking_style": "2",
+    "by_ingredient": "toMato",
+    "by_recipe": "Soup"
+     }
+```
+
+### Get one recipe
+`GET /api/v1/recipes/:id` **No authentication needed** <br>
+To retrieve one recipe from the database. It will return all the information of the recipe to include instructions, cookware, and cooking tips.
+### Parameters
+**"by_location"**: |string| This allows the user to generate the recipe details with the additional call to the provided grocery store location which will first update the prices before relaying the entire recipe to the user. <br>
+#### Example of Parameters
+```
+params = { 
+    "by_location": "59302144"
+    }
+```
+## Ingredients 
+### Get all ingredients
+`GET /api/v1/ingredients/` **No authentication needed** <br>
+An endpoint that will retrieve all the ingredients that are stored in the database.
+
+### Parameters
+**"for_ingredient"**: |string| Accepts the parameter and returns ingredients that meet the search query. It is part of the function for the recipes filter by ingredient.  <br>
+
+**"for_dev"**: |string| Accepts the parameter and makes a call to the external API to gather relavent data about the search parameter and returns all products that match the search query. Helps the creation of recipes by fetching the store ids, prices, and store recognized names of ingredients. <br> 
+#### Example of Parameters
+```
+params = { "for_ingredient": "tomato }
+```
+```
+params = { "for_dev": "potato }
+```
 ## Users
 ### Get all users
 `GET /api/v1/users/` **No authentication needed** <br>
-To find a list of top 20 highest rated movies.
+To retrieve all the users in your user base. It will return only  the username and the name of the user.
 ### Parameters
 No parameters needed outside of making the call to the endpoint.
 
-### Finding Movies that match a Query
-`GET /api/v1/movies/index` **No authentication needed** <br>
-To find a list of movies that matches the search parameter.
-#### Parameters
-**"query"**: string, *required*
+### Get one user
+`GET /api/v1/users/:id` **No authentication needed** <br>
+To revieve one users info. 
+### Parameters
+**"id"**: string, *required*
 #### Example of Parameters
 ```
-params = { "query": "Star Wars" }
+params = { "id": 123 }
 ```
 
-### Getting detailed information on one Movie
-`GET /api/v1/movies/:id` **No authentication needed** <br>
-To find detailed information about a specific movie to include cast members and reviews of the movie.
-#### Parameters
-**"id"**: integer, *required*
-#### Example of Parameters
-```
-params = { "id": 4 }
-```
-
-### Getting similar movies based of one Movie
-`GET /api/v1/movies/:id` **No authentication needed** <br>
-To find similar movies to the specific movie that is searched.
-#### Parameters
-**"id"**: integer, *required*
-**"similar"**: boolean, *required*
-#### Example of Parameters
-```
-params = { "id": 4, "similar": true }
-```
-
-## Viewing Party Endpoints
-### Creating a Viewing Party
-`POST /api/v1/viewing_parties` **Authentication needed and should be included in header** <br>
-To create a viewing party and invite other users to be a part of the event.
-#### Parameters
+### Create a new user
+`POST /api/v1/users/` **No authentication needed** <br>
+To add a user to the database. It will store the password as a hash and automatically create a key for the user that can be used in other controllers.  
+### Parameters
 **"name"**: string, *required* <br>
-**"start_time"**: string, *required* <br>
-**"end_time"**: string, *required*<br>
-**"movie_id"**: integer, *required*<br>
-**"movie_title"**: string, *required*<br>
-**"user_id"**: integer, *required*<br>
-**"api_key"**: string, *required*<br>
-**"users"**: array of user IDs, *required*<br>
+**"username"**: string, *required* <br>
+**"password"**: string, *required* <br>
 #### Example of Parameters
 ```
-params = {
-    name: "Friends for ever and ever",
-    start_time: "2025-05-01 10:00:00",
-    end_time: "2025-05-01 14:30:00",
-    movie_id: 456,
-    movie_title: "Princess Bride",
-    api_key: <API_KEY>,
-    user_id: 413,
-    users: [647, 925]
-}
-```
-
-### Adding more Users to a Viewing Party
-`PATCH` or `PUT /api/v1/viewing_parties/:id` **Authentication needed and should be included in header** <br>
-To update the list of a viewing party and invite additional users.
-#### Parameters
-**"id"**: integer of party ID, *required* <br>
-**"users"**: array of user IDs, *required* <br>
-#### Example of Parameters
-```
-params = {
-    "id": 4,
-    "users": [3412, 7665]
+params = { 
+    "name": "Seth", 
+    "username":"SeththeSith", 
+    "password": "Pass123" 
     }
 ```
 
-## User Endpoints
-### Getting detailed User information
-`GET /api/v1/users/:id` **Authentication needed and should be included in header** <br>
-To get a detailed record of the current users activity to include viewing parties that they have hosted and the parties they have been invited to.
-#### Parameters
-**"id"**: integer of user ID, *required* <br>
+## Sessions
+### Create a new session
+`POST /api/v1/sessions/` **Option to provide persistant authentication** <br>
+This allows a user to create a session token that can be utilized in other parts of the application.
+### Parameters
+**"username"**: string, *required* <br>
+**"password"**: string, *required*
 #### Example of Parameters
 ```
-params = { "id": 0 }
+params = { 
+    "username":"SeththeSith", 
+    "password": "Pass123" 
+    }
+```
+
+## Locations
+### Get locational data
+`POST /api/v1/users/` **No authentication needed** <br>
+This makes a call to an external API that will return locations that are within range of the provided coordinates.
+### Parameters
+**"lat"**: string, *required* Latitude coordinates <br>
+**"long"**: string, *required* Longitude coordinates
+#### Example of Parameters
+```
+params = { 
+    "lat":"40.7128", 
+    "long": "74.0060" 
+    }
 ```
