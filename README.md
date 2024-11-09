@@ -174,6 +174,86 @@ params = { "for_ingredient": "tomato }
 ```
 params = { "for_dev": "potato }
 ```
+
+## Recipe Builder
+### Create Recipe
+`POST /api/v1/recipe_builders` **Authentication needed** <br>
+This allows the qualified user to submit recipes to the database. A user needs to have a generated id, and the necessary role to submit the recipe.
+### Parameters
+**"name"**: |string| *required*<br>
+
+**"serving_size"**: |integer| *required*<br>
+
+**"image_url"**: |string| *required*<br>
+
+**"ingredients"**: |array| *required*<br>
+In the ingredients array, it is looking for an object built with several parameters
+- **"quantity"**: |integer| *required*
+
+- **"measurement"**: |string| *required* 
+  - *Used to define the quantity (tsp, Tbls, cup, etc.)*
+- **"ingredient"**: |string| *required*
+  - *The name of the ingredient, ideally retrieved from the external API using the Ingredients endpoing (:for_dev)*
+- **"price"**: |string| *required*
+  - *The price of the ingredient, ideally retrieved from the external API using the Ingredients endpoing (:for_dev)*
+- **"productID"**: |string| *required*
+  - *The store specific ID of the ingredient, ideally retrieved from the external API using the Ingredients endpoing (:for_dev)*
+
+**"instructions"**: |array| *required*<br>
+In the instructions array, it is looking for an object built with several parameters.
+- **"cookingStyle"**: |integer| *required*
+
+- **"step"**: |integer| *required* 
+  - *Used to establish the step per cooking style*
+- **"instruction"**: |string| *required*
+
+**"cookware"**: |array| <br>
+In the cookware array, it is looking for an object containing the key of `cookware` and the value of the associate cookware.
+
+**"cooking_tips"**: |array| <br>
+In the cooking_tips array, it is looking for an object containing the key of `cookware` and the value of the associate cookware.
+
+<br> 
+#### Example of Parameters
+```
+    params = {
+        name: "Baked Beans",
+        serving_size: 1,
+        image_url: "link to image",
+        ingredients: [
+            { 
+                quantity: 2,
+                measurement: "Tablespoons",
+                ingredient: "Brown Sugar",
+                price: 2.45,
+                productID: "34295523"
+            },
+            {
+                quantity: ...
+            }
+        ],
+        instructions: [
+            {
+                cookingStyle: "2",
+                step: "1",
+                instruction: "Open can of beans
+            },
+            {
+                cookingStyle: "2",
+                step: "2",
+                ...
+            }
+        ],
+        cookware: [
+            { cookware: "pot"},
+            { cookware: "spoon"}
+        ],
+        cooking_tips: [
+            { tip: "Edge of lid can be sharp when opening, be care not to cut yourself."},
+            { tip: "Beans will be very hot after cooked"}
+        ]
+    }
+```
 ## Users
 ### Get all users
 `GET /api/v1/users/` **No authentication needed** <br>
@@ -196,7 +276,9 @@ params = { "id": 123 }
 To add a user to the database. It will store the password as a hash and automatically create a key for the user that can be used in other controllers.  
 ### Parameters
 **"name"**: string, *required* <br>
+
 **"username"**: string, *required* <br>
+
 **"password"**: string, *required* <br>
 #### Example of Parameters
 ```
@@ -213,6 +295,7 @@ params = {
 This allows a user to create a session token that can be utilized in other parts of the application.
 ### Parameters
 **"username"**: string, *required* <br>
+
 **"password"**: string, *required*
 #### Example of Parameters
 ```
@@ -228,6 +311,7 @@ params = {
 This makes a call to an external API that will return locations that are within range of the provided coordinates.
 ### Parameters
 **"lat"**: string, *required* Latitude coordinates <br>
+
 **"long"**: string, *required* Longitude coordinates
 #### Example of Parameters
 ```
