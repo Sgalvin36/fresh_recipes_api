@@ -60,6 +60,11 @@ jobs:
             name: Database setup
             command: bin/rails db:{create,migrate} --trace
         - run:
+            name: Drop and Recreate Test Database
+            command: |
+              bundle exec rake db:drop RAILS_ENV=test
+              bundle exec rake db:create db:migrate RAILS_ENV=test
+        - run:
             name: Run rspec in parallel
             command: bundle exec rspec
         # Save test results for timing analysis
