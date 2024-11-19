@@ -33,9 +33,10 @@ jobs:
             PGHOST: 127.0.0.1
             PGUSER: postgres
             RAILS_ENV: test
-        - image: circleci/postgres:11 # database image
+        - image: cimg/postgres:14.13 # database image
           environment: # environment variables for database, it is kind of obvious but it is important that they match with your test config in database.yml
-            POSTGRES_USER: postgres
+            POSTGRES_USER: circleci_user
+            POSTGRES_PASSWORD: circleci_pass
             POSTGRES_DB: fresh_recipes_api_test
       steps: # a collection of executable commands
         - checkout # special step to check out source code to working directory
