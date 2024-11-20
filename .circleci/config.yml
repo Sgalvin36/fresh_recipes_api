@@ -60,7 +60,7 @@ jobs:
             command: dockerize -wait tcp://localhost:5432 -timeout 1m
         - run:
             name: Database setup
-            command: bin/rails db:{create,migrate,seed} --trace
+            command: bin/rails db:{create,migrate} --trace
         - run:
             name: Run rspec in parallel by directory
             command: |
