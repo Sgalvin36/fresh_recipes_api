@@ -58,8 +58,8 @@ test:
   adapter: postgresql
   encoding: unicode
   database: fresh_recipes_api_test
-  username: circleci_user
-  password: circleci_pass
+  username: <%= ENV['DB_USERNAME'] || 'circleci_user' %>
+  password: <%= ENV['DB_PASSWORD'] || 'circleci_pass' %>
   host: localhost
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
