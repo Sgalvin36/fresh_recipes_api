@@ -24,6 +24,7 @@ jobs:
           name: "Say hello"
           command: "echo Hello, World!"
   build-and-test: # runs not using Workflows must have a `build` job as entry point
+      parallelism: 4
       docker: # run the steps with Docker
         - image: cimg/ruby:3.2.2 # if you're using ruby version >= 3.0, use cimg/ruby:3.x.y 
           environment: # environment variables for primary container
@@ -60,8 +61,17 @@ jobs:
             name: Database setup
             command: bin/rails db:{create,migrate,seed} --trace
         - run:
-            name: Run rspec in parallel
-            command: bundle exec rspec
+            name: Run rspec in parallel by directory
+            command: |
+              if [ "$CIRCLE_NODE_INDEX" == "0" ]; then
+                bundle exec rspec spec/models
+              elif [ "$CIRCLE_NODE_INDEX" == "1" ]; then
+                bundle exec rspec spec/requests
+              elif [ "$CIRCLE_NODE_INDEX" == "2" ]; then
+                bundle exec rspec spec/poros
+              else
+                bundle exec rspec spec/gateway
+              fi
         # Save test results for timing analysis
         - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
             path: test_results
