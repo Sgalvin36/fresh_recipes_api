@@ -11,13 +11,12 @@ class Ingredient < ApplicationRecord
   after_save :update_associated_recipes_total_price, if: :saved_change_to_national_price?
 
   def self.find_or_create_ingredient(ingredient)
-    find_by("kroger_id = ?", ingredient[:productId]) || create!(
-      name: ingredient[:ingredient],
-      national_price: ingredient[:price].to_f,
-      kroger_id: ingredient[:productId],
-      taxable: true,
-      snap: true
-    )
+    find_or_create_by(kroger_id: ingredient[:productId]) do |ing|
+      ing.name = ingredient[:ingredient]
+      ing.national_price = ingredient[:price].to_f
+      ing.taxable = true
+      ing.snap = true
+    end
   end
 
   def self.filter_ingredients(search_params)

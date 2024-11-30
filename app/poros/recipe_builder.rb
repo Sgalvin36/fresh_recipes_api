@@ -69,7 +69,7 @@ class RecipeBuilder
 
     def create_cookware(recipe)
         user_params[:cookware].each do |cookware|
-            new_cook = Cookware.create!(name: cookware[:cookware])
+            new_cook = Cookware.find_or_create_cookware(cookware)
             RecipeCookware.create!(
                 cookware: new_cook, 
                 recipe: recipe
