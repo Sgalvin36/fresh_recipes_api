@@ -44,14 +44,9 @@ class RecipeBuilder
     
     def create_ingredients(recipe)
         user_params[:ingredients].each do |ingredient|
-            new_ing = Ingredient.create!(
-                name: ingredient[:ingredient],
-                national_price: ingredient[:price].to_f,
-                kroger_id: ingredient[:productId],
-                taxable: true,
-                snap: true
-            )
-            new_mes = Measurement.create!(unit: ingredient[:measurement])
+            new_ing = Ingredient.find_or_create_ingredient(ingredient) 
+
+            new_mes = Measurement.find_or_create(ingredient[:measurement])
             RecipeIngredient.create!(
                 quantity: ingredient[:quantity],
                 recipe: recipe,
@@ -74,7 +69,7 @@ class RecipeBuilder
 
     def create_cookware(recipe)
         user_params[:cookware].each do |cookware|
-            new_cook = Cookware.create!(name: cookware[:cookware])
+            new_cook = Cookware.find_or_create_cookware(cookware)
             RecipeCookware.create!(
                 cookware: new_cook, 
                 recipe: recipe

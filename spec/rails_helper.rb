@@ -82,6 +82,7 @@ VCR.configure do |config|
   config.hook_into :webmock
   # config.default_cassette_options = { re_record_interval: 7.days }
   config.default_cassette_options = {
+      record: :new_episodes,
       match_requests_on: [:method, :uri, :body],
       re_record_interval: 7.days
     }

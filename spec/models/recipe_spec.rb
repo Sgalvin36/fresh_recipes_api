@@ -11,9 +11,9 @@ RSpec.describe Recipe, type: :model do
     
 
     # Ingredient data for testing filter by ingredients
-    @ingredient1 = Ingredient.create!(name: "Tomato", national_price: 1.00, taxable: false, snap: true)
-    @ingredient2 = Ingredient.create!(name: "Mozzarella Cheese", national_price: 2.00, taxable: false, snap: true)
-    @ingredient3 = Ingredient.create!(name: "Cheddar Cheese", national_price: 0.50, taxable: false, snap: true)
+    @ingredient1 = Ingredient.create!(name: "Tomato", national_price: 1.00, taxable: false, snap: true, kroger_id: 32)
+    @ingredient2 = Ingredient.create!(name: "Mozzarella Cheese", national_price: 2.00, taxable: false, snap: true, kroger_id: 32)
+    @ingredient3 = Ingredient.create!(name: "Cheddar Cheese", national_price: 0.50, taxable: false, snap: true, kroger_id: 32)
 
     @measurement = Measurement.create!(unit: "each")
 
@@ -59,10 +59,10 @@ RSpec.describe Recipe, type: :model do
     
     it "test update_total_price" do
       recipe_x = Recipe.create!(name: "test", total_price: 0.00, image: "test_image.png", serving_size: 1)
-      ing1 = Ingredient.create!(name: "test1", national_price: 1.00, taxable: false, snap: true)
-      ing2 = Ingredient.create!(name: "test2", national_price: 2.00, taxable: false, snap: true)
-      ing3 = Ingredient.create!(name: "test3", national_price: 3.00, taxable: false, snap: true)
-      measurement = Measurement.create!(unit: "each")
+      ing1 = Ingredient.create!(name: "test1", national_price: 1.00, taxable: false, snap: true, kroger_id: 32)
+      ing2 = Ingredient.create!(name: "test2", national_price: 2.00, taxable: false, snap: true, kroger_id: 32)
+      ing3 = Ingredient.create!(name: "test3", national_price: 3.00, taxable: false, snap: true, kroger_id: 32)
+      measurement = Measurement.create!(unit: "ounce")
       
       RecipeIngredient.create!(recipe: recipe_x, ingredient: ing1, quantity: 1, measurement: measurement)
       RecipeIngredient.create!(recipe: recipe_x, ingredient: ing2, quantity: 1, measurement: measurement)
