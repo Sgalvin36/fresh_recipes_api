@@ -11,9 +11,9 @@ RSpec.describe RecipeDetails do
         Measurement.delete_all
         Recipe.delete_all
         @recipe1 = Recipe.create!(name:"Baked Potato", image:"future_image_of_potato", total_price:4.00, serving_size: 3)
-        @ing1 = Ingredient.create!(name:"Potato", national_price:1.00, taxable:false, snap:true)
-        @ing2 = Ingredient.create!(name:"Cheddar cheese", national_price:2.00, taxable:false, snap:true)
-        @ing3 = Ingredient.create!(name:"Sour Cream", national_price:1.00, taxable:false, snap:true)
+        @ing1 = Ingredient.create!(name:"Potato", national_price:1.00, taxable:false, snap:true, kroger_id: 34)
+        @ing2 = Ingredient.create!(name:"Cheddar cheese", national_price:2.00, taxable:false, snap:true, kroger_id: 34)
+        @ing3 = Ingredient.create!(name:"Sour Cream", national_price:1.00, taxable:false, snap:true, kroger_id: 34)
         @mes1 = Measurement.create!(unit:"lb")
         @mes10 = Measurement.create!(unit:"ounces")
         @mes8 = Measurement.create!(unit:"tablespoons")

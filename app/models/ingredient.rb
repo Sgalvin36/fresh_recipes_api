@@ -7,7 +7,18 @@ class Ingredient < ApplicationRecord
   validates :taxable, inclusion: { in: [true, false] }
   validates :snap, inclusion: { in: [true, false] }
   validates :kroger_id, presence: true
+  
   after_save :update_associated_recipes_total_price, if: :saved_change_to_national_price?
+
+  def self.find_or_create_ingredient(ingredient)
+    find_by("kroger_id = ?", ingredient[:productId]) || create!(
+      name: ingredient[:ingredient],
+      national_price: ingredient[:price].to_f,
+      kroger_id: ingredient[:productId],
+      taxable: true,
+      snap: true
+    )
+  end
 
   def self.filter_ingredients(search_params)
       return Ingredient.select("DISTINCT ON (name) *").where("name ILIKE ?", "%#{search_params}%").limit(5)

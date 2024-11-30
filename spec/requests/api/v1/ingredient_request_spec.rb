@@ -12,8 +12,8 @@ RSpec.describe "Ingredient controller", type: :request do
         end
 
         it "can return the data as requested" do
-            ingredient = Ingredient.create!(name:"American Cheese", national_price:4.32, taxable:true, snap:true)
-            ingredient2 = Ingredient.create!(name:"Bread", national_price:2.43, taxable:false, snap:true)
+            ingredient = Ingredient.create!(name:"American Cheese", national_price:4.32, taxable:true, snap:true, kroger_id: 33)
+            ingredient2 = Ingredient.create!(name:"Bread", national_price:2.43, taxable:false, snap:true, kroger_id: 33)
             
             headers = { 
                 "CONTENT_TYPE" => "application/json",
@@ -33,10 +33,10 @@ RSpec.describe "Ingredient controller", type: :request do
         end
 
         it "returns data that matches the parameter" do
-            ingredient = Ingredient.create!(name:"American Cheese", national_price:4.32, taxable:true, snap:true)
-            ingredient2 = Ingredient.create!(name:"Bread", national_price:2.43, taxable:false, snap:true)
-            ingredient3 = Ingredient.create!(name:"Blue Cheese", national_price:6.32, taxable:true, snap:true)
-            ingredient4 = Ingredient.create!(name:"Hot Dogs", national_price:4.73, taxable:false, snap:true)
+            ingredient = Ingredient.create!(name:"American Cheese", national_price:4.32, taxable:true, snap:true, kroger_id: 35)
+            ingredient2 = Ingredient.create!(name:"Bread", national_price:2.43, taxable:false, snap:true, kroger_id: 35)
+            ingredient3 = Ingredient.create!(name:"Blue Cheese", national_price:6.32, taxable:true, snap:true, kroger_id: 35)
+            ingredient4 = Ingredient.create!(name:"Hot Dogs", national_price:4.73, taxable:false, snap:true, kroger_id: 35)
             
             headers = { 
                 "CONTENT_TYPE" => "application/json",
@@ -58,14 +58,14 @@ RSpec.describe "Ingredient controller", type: :request do
         end
 
         it "returns a limit of 5 matches for search parameter" do
-            ingredient = Ingredient.create!(name:"American Cheese", national_price:4.32, taxable:true, snap:true)
-            ingredient2 = Ingredient.create!(name:"Bread", national_price:2.43, taxable:false, snap:true)
-            ingredient3 = Ingredient.create!(name:"Blue Cheese", national_price:6.32, taxable:true, snap:true)
-            ingredient4 = Ingredient.create!(name:"Hot Dogs", national_price:4.73, taxable:false, snap:true)
-            ingredient5 = Ingredient.create!(name:"French Cheese", national_price:4.32, taxable:true, snap:true)
-            ingredient6 = Ingredient.create!(name:"Red Cheese", national_price:2.43, taxable:false, snap:true)
-            ingredient7 = Ingredient.create!(name:"Green Cheese", national_price:6.32, taxable:true, snap:true)
-            ingredient8 = Ingredient.create!(name:"Cheese", national_price:4.73, taxable:false, snap:true)
+            ingredient = Ingredient.create!(name:"American Cheese", national_price:4.32, taxable:true, snap:true, kroger_id: 36)
+            ingredient2 = Ingredient.create!(name:"Bread", national_price:2.43, taxable:false, snap:true, kroger_id: 36)
+            ingredient3 = Ingredient.create!(name:"Blue Cheese", national_price:6.32, taxable:true, snap:true, kroger_id: 36)
+            ingredient4 = Ingredient.create!(name:"Hot Dogs", national_price:4.73, taxable:false, snap:true, kroger_id: 36)
+            ingredient5 = Ingredient.create!(name:"French Cheese", national_price:4.32, taxable:true, snap:true, kroger_id: 36)
+            ingredient6 = Ingredient.create!(name:"Red Cheese", national_price:2.43, taxable:false, snap:true, kroger_id: 36)
+            ingredient7 = Ingredient.create!(name:"Green Cheese", national_price:6.32, taxable:true, snap:true, kroger_id: 36)
+            ingredient8 = Ingredient.create!(name:"Cheese", national_price:4.73, taxable:false, snap:true, kroger_id: 36)
 
             
             headers = { 

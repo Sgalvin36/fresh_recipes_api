@@ -82,6 +82,36 @@ RSpec.describe Ingredient, type: :model do
       expect(recipe_2.total_price).to eq(11.00)
     end
 
+    describe "find_or_create_ingredient" do
+      it "finds ingredients that already exist" do
+        ingredient_params = {productId: "12345", ingredient: 'Sugar', price: "3.75"}
+      
+        existing_ingredient = Ingredient.create!(
+          name: "Flour",
+          national_price: 2.50,
+          kroger_id: "12345",
+          taxable: true,
+          snap: true
+        )
+
+        found_ingredient = Ingredient.find_or_create_ingredient(ingredient_params)
+        expect(found_ingredient).to eq(existing_ingredient)
+      end
+
+      it "creates a new ingredient if it doesn't exist" do
+        ingredient_params = {productId: "12345", ingredient: 'Sugar', price: "3.75"}
+      
+        expect {Ingredient.find_or_create_ingredient(ingredient_params)}.to change(Ingredient, :count).by(1)
+
+        new_ingredient = Ingredient.find_by(kroger_id: "12345")
+        
+        expect(new_ingredient.name).to eq("Sugar")
+        expect(new_ingredient.national_price).to eq(3.75)
+        expect(new_ingredient.taxable).to be true
+        expect(new_ingredient.snap).to be true
+      end
+    end
+
     after(:all) do
       RecipeIngredient.delete_all
       RecipeInstruction.delete_all

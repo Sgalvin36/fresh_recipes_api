@@ -38,7 +38,7 @@ http_interactions:
       X-Content-Type-Options:
       - nosniff
       X-Correlation-Id:
-      - akam_1732120431_0eaed8d6-8f6b-4e0e-9cdb-3630b05a0146
+      - akam_1733002941_71f4909a-c9c0-4699-b84d-f3f379eadb54
       X-Frame-Options:
       - DENY
       X-Xss-Protection:
@@ -48,36 +48,36 @@ http_interactions:
       Access-Control-Allow-Credentials:
       - 'true'
       X-Kroger-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kroger-Upstream-Latency:
       - '23'
       Vary:
       - Accept-Encoding
       - origin
       Date:
-      - Wed, 20 Nov 2024 16:33:51 GMT
+      - Sat, 30 Nov 2024 21:42:21 GMT
       Content-Length:
       - '1190'
       Connection:
       - keep-alive
       Server-Timing:
-      - ak_p; desc="1732120431632_400543981_2413330222_20326_11500_40_35_-";dur=1
+      - ak_p; desc="1733002941335_388061622_731780781_9038_9759_38_36_-";dur=1
       - cdn-cache; desc=MISS
-      - edge; dur=165
-      - origin; dur=39
+      - edge; dur=38
+      - origin; dur=52
       Akamai-Grn:
-      - 0.edd0df17.1732120431.8fd87f2e
+      - 0.b6592117.1733002941.2b9e16ad
       Strict-Transport-Security:
       - max-age=31536000
       Set-Cookie:
-      - _abck=579394E94C08071206362CCEDFAAA5AB~-1~YAAQ7dDfFz/P6iaTAQAAFU1sSgzw9XfSO31BP2spG2wUolJ8+MphvvNdyqfIRUmmBCZQ1i6e32KccEphf7BLMJJ5++n4gpaLkEMVgzNIBmHxORc7T0m/Jk9qGe04M4tHWHIU6a1EpVu1uN02RmY2bZBLJ3uWqqpgTGZyKN9tGGUnvT8EQr9NFULA4r4Kyc0aT9a5SStqtd95Dz6KdAB85Gc0qk51pSP36xpiBxNpM5Z2elC8F0EQG1lEriBpequphzDAt68AD0sGWbLqRimJw0Z/sTuT3QXhTilVuUQF+WjMHc435ETYC/z1JqRQE0ns3HaSepgtqUDm+4WfKOA4dldTSU5nTGCnfTHhU2rFaech8U7Z0eB4SVcgcblkY/iv6TVR9PrV99rcXZcQIA44~-1~-1~-1;
-        Domain=.kroger.com; Path=/; Expires=Thu, 20 Nov 2025 16:33:51 GMT; Max-Age=31536000;
+      - _abck=C001C4F7AF36CBEC550E71C3476BDAE9~-1~YAAQtlkhF/G2+ieTAQAAK1QGfwz+Q45d3oyxAmCl+L/56CedbwWovz3HtJDGf9hyMONTbtdoFDTbcjLtxFOh2Mo2imVx9A+JlOLWGCV4oPvsOmkO3Ndfhr9c8WALW0DGe5ibpJPKjRDWIny/xokS1a+GAF8XciL/bdLS4z1/M97fyA09hJJkP+JIkMPhHRbllaCdBQoJoUgw3XJLBuJvV5NduTfqkFGUcOThCUqB0WZHkykEhUUAzVGLOQx9FLXcUuzmv+EpZ4uL7Zi71tfO4k+houY+wE7kRK862pVEnSEO30E/Cd4AOiKDKhggsuhgwCu7X4tTVFQQ32g79WG2/R3tSspsZTQFGVSfJRZ8KVJWaE9xyAu8aKolhW2F+U44ld6BQ6GycOTerCU08Pnc~-1~-1~-1;
+        Domain=.kroger.com; Path=/; Expires=Sun, 30 Nov 2025 21:42:21 GMT; Max-Age=31536000;
         SameSite=None; Secure
-      - bm_sz=057FD7B94CB06A190E39956F19403C17~YAAQ7dDfF0DP6iaTAQAAFU1sShnCh8+PNd6E0TYWle1/tqyAhF69fiWmIL4h+/4oYhE1SzQLcrvCSTSxNhH2lPu2CmNEaDENXZwSrx0owOppqTspOHc8mnaYoDNkRbuBRBZdrqBHCMxpwFitZKWkzaiBO+h7fVP7I1WRIWYgZIc3AgjNReJRFBfzSGECPlFdanfsWkfjSbnuHvpVCMCSNMygujaJJtNBnBq028YZ6K2spGqvVSmNCn1MbkmFZ9VBdDL52ueRXJOie8pLKv+R9dx0iU/nS4oRXodmhmU+Sr3vRomAWtwmdnxIZucsGI+Cx5c4utcoaq54S9zCMCGd1hiVxTRz1MjRwqnUDu4wm9xeRc+1P3UEyYbtogig/Q==~3355190~3421764;
-        Domain=.kroger.com; Path=/; Expires=Wed, 20 Nov 2024 20:33:51 GMT; Max-Age=14400;
+      - bm_sz=FF8D262330BBB4DD31F39AC1243A0E82~YAAQtlkhF/K2+ieTAQAAK1QGfxkWMMyCjflSJAI5QDPaQKhUUKPviufOQjgpYkYZhzgvD6BTVg3/3AMxu1oYB8Y8rKqKt9WqOLMcAzd5X99X26VZSfIrkp7UP3qdzPQB6m9mryWdibGUzOYPZtruvvUH0RNzOZ+fqeolcHOJKq8gIdpbkomuIYiOwKlklizEIEoKkxrdDCDWcmi9kNGJCQZIEY9twMphpcFOjPjH22+YsnPMkLcB+LyheQsfcuTfU1hh8FV0GaJA3DmrZGS/7i7W/+/ToORtW9SMEvxK7Qh+Og1sAVsMSSL2n90rAJH66Xt49nXoLv3Y13OoHM8CDGO9Z6KlEnt5bQ4e25KqUjsX1uEiFgU56KZK4F2lAA==~3424825~4273985;
+        Domain=.kroger.com; Path=/; Expires=Sun, 01 Dec 2024 01:42:21 GMT; Max-Age=14400;
         SameSite=None; Secure
     body:
       encoding: UTF-8
-      string: '{"expires_in":1800,"access_token":"eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYXBpLmtyb2dlci5jb20vdjEvLndlbGwta25vd24vandrcy5qc29uIiwia2lkIjoiWjRGZDNtc2tJSDg4aXJ0N0xCNWM2Zz09IiwidHlwIjoiSldUIn0.eyJhdWQiOiJmb3J0ZXN0aW5nLTI0MzI2MTI0MzAzNDI0MzE0NjU1Njg2YTU3NDg3NDZjNzYzNDc0NGM1NTM3NjY1MjY5NGQ0NDRkMmUyZTQ1NjQ3MDcyMzYzNTYzNjMzOTRhNzg3NjMyNDQzODZjNTU0Yjc2NGY3NjZhNmQ1YTY2MmY3MjQzNTU2ZDkwMzAwMzgyNTk3OTQyNDc1NyIsImV4cCI6MTczMjEyMjIzMSwiaWF0IjoxNzMyMTIwNDI2LCJpc3MiOiJhcGkua3JvZ2VyLmNvbSIsInN1YiI6ImM3MTMxYzE0LTJhNmEtNTA2NC05MDA1LTg3NTdlNjBiNDhmOSIsInNjb3BlIjoicHJvZHVjdC5jb21wYWN0IiwiYXV0aEF0IjoxNzMyMTIwNDMxODU4MDAyNzU2LCJhenAiOiJmb3J0ZXN0aW5nLTI0MzI2MTI0MzAzNDI0MzE0NjU1Njg2YTU3NDg3NDZjNzYzNDc0NGM1NTM3NjY1MjY5NGQ0NDRkMmUyZTQ1NjQ3MDcyMzYzNTYzNjMzOTRhNzg3NjMyNDQzODZjNTU0Yjc2NGY3NjZhNmQ1YTY2MmY3MjQzNTU2ZDkwMzAwMzgyNTk3OTQyNDc1NyJ9.QJkwvP-5fwKEnWkYjiKdZQRvI5CxYB35QrxlvD8nEgUWEiW952JCczYFrkHN7i3U6bSgSS0V3z-VZFEROWN8iWGlHOcOGCyFRre9_MPmAKtNz1LJ6coApGB9mEWeyH8Br3-7nXXDl40YQU8cKiwqe3urJJUbMweiAvUsldSMpks3IvMeldXQAEZFq57IiE9Gb_TsOQNlRfMwHZ4zQJ6SKN3D-TM_qXGIXdWTfLR-MlxYXVpGiORe-p9vnh_pgA4r8jgH-Khj-3JsjZK3WKNAXJn0VsWKR0iiRDRj5x1rfXZ0-QQBcpD8vhap91U9Uc2sj7DkmCkPjB9JBoEWyVvwqw","token_type":"bearer"}'
-  recorded_at: Wed, 20 Nov 2024 16:33:51 GMT
+      string: '{"expires_in":1800,"access_token":"eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYXBpLmtyb2dlci5jb20vdjEvLndlbGwta25vd24vandrcy5qc29uIiwia2lkIjoiWjRGZDNtc2tJSDg4aXJ0N0xCNWM2Zz09IiwidHlwIjoiSldUIn0.eyJhdWQiOiJmb3J0ZXN0aW5nLTI0MzI2MTI0MzAzNDI0MzE0NjU1Njg2YTU3NDg3NDZjNzYzNDc0NGM1NTM3NjY1MjY5NGQ0NDRkMmUyZTQ1NjQ3MDcyMzYzNTYzNjMzOTRhNzg3NjMyNDQzODZjNTU0Yjc2NGY3NjZhNmQ1YTY2MmY3MjQzNTU2ZDkwMzAwMzgyNTk3OTQyNDc1NyIsImV4cCI6MTczMzAwNDc0MSwiaWF0IjoxNzMzMDAyOTM2LCJpc3MiOiJhcGkua3JvZ2VyLmNvbSIsInN1YiI6ImM3MTMxYzE0LTJhNmEtNTA2NC05MDA1LTg3NTdlNjBiNDhmOSIsInNjb3BlIjoicHJvZHVjdC5jb21wYWN0IiwiYXV0aEF0IjoxNzMzMDAyOTQxNDQzNjk1NDk1LCJhenAiOiJmb3J0ZXN0aW5nLTI0MzI2MTI0MzAzNDI0MzE0NjU1Njg2YTU3NDg3NDZjNzYzNDc0NGM1NTM3NjY1MjY5NGQ0NDRkMmUyZTQ1NjQ3MDcyMzYzNTYzNjMzOTRhNzg3NjMyNDQzODZjNTU0Yjc2NGY3NjZhNmQ1YTY2MmY3MjQzNTU2ZDkwMzAwMzgyNTk3OTQyNDc1NyJ9.p-dPRzZMSfHsaLlm80W7A7T39Z1eScT8edIUF5Fviq6vOiL2zbQvpIDr61wEg0rlguLq6jTn3NT9yYoulERIPl4layt1vANx1Rhl3dNVCgnO381jwKfia1IXMVfBam1n3YpUv3LTHn54CUKCY-gPPJ0lHDZReIjVsYpYA30ndbNxhINEN-tM_-GZxaTbltVOoBaRF_pPmofI7Ee011Sa9ppzx5qFe3Tcfw_CAxP0bzJum8AfMiUWRa0DsYfJ8KGLv6vIy4eJdJ87x_qhd8Arx-k9AsbCqPm2xlKNlMUDmDm0bi-pmkapi94M0h-M0moAqyoqMVicv8eF1bt0yma9Eg","token_type":"bearer"}'
+  recorded_at: Sat, 30 Nov 2024 21:42:21 GMT
 recorded_with: VCR 6.3.1
