@@ -51,7 +51,7 @@ class RecipeBuilder
                 taxable: true,
                 snap: true
             )
-            new_mes = Measurement.create!(unit: ingredient[:measurement])
+            new_mes = Measurement.find_or_create(ingredient[:measurement])
             RecipeIngredient.create!(
                 quantity: ingredient[:quantity],
                 recipe: recipe,

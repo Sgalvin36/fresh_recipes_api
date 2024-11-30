@@ -62,7 +62,7 @@ RSpec.describe Recipe, type: :model do
       ing1 = Ingredient.create!(name: "test1", national_price: 1.00, taxable: false, snap: true)
       ing2 = Ingredient.create!(name: "test2", national_price: 2.00, taxable: false, snap: true)
       ing3 = Ingredient.create!(name: "test3", national_price: 3.00, taxable: false, snap: true)
-      measurement = Measurement.create!(unit: "each")
+      measurement = Measurement.create!(unit: "ounce")
       
       RecipeIngredient.create!(recipe: recipe_x, ingredient: ing1, quantity: 1, measurement: measurement)
       RecipeIngredient.create!(recipe: recipe_x, ingredient: ing2, quantity: 1, measurement: measurement)
