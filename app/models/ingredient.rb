@@ -6,7 +6,7 @@ class Ingredient < ApplicationRecord
   validates :national_price, numericality: { greater_than: 0, only_float: true }
   validates :taxable, inclusion: { in: [true, false] }
   validates :snap, inclusion: { in: [true, false] }
-  # validates :kroger_id, presence: true
+  validates :kroger_id, presence: true
   after_save :update_associated_recipes_total_price, if: :saved_change_to_national_price?
 
   def self.filter_ingredients(search_params)
