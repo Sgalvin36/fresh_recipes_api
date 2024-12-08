@@ -10,7 +10,7 @@ http_interactions:
       Accept:
       - application/json
       Authorization:
-      - Bearer eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYXBpLmtyb2dlci5jb20vdjEvLndlbGwta25vd24vandrcy5qc29uIiwia2lkIjoiWjRGZDNtc2tJSDg4aXJ0N0xCNWM2Zz09IiwidHlwIjoiSldUIn0.eyJhdWQiOiJmb3J0ZXN0aW5nLTI0MzI2MTI0MzAzNDI0MzE0NjU1Njg2YTU3NDg3NDZjNzYzNDc0NGM1NTM3NjY1MjY5NGQ0NDRkMmUyZTQ1NjQ3MDcyMzYzNTYzNjMzOTRhNzg3NjMyNDQzODZjNTU0Yjc2NGY3NjZhNmQ1YTY2MmY3MjQzNTU2ZDkwMzAwMzgyNTk3OTQyNDc1NyIsImV4cCI6MTczMzAwNDc0NCwiaWF0IjoxNzMzMDAyOTM5LCJpc3MiOiJhcGkua3JvZ2VyLmNvbSIsInN1YiI6ImM3MTMxYzE0LTJhNmEtNTA2NC05MDA1LTg3NTdlNjBiNDhmOSIsInNjb3BlIjoicHJvZHVjdC5jb21wYWN0IiwiYXV0aEF0IjoxNzMzMDAyOTQzOTk4NjExNTQ5LCJhenAiOiJmb3J0ZXN0aW5nLTI0MzI2MTI0MzAzNDI0MzE0NjU1Njg2YTU3NDg3NDZjNzYzNDc0NGM1NTM3NjY1MjY5NGQ0NDRkMmUyZTQ1NjQ3MDcyMzYzNTYzNjMzOTRhNzg3NjMyNDQzODZjNTU0Yjc2NGY3NjZhNmQ1YTY2MmY3MjQzNTU2ZDkwMzAwMzgyNTk3OTQyNDc1NyJ9.fKzd4BZRGkWqUjaDJ5FvOPI2MB46tLhPSuAvkWmrWEUfeRvBzFEx2ssFkOQgQZtJD1uezJT-x_AnXhb8N0cbsw6he8GsnnjZQjcezXtCafhE1ZEH0Il1bzitCm6t3c61_E7WTTwrYtLm7ox-CUH0Qg4EMASOFP_EXus3-mCPpJ9qAN8PHPl3ONotqqtLD-zhFPIp_PMa2-FKLlatvHs0o6qxVGH2IbzYfthykOB0E_fZyAxatD-4nt6G8LphnVHbg3J7_pzFE8x9NyVeaP69zN2XIRts-aQ5BomI48yk908MmNrpOtN3YEJKgPCm7jDD7EBleca7zaDt3h8xPQseAw
+      - Bearer eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYXBpLmtyb2dlci5jb20vdjEvLndlbGwta25vd24vandrcy5qc29uIiwia2lkIjoiWjRGZDNtc2tJSDg4aXJ0N0xCNWM2Zz09IiwidHlwIjoiSldUIn0.eyJhdWQiOiJmb3J0ZXN0aW5nLTI0MzI2MTI0MzAzNDI0MzE0NjU1Njg2YTU3NDg3NDZjNzYzNDc0NGM1NTM3NjY1MjY5NGQ0NDRkMmUyZTQ1NjQ3MDcyMzYzNTYzNjMzOTRhNzg3NjMyNDQzODZjNTU0Yjc2NGY3NjZhNmQ1YTY2MmY3MjQzNTU2ZDkwMzAwMzgyNTk3OTQyNDc1NyIsImV4cCI6MTczMzcwMjY2MiwiaWF0IjoxNzMzNzAwODU3LCJpc3MiOiJhcGkua3JvZ2VyLmNvbSIsInN1YiI6ImM3MTMxYzE0LTJhNmEtNTA2NC05MDA1LTg3NTdlNjBiNDhmOSIsInNjb3BlIjoicHJvZHVjdC5jb21wYWN0IiwiYXV0aEF0IjoxNzMzNzAwODYyMTQ5MTc5MDc2LCJhenAiOiJmb3J0ZXN0aW5nLTI0MzI2MTI0MzAzNDI0MzE0NjU1Njg2YTU3NDg3NDZjNzYzNDc0NGM1NTM3NjY1MjY5NGQ0NDRkMmUyZTQ1NjQ3MDcyMzYzNTYzNjMzOTRhNzg3NjMyNDQzODZjNTU0Yjc2NGY3NjZhNmQ1YTY2MmY3MjQzNTU2ZDkwMzAwMzgyNTk3OTQyNDc1NyJ9.c7iGxGX0tqkDlhgyt-qM7AAXBmu9TzlX9sPS3wXVS2zY0bUDI3pRrzHb0Mte2zt3q8gIM4R4KNnpQOnFNNxTO6Vk0E_MaWU-TUORi7gMty2qEz1lEbJN3qR9u02Lpi92ldP_X-DXlyYqTsnBQEX688Ib1j5aVUmAy6gJ2b8HZnumTCiid4jLEHNMfohC1llo3ejGuWBQfT1PrGoWMypFwTGsyMtx7OlTMR2t9iMqwKD1mGmSSf3gWqH3lK2Fw65crY_JznI4abnfjj-TqX_Zdq7rWY-7TdsQrQYc9HOPpZNO1WPTSnsgxbPy6xy-q9JVTGjITPvxniujYqoSsoOczg
       User-Agent:
       - Faraday v2.12.0
       Accept-Encoding:
@@ -25,7 +25,7 @@ http_interactions:
       Content-Length:
       - '6629'
       X-Correlation-Id:
-      - akam_1733002945_639aeadb-ed1e-4388-baa6-cdc8e123f0cd
+      - akam_1733700864_7bd0720b-4331-4bdc-b504-a58690b95d81
       Server:
       - Kroger API Gateway
       Access-Control-Allow-Origin:
@@ -33,11 +33,11 @@ http_interactions:
       X-Kroger-Proxy-Latency:
       - '1'
       X-Kroger-Upstream-Latency:
-      - '51'
+      - '49'
       Vary:
       - Accept-Encoding
       Akamai-Be-Grn:
-      - 0.cdcf5868.1733002945.11cc8323
+      - 0.07abdb17.1733700864.41e17298
       Access-Control-Allow-Headers:
       - origin, x-requested-with, accept
       Access-Control-Max-Age:
@@ -47,26 +47,26 @@ http_interactions:
       X-Ratelimit-Limit-Day:
       - '10000'
       X-Ratelimit-Remaining-Day:
-      - '9990'
+      - '9946'
       Date:
-      - Sat, 30 Nov 2024 21:42:26 GMT
+      - Sun, 08 Dec 2024 23:34:24 GMT
       Connection:
       - keep-alive
       Server-Timing:
-      - ak_p; desc="1733002945644_388061622_731784584_26828_42115_35_32_-";dur=1
+      - ak_p; desc="1733700864100_400321423_438218181_21271_53057_50_53_-";dur=1
       - cdn-cache; desc=MISS
-      - edge; dur=27
-      - origin; dur=204
+      - edge; dur=36
+      - origin; dur=177
       Akamai-Grn:
-      - 0.b6592117.1733002945.2b9e2588
+      - 0.8f6bdc17.1733700864.1a1eadc5
       Strict-Transport-Security:
       - max-age=31536000
       Set-Cookie:
-      - _abck=E04B2ED63FD5D18C685BB0B2B75A86BF~-1~YAAQtlkhFxG4+ieTAQAA02UGfwxPoZg3pLZjvlkFYMBnpr2z5g+kPnMoD4KNJjTJ4BrfiOINKRUSm5Q/RVqnWWjX62q9U8jRwH6wNvaGhBlicDZy/bFC3d6yo0fPsoC3R9cId2ffNG7qMO/NHZ/kte0tmEjFCqTRqCq6UL1YVOLzU+zuvfKZHhPchN1bLK+aq9GjJJBCUmRJJAqlVuebX4MN4l2JCu9qmWz8oeFA0Aq4Gnou6JggRN0Gutr2cwUi5srLgKTulM+BWhrDUjRHq36YpfZ2tS8T1rDnb3NdU5K+fN+iaGoe23lrBArc2lnF0QJIpUMDB5kVdjk5fIBn5/auzZUKMOTYr2AucJec0k6+bRNbJyy8MeMoCKR2e1XdI3skK+KDXwAc7Ba/ppwz~-1~-1~-1;
-        Domain=.kroger.com; Path=/; Expires=Sun, 30 Nov 2025 21:42:26 GMT; Max-Age=31536000;
+      - _abck=ACCB4696890F8C910568519FFCF9B9D2~-1~YAAQj2vcF2ODZZ2TAQAApMmfqA26LbM1FbCWC4STpJReqz7C/K6LD3CEPCwBtEfpBiPsIKtELR6DGsErCnjSZyBxsYSPbTakCaAXQNdGBQV9ym55IuP2iZAPyQVK41Q+v5xk2myJ18u8zZe0JpNoqXf8BTxoIctl1FWOcHwddNNp464QFN2hHTxLQcUPyPaJt42adBevEpvULduQN7ybYM8P4bQBZYwpTzl4N+Wx/Fj+mdIBlzT0OgVy/2amBTY8mbXno5MGTuM26heXU82jM04l69BHrlFdCLV8ToraVxTGBMevsAMm6BCo0VfcE/U9tJ7qTELPY6iV1q5jjmVD9ZhmjwyYqaVLyhdUZHyfS1zt4RawYB/PhA7Nzuzi6NdjIbzd9XLEdGtEEUqkJTGG~-1~-1~-1;
+        Domain=.kroger.com; Path=/; Expires=Mon, 08 Dec 2025 23:34:24 GMT; Max-Age=31536000;
         SameSite=None; Secure
-      - bm_sz=0DA8B59A0F207F47FB223523EA9F36C8~YAAQtlkhFxK4+ieTAQAA02UGfxnHJ3WwMoLB5nycDrwLWoCz9KTPOKMSNm75kMvZK6D7fdeIR5MM89fVxBo5zTNIW+3Oer3uUYLKGCeiSl/PJA7ZVN3DxylF63te7i7jBVRJO+puXQOsAd3goZ6Pbz9+01LeG6mctp2gJ8lK0IfPzkDrHwDPSx2qdZIZ+3FbiTcmQ/e9kpTDcxul+BdlWtoyEsRqe7OlLYJ1SIIzuBFwX+afLS4sSOfXzdMpIBsIQNsRovCD4PcC89uRYQivZUhto6sgPlAEi/pXi6SmDKMiUy4IxuPSQSjVF82g3QGytKvvxLOfThD6dTXmQB+im6V8V5ld1W85gapEgVInBkmLv/eQOT8fFCYHUuM7dQ==~3289669~4274244;
-        Domain=.kroger.com; Path=/; Expires=Sun, 01 Dec 2024 01:42:25 GMT; Max-Age=14399;
+      - bm_sz=F3789B4336CEDF2233CDE0004F743068~YAAQj2vcF2SDZZ2TAQAApMmfqBqL+c4rpLyAkC2kx67T5EN/s9lMoUKwW4b8dvC5xUEokgvw58chC+oGNd9npsZbDFvorBdIjm8r5TbAS1IShz2f+ZkXmriqdSDgPjVD4jWDYvk8ILC0SWn1CDUfna/+KyzmM1n4GP6YidRz6Y+RDfa6E5CRiNrt50H3jkuolwzERxTsZ30gUnBE4GsLg5WWLvDQ3mk1Mmid/pQvWtBkllPy6eXaV1g8kFVl6AOJ1l92wbpZmOQlyJcvHhd6WH9Z/KIr2uAos6vp0SgcMgc27ZN/EUom3jYsba789myn3jaf+oVr9dfgKR+H1fT5BG+TYbu/84XHYgESd15vJCQ4nZRWEoc4kzrAGfg=~3422002~3619141;
+        Domain=.kroger.com; Path=/; Expires=Mon, 09 Dec 2024 03:34:24 GMT; Max-Age=14400;
         SameSite=None; Secure
     body:
       encoding: UTF-8
@@ -82,5 +82,5 @@ http_interactions:
         STATES","description":"Kroger® Spreadable Butter With Olive Oil \u0026 Sea
         Salt","images":[{"perspective":"back","sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/back/0001111090593"},{"size":"large","url":"https://www.kroger.com/product/images/large/back/0001111090593"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/back/0001111090593"},{"size":"small","url":"https://www.kroger.com/product/images/small/back/0001111090593"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/back/0001111090593"}]},{"perspective":"right","sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/right/0001111090593"},{"size":"large","url":"https://www.kroger.com/product/images/large/right/0001111090593"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/right/0001111090593"},{"size":"small","url":"https://www.kroger.com/product/images/small/right/0001111090593"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/right/0001111090593"}]},{"perspective":"front","featured":true,"sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/front/0001111090593"},{"size":"large","url":"https://www.kroger.com/product/images/large/front/0001111090593"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/front/0001111090593"},{"size":"small","url":"https://www.kroger.com/product/images/small/front/0001111090593"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/front/0001111090593"}]},{"perspective":"left","sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/left/0001111090593"},{"size":"large","url":"https://www.kroger.com/product/images/large/left/0001111090593"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/left/0001111090593"},{"size":"small","url":"https://www.kroger.com/product/images/small/left/0001111090593"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/left/0001111090593"}]},{"perspective":"top","sizes":[{"size":"xlarge","url":"https://www.kroger.com/product/images/xlarge/top/0001111090593"},{"size":"large","url":"https://www.kroger.com/product/images/large/top/0001111090593"},{"size":"medium","url":"https://www.kroger.com/product/images/medium/top/0001111090593"},{"size":"small","url":"https://www.kroger.com/product/images/small/top/0001111090593"},{"size":"thumbnail","url":"https://www.kroger.com/product/images/thumbnail/top/0001111090593"}]}],"items":[{"itemId":"0001111090593","inventory":{"stockLevel":"HIGH"},"favorite":false,"fulfillment":{"curbside":true,"delivery":true,"inStore":true,"shipToHome":false},"price":{"regular":3.99,"promo":0},"size":"15
         oz","soldBy":"UNIT"}],"itemInformation":{"depth":"3.6","height":"2.95","width":"5.65"},"temperature":{"indicator":"Refrigerated","heatSensitive":false}}],"meta":{"pagination":{"start":0,"limit":0,"total":3}}}'
-  recorded_at: Sat, 30 Nov 2024 21:42:25 GMT
+  recorded_at: Sun, 08 Dec 2024 23:34:24 GMT
 recorded_with: VCR 6.3.1
