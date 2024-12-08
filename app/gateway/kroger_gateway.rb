@@ -97,16 +97,22 @@ class KrogerGateway
   end
 
   def fetch_data(path, params = {})
-    response = connection.get(path) do |req|
-      req.params = params unless params.empty?
+    # Add caching around the response
+    Rails.cache.fetch([:fetch_data, path, params], expires_in: 30.minutes) do
+      response = connection.get(path) do |req|
+        req.params = params unless params.empty?
+      end
+      response
     end
-    response
   end
 
   def fetch_location_data(path, params = {})
-    response = location_connection.get(path) do |req|
-      req.params = params unless params.empty?
+   
+    Rails.cache.fetch([:fetch_location_data, path, params], expires_in: 1.minutes) do
+      response = location_connection.get(path) do |req|
+        req.params = params unless params.empty?
+      end
+      response
     end
-    response
   end
 end

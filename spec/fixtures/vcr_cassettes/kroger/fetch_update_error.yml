@@ -10,7 +10,7 @@ http_interactions:
       Accept:
       - application/json
       Authorization:
-      - Bearer eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYXBpLmtyb2dlci5jb20vdjEvLndlbGwta25vd24vandrcy5qc29uIiwia2lkIjoiWjRGZDNtc2tJSDg4aXJ0N0xCNWM2Zz09IiwidHlwIjoiSldUIn0.eyJhdWQiOiJmb3J0ZXN0aW5nLTI0MzI2MTI0MzAzNDI0MzE0NjU1Njg2YTU3NDg3NDZjNzYzNDc0NGM1NTM3NjY1MjY5NGQ0NDRkMmUyZTQ1NjQ3MDcyMzYzNTYzNjMzOTRhNzg3NjMyNDQzODZjNTU0Yjc2NGY3NjZhNmQ1YTY2MmY3MjQzNTU2ZDkwMzAwMzgyNTk3OTQyNDc1NyIsImV4cCI6MTczMzAwMjA4NSwiaWF0IjoxNzMzMDAwMjgwLCJpc3MiOiJhcGkua3JvZ2VyLmNvbSIsInN1YiI6ImM3MTMxYzE0LTJhNmEtNTA2NC05MDA1LTg3NTdlNjBiNDhmOSIsInNjb3BlIjoicHJvZHVjdC5jb21wYWN0IiwiYXV0aEF0IjoxNzMzMDAwMjg1NDk5MTc5ODU4LCJhenAiOiJmb3J0ZXN0aW5nLTI0MzI2MTI0MzAzNDI0MzE0NjU1Njg2YTU3NDg3NDZjNzYzNDc0NGM1NTM3NjY1MjY5NGQ0NDRkMmUyZTQ1NjQ3MDcyMzYzNTYzNjMzOTRhNzg3NjMyNDQzODZjNTU0Yjc2NGY3NjZhNmQ1YTY2MmY3MjQzNTU2ZDkwMzAwMzgyNTk3OTQyNDc1NyJ9.hn3105pUj2Dgv-GNoY4mgqjzWhbe1ijiY7up49xHd-oqUIDYD2O8k32Oqn4aCAgk4i7GyLk4Smif8x60ZHha1fYqZpzdhdtjOdO3k415FKffFMES3Um1co34JmJrviqkXJMrDjOulBBx979nS2rKAW_XiHmpswk6Ocssw4XAg_bC5ch-swyId7_RDp35jjf7gkVy5hzhWgtLt_2MaBrOsveUw5pKuC2b--AEICN9PjF9f-5LgN4Q-DRYsvA06AL6W2HK6CgGw1qenhkqV7pjq9dzjX1Lpv0IRS78Bs4p2jWDnLVK_-fesexuRKZ7yXW99m0MzP_LSmQgwNqz-ASSnA
+      - Bearer eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vYXBpLmtyb2dlci5jb20vdjEvLndlbGwta25vd24vandrcy5qc29uIiwia2lkIjoiWjRGZDNtc2tJSDg4aXJ0N0xCNWM2Zz09IiwidHlwIjoiSldUIn0.eyJhdWQiOiJmb3J0ZXN0aW5nLTI0MzI2MTI0MzAzNDI0MzE0NjU1Njg2YTU3NDg3NDZjNzYzNDc0NGM1NTM3NjY1MjY5NGQ0NDRkMmUyZTQ1NjQ3MDcyMzYzNTYzNjMzOTRhNzg3NjMyNDQzODZjNTU0Yjc2NGY3NjZhNmQ1YTY2MmY3MjQzNTU2ZDkwMzAwMzgyNTk3OTQyNDc1NyIsImV4cCI6MTczMzcwMjY1NiwiaWF0IjoxNzMzNzAwODUxLCJpc3MiOiJhcGkua3JvZ2VyLmNvbSIsInN1YiI6ImM3MTMxYzE0LTJhNmEtNTA2NC05MDA1LTg3NTdlNjBiNDhmOSIsInNjb3BlIjoicHJvZHVjdC5jb21wYWN0IiwiYXV0aEF0IjoxNzMzNzAwODU2NzMwMDM2MDI4LCJhenAiOiJmb3J0ZXN0aW5nLTI0MzI2MTI0MzAzNDI0MzE0NjU1Njg2YTU3NDg3NDZjNzYzNDc0NGM1NTM3NjY1MjY5NGQ0NDRkMmUyZTQ1NjQ3MDcyMzYzNTYzNjMzOTRhNzg3NjMyNDQzODZjNTU0Yjc2NGY3NjZhNmQ1YTY2MmY3MjQzNTU2ZDkwMzAwMzgyNTk3OTQyNDc1NyJ9.pgBYp4I49PgKCzN_g3ZapgYN5PsjDra7RjiWx3BXCUelhlI5TA74mDHXkgNmL0rwxMRzN_WHgWzYi5R8W0v7p5re_GTDfyeQMTVcbGLWo3yh8aKhyUJmhAMdUgpASeTa0-iTQZD7uem_UqF4tviVTIWDH71bPt0m-ULrCGgwp6pdAWYORI6awqPQfkpM4dRyCZRxHi-VLiG6JkForpHk7qaIkt9Q09Ro7vi9m9XcGqPzGtOdJfzlEXW2iQEFzHpEUHPUaeTQaI-2O8GACXMXowqldrcN4uBjo889ZE3Kdkc7XKslgV_2nbmgM2jbD7s81ys2DQqZZ9J-aqBwiZd8WA
       User-Agent:
       - Faraday v2.12.0
       Accept-Encoding:
@@ -23,46 +23,46 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       X-Correlation-Id:
-      - akam_1733000288_e495a0f3-fa38-4420-a1fd-0f54244088ba
+      - akam_1733700859_df488792-2e66-4d4a-bc19-db48728c4e4f
       Server:
       - Kroger API Gateway
       Access-Control-Allow-Origin:
       - "*"
       X-Kroger-Proxy-Latency:
-      - '0'
+      - '1'
       X-Kroger-Upstream-Latency:
       - '2'
       Akamai-Be-Grn:
-      - 0.8b4ddb17.1733000288.2dfa823f
+      - 0.07abdb17.1733700859.41e12048
       X-Ratelimit-Limit-Day:
       - '10000'
       X-Ratelimit-Remaining-Day:
-      - '9997'
+      - '9950'
       Vary:
       - Accept-Encoding
       Date:
-      - Sat, 30 Nov 2024 20:58:08 GMT
+      - Sun, 08 Dec 2024 23:34:19 GMT
       Connection:
       - close
       Server-Timing:
-      - ak_p; desc="1733000287972_388061622_729559932_30161_21189_35_32_-";dur=1
+      - ak_p; desc="1733700859557_400321429_14922217_12837_36486_47_53_-";dur=1
       - cdn-cache; desc=MISS
-      - edge; dur=27
-      - origin; dur=265
+      - edge; dur=35
+      - origin; dur=93
       Akamai-Grn:
-      - 0.b6592117.1733000288.2b7c337c
+      - 0.956bdc17.1733700859.e3b1e9
       Strict-Transport-Security:
       - max-age=31536000
       Set-Cookie:
-      - _abck=DE841C8753B2DA0103E7BD41CA1BA3D6~-1~YAAQtlkhF2Ut9yeTAQAAVNjdfgydDZW+YEG/ExyohfDVjakf9m/inV0ULQUVEqw7xXBP+ZLqpB3FUfIlSUR9vI8hyKTb4jcFtU6VM7RwdfsKqM/G3jTeVnQdHZGosxHxlIMx86Up0oOt/EE8Od5uyCsrGu+vtjKj48M5+K6hlHswYN3KWClbZ1gHrk6nqkzaujT885ncOreSMJy6g6mekaqaI+aysR9TxaqyQk5p+jMbQNJZS65aorFNrTGY2FSXkqWOCutJjVTfY73qhsmTGlmn+0Y7JWoWlgvvltzwz1f3KwUq1OQfahc0czXallG6LEVfC4AHbTQkxScwaLY3uEmJ7if/SY/9anxpORG+r849YXGTKs7oCqkvCuqiFuogvzksG0eWLEdWDTbFLee7~-1~-1~-1;
-        Domain=.kroger.com; Path=/; Expires=Sun, 30 Nov 2025 20:58:08 GMT; Max-Age=31536000;
+      - _abck=31D0BAACDFC440781218992CBC80E40E~-1~YAAQlWvcF6qJOKiTAQAAgrefqA0OKXm7Vw8zBAVDeXFCZqAJPzX+RjqY9yOEQ9Qt0UNFhmRIeTKC/tFPrawSRowLATfXF4WFtZ+IFSoY2caSd1FROVedG3L1K1Y+XgOEBG0EjrsvPWUScmPjPmZYWsehErgiJfKVKjr+DkAOHEsRGk52Z7JjYgqrEYwzXE7rPsjdw+tZAxvKCh2YCczfSZdgh5Y+8MpprWhKlOLooDxJFCttHlH71+GOVOzPISCotC4OrQGDiPVUHz6Io8FUe1Hjb8VhObxVH1Ke6AjX/W6O98qz92TZ4qgs6mfnDg2C2eAQtBTtRMv2frwhHPMf/xjGJaH7Bvqv7zHveNeEoe0LKmebDEssfj+k3qtrPSTNF0IyL9vXBUDmBgNT1bDh~-1~-1~-1;
+        Domain=.kroger.com; Path=/; Expires=Mon, 08 Dec 2025 23:34:19 GMT; Max-Age=31536000;
         SameSite=None; Secure
-      - bm_sz=D775A0D7FDB1FA44AA27119DD6C797F8~YAAQtlkhF2Yt9yeTAQAAVNjdfhlZkq1jK8ZOdMYf8p80pZAV0Qvn5RqveRrJJ9Z4eZ3tuKvBRodg4i9zmQElaP4FbmjnGHtQRl9M7c38PW/o5UVhJgKReUqlkobwjIB0LaiXBwRrIYsu7qpoa+KvMcX4VCYeVn2mE2Gooubh68Ei8OUKu0kb4nWxATRXCnIz5qAzZwDDCMW9lIxBUudd844V4kfR56paIOUAQSjWWtOM5GrcL2hfyREKAoVvxwAzBk72hsXTXuvNgtfTlA6B433qptgEuU1iamMdByKeyLk4MYeNrJOmV8SNnzXWHiSsJhIDozgIu4O1sH7x9wTTybE41MHsE2djxmk2vOs3fjvSn+oglHYrnGRE6bb4fg==~3293496~3491138;
-        Domain=.kroger.com; Path=/; Expires=Sun, 01 Dec 2024 00:58:08 GMT; Max-Age=14400;
+      - bm_sz=759956C62387CDC74E2429F3752D9C1B~YAAQlWvcF6uJOKiTAQAAgrefqBqthVLiQpJUL9M+BffWUr5pZ6SOxgNf6XTszjdAZlv6PIpBnRhGiRr/e1fzQDg7/XnD6+D4ZCQDoAhX3fz2hXA4vjzieq1nuggKaVJlJgLgCPl9nUkfFXFzPfIWgbpsOKyQCt5HpjRwBZkBenmPY+v8AyGJgtGD6tPpEgG15jp3V0UlOy+wqdTOP3V2CPnZtNq4H2CbadMIH9z1EFji2OTDY9i8u+HTemGvwUvvMlgxSpoTbSEstwhkPgW7AMcT57wZeEuT6WYxjpgU8/xvJS99E50CGtylf9al6eLqtdqdMbsNnF7oM649WWE/8JpnwMC47obUozHw3dLy8X27MtDTO0x/cb8hT14=~4273718~3425605;
+        Domain=.kroger.com; Path=/; Expires=Mon, 09 Dec 2024 03:34:19 GMT; Max-Age=14400;
         SameSite=None; Secure
     body:
       encoding: UTF-8
-      string: '{"errors":{"timestamp":1733000288241,"code":"PRODUCT-2011","reason":"Field
+      string: '{"errors":{"timestamp":1733700859454,"code":"PRODUCT-2011","reason":"Field
         ''locationId'' must have a length of 8 alphanumeric characters"}}'
-  recorded_at: Sat, 30 Nov 2024 20:58:08 GMT
+  recorded_at: Sun, 08 Dec 2024 23:34:19 GMT
 recorded_with: VCR 6.3.1
