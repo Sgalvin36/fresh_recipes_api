@@ -93,7 +93,7 @@ workflows:
           post-steps:
             - run:
                 name: migrate
-                command: heroku run -a $HEROKU_APP_NAME rails db:migrate
+                command: heroku run -a whispering-thicket-76959 rails db:migrate
           filters:
             branches:
               only:
