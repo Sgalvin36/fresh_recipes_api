@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'https://fresh-start-recipes-fe-git-main-jphill19s-projects.vercel.app','https://fresh-start-recipes-e3gmpujbl-jphill19s-projects.vercel.app', 'http://localhost:3001', 'https://fresh-start-recipes-fe.vercel.app/'
+    origins 'https://fresh-start-recipes-fe-git-main-jphill19s-projects.vercel.app','https://fresh-start-recipes-e3gmpujbl-jphill19s-projects.vercel.app', 'http://localhost:3001', 'https://fresh-start-recipes-fe.vercel.app'
 
     resource "*",
       headers: :any,
